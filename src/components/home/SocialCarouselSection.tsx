@@ -100,22 +100,16 @@ const SocialCarouselSection = () => {
         </CarouselContainer>
 
         <Box sx={{ mt: 6 }}>
-          <Link href="https://instagram.com/luxetrail" target="_blank" rel="noopener noreferrer" passHref>
-            <IconButton color="primary" size="large" sx={{ mx: 1 }}>
-              <InstagramIcon fontSize="large" />
-            </IconButton>
-          </Link>
-          <Link href="https://tiktok.com/luxetrail" target="_blank" rel="noopener noreferrer" passHref>
-            <IconButton color="primary" size="large" sx={{ mx: 1 }}>
-              {/* Placeholder for TikTok icon */}
-              <img src="/tiktok-icon.svg" alt="TikTok" style={{ width: 36, height: 36 }} />
-            </IconButton>
-          </Link>
-          <Link href="https://linkedin.com/company/luxetrail" target="_blank" rel="noopener noreferrer" passHref>
-            <IconButton color="primary" size="large" sx={{ mx: 1 }}>
-              <LinkedInIcon fontSize="large" />
-            </IconButton>
-          </Link>
+          <IconButton color="primary" size="large" sx={{ mx: 1 }} href="https://instagram.com/luxetrail" target="_blank" rel="noopener noreferrer">
+            <InstagramIcon fontSize="large" />
+          </IconButton>
+          <IconButton color="primary" size="large" sx={{ mx: 1 }} href="https://tiktok.com/luxetrail" target="_blank" rel="noopener noreferrer">
+            {/* Placeholder for TikTok icon */}
+            <img src="/tiktok-icon.svg" alt="TikTok" style={{ width: 36, height: 36 }} />
+          </IconButton>
+          <IconButton color="primary" size="large" sx={{ mx: 1 }} href="https://linkedin.com/company/luxetrail" target="_blank" rel="noopener noreferrer">
+            <LinkedInIcon fontSize="large" />
+          </IconButton>
         </Box>
       </Container>
     </SectionWrapper>

@@ -32,7 +32,7 @@ const StyledAppBar = styled(MuiAppBar)(({ theme }) => ({
   borderBottom: `1px solid ${theme.palette.divider}`, // Subtle bottom line
 }));
 
-const NavigationLink = styled(Typography)(({ theme }) => ({
+const NavigationLink = styled('a')(({ theme }) => ({
   margin: theme.spacing(0, 2),
   color: theme.palette.text.primary,
   textDecoration: 'none', // Remove underline
@@ -66,7 +66,7 @@ const NavigationLink = styled(Typography)(({ theme }) => ({
 const AppBar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const toggleDrawer = (open) => () => {
+  const toggleDrawer = (open: boolean) => () => { // Added type for 'open'
     setDrawerOpen(open);
   };
 
@@ -100,24 +100,27 @@ const AppBar = () => {
             {/* Desktop Navigation */}
             <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} passHref legacyBehavior>
-                  {link.label}
-                </Link>
+                <Link key={link.href} href={link.href}>
+                    <NavigationLink>{link.label}</NavigationLink>
+                  </Link>
               ))}
               {/* Modern Button Style */}
-              <Button
-                variant="contained"
-                color="primary"
-                sx={{ 
-                  borderRadius: 8, // Pill shape for modern look
-                  ml: 3, 
-                  px: 3, // Increased horizontal padding
-                  fontWeight: 700, // Bolder text on button
-                  boxShadow: '0 4px 10px rgba(theme.palette.primary.main, 0.25)', // Subtle shadow
-                }}
-              >
-                Book a Slot
-              </Button>
+              <Link href="/book-slot">
+                <Button
+                  component="a"
+                  variant="contained"
+                  color="primary"
+                  sx={{
+                    borderRadius: 8, // Pill shape for modern look
+                    ml: 3,
+                    px: 3, // Increased horizontal padding
+                    fontWeight: 700, // Bolder text on button
+                    boxShadow: '0 4px 10px rgba(theme.palette.primary.main, 0.25)', // Subtle shadow
+                  }}
+                >
+                  Book a Slot
+                </Button>
+              </Link>
             </Box>
 
             {/* Mobile Menu Button */}
@@ -133,7 +136,7 @@ const AppBar = () => {
         </Container>
       </StyledAppBar>
       {/* Spacer to prevent content from hiding under the fixed AppBar */}
-      <Toolbar /> 
+      <Toolbar />
 
       {/* Drawer for Mobile */}
       <Drawer
@@ -184,15 +187,18 @@ const AppBar = () => {
           ))}
         </List>
         <Box sx={{ textAlign: 'center', mt: 4, p: 2 }}>
-          <Button
-            variant="contained"
-            color="primary"
-            fullWidth
-            sx={{ borderRadius: 8, fontWeight: 700 }}
-            onClick={toggleDrawer(false)}
-          >
-            Book a Slot
-          </Button>
+          <Link href="/book-slot">
+            <Button
+              component="a"
+              variant="contained"
+              color="primary"
+              fullWidth
+              sx={{ borderRadius: 8, fontWeight: 700 }}
+              onClick={toggleDrawer(false)}
+            >
+              Book a Slot
+            </Button>
+          </Link>
         </Box>
       </Drawer>
     </>

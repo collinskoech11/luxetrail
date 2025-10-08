@@ -62,8 +62,8 @@ const AboutSection = () => {
             <Typography variant="body1" paragraph>
               We believe in connecting talent with opportunity, fostering a community where expertise meets demand. Our comprehensive approach ensures that our consultants are not just trained, but are also ready to make a significant impact in the global travel landscape.
             </Typography>
-            <Link href="/about" passHref>
-              <Button variant="contained" color="primary" sx={{ mt: 2, borderRadius: 3 }}>
+            <Link href="/about">
+              <Button component="a" variant="contained" color="primary" sx={{ mt: 2, borderRadius: 3 }}>
                 Learn More
               </Button>
             </Link>

@@ -95,8 +95,9 @@ const HeroSection = () => {
             connecting them to global opportunities.
           </Typography>
           <Box>
-            <Link href="/training" passHref>
+            <Link href="/training">
               <Button
+                component="a"
                 variant="contained"
                 color="primary"
                 size="large"
@@ -105,8 +106,9 @@ const HeroSection = () => {
                 Enroll Now
               </Button>
             </Link>
-            <Link href="/hire" passHref>
+            <Link href="/hire">
               <Button
+                component="a"
                 variant="outlined"
                 color="secondary"
                 size="large"

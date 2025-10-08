@@ -203,8 +203,8 @@ const HireConsultantSection = () => {
         </Grid>
 
         <Box sx={{ mt: 6 }}>
-          <Link href="/request-access" passHref>
-            <Button variant="contained" color="secondary" size="large" sx={{ borderRadius: 3 }}>
+          <Link href="/request-access">
+            <Button component="a" variant="contained" color="secondary" size="large" sx={{ borderRadius: 3 }}>
               Request Access to Our Consultant Database
             </Button>
           </Link>

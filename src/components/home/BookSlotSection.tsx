@@ -104,7 +104,7 @@ const BookSlotSection = () => {
           Reserve your slot for our next training or consultation.
         </Typography>
 
-        <FormWrapper component="form" onSubmit={handleSubmit as React.FormEventHandler<HTMLFormElement>}>
+        <FormWrapper onSubmit={handleSubmit}>
           <TextField
             fullWidth
             label="Full Name"

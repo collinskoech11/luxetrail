@@ -51,8 +51,8 @@ const AdvertiseSection = () => {
             </List>
           </Grid>
           <Grid item xs={12} md={6} sx={{ textAlign: { xs: 'center', md: 'right' } }}>
-            <Link href="/partner" passHref>
-              <Button variant="contained" color="primary" size="large" sx={{ borderRadius: 3 }}>
+            <Link href="/partner">
+              <Button component="a" variant="contained" color="primary" size="large" sx={{ borderRadius: 3 }}>
                 Partner With Us
               </Button>
             </Link>

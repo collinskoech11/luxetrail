@@ -3,8 +3,9 @@ import React from 'react';
 import { Box, Typography, Container, Grid, Link as MuiLink, IconButton, TextField, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import TikTokIcon from '@mui/icons-material/TikTok'; // Assuming a TikTok icon exists or will be added
+// import TikTokIcon from '@mui/icons-material/TikTok'; // Removed this import
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import Link from 'next/link'; // Added next/link import
 
 const StyledFooter = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
@@ -13,7 +14,7 @@ const StyledFooter = styled(Box)(({ theme }) => ({
   marginTop: theme.spacing(10), // Generous whitespace
 }));
 
-const FooterLink = styled(MuiLink)(({ theme }) => ({
+const FooterLink = styled('a')(({ theme }) => ({
   color: theme.palette.common.white,
   textDecoration: 'none',
   marginBottom: theme.spacing(1),
@@ -21,6 +22,18 @@ const FooterLink = styled(MuiLink)(({ theme }) => ({
     textDecoration: 'underline',
   },
 }));
+
+const VisuallyHidden = styled('span')({
+  border: 0,
+  clip: 'rect(0 0 0 0)',
+  height: 1,
+  margin: -1,
+  overflow: 'hidden',
+  padding: 0,
+  position: 'absolute',
+  whiteSpace: 'nowrap',
+  width: 1,
+});
 
 const Footer = () => {
   return (
@@ -40,11 +53,21 @@ const Footer = () => {
               Quick Links
             </Typography>
             <Box display="flex" flexDirection="column">
-              <FooterLink href="/">Home</FooterLink>
-              <FooterLink href="/about">About</FooterLink>
-              <FooterLink href="/programs">Our Programs</FooterLink>
-              <FooterLink href="/hire">Hire</FooterLink>
-              <FooterLink href="/contact">Contact</FooterLink>
+              <Link href="/" passHref legacyBehavior>
+                <FooterLink>Home</FooterLink>
+              </Link>
+              <Link href="/about" passHref legacyBehavior>
+                <FooterLink>About</FooterLink>
+              </Link>
+              <Link href="/programs" passHref legacyBehavior>
+                <FooterLink>Our Programs</FooterLink>
+              </Link>
+              <Link href="/hire" passHref legacyBehavior>
+                <FooterLink>Hire</FooterLink>
+              </Link>
+              <Link href="/contact" passHref legacyBehavior>
+                <FooterLink>Contact</FooterLink>
+              </Link>
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
@@ -55,11 +78,9 @@ const Footer = () => {
               <IconButton color="inherit" href="https://instagram.com" target="_blank">
                 <InstagramIcon />
               </IconButton>
-              {/* Assuming TikTokIcon is available or a placeholder */}
+              {/* Removed TikTokIcon import and usage */}
               <IconButton color="inherit" href="https://tiktok.com" target="_blank">
-                {/* Replace with actual TikTok icon if available */}
-                <Typography variant="srOnly">TikTok</Typography> 
-                {/* For now, using a generic icon or text if TikTokIcon is not in @mui/icons-material */}
+                <VisuallyHidden>TikTok</VisuallyHidden> {/* Replaced Typography with VisuallyHidden */}
                 <img src="/tiktok-icon.svg" alt="TikTok" style={{ filter: 'invert(1)', width: 24, height: 24 }} />
               </IconButton>
               <IconButton color="inherit" href="https://linkedin.com" target="_blank">

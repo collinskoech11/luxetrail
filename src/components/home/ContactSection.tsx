@@ -31,11 +31,9 @@ const ContactSection = () => {
           <Typography variant="body1" sx={{ mb: 2 }}>
             luxetrailconsultancy@gmail.com
           </Typography>
-          <Link href="mailto:luxetrailconsultancy@gmail.com" passHref>
-            <Button variant="contained" color="primary" startIcon={<EmailIcon />} sx={{ borderRadius: 3 }}>
+          <Button component="a" href="mailto:luxetrailconsultancy@gmail.com" variant="contained" color="primary" startIcon={<EmailIcon />} sx={{ borderRadius: 3 }}>
               Email Us
             </Button>
-          </Link>
         </Box>
 
         <Box sx={{ mb: 4 }}>
