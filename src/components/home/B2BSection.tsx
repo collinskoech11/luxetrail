@@ -60,8 +60,8 @@ const features = [
 export default function B2BSection() {
   return (
     <BentoGrid className="lg:grid-rows-3">
-      {features.map((feature) => (
-        <BentoCard key={feature.name} {...feature} />
+      {features.map((feature, index) => (
+        <BentoCard key={index} {...feature} />
       ))}
     </BentoGrid>
   );
