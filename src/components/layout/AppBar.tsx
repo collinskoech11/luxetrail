@@ -32,7 +32,11 @@ const StyledAppBar = styled(MuiAppBar)(({ theme }) => ({
   borderBottom: `1px solid ${theme.palette.divider}`, // Subtle bottom line
 }));
 
-const NavigationLink = styled('a')(({ theme }) => ({
+const NavigationLink = styled(
+  ({ component, ...props }: { component?: React.ElementType } & any) => (
+    <Typography component={component || 'a'} {...props} />
+  ),
+)(({ theme }) => ({
   margin: theme.spacing(0, 2),
   color: theme.palette.text.primary,
   textDecoration: 'none', // Remove underline
@@ -100,14 +104,13 @@ const AppBar = () => {
             {/* Desktop Navigation */}
             <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
-                    <NavigationLink>{link.label}</NavigationLink>
+                <Link key={link.href} href={link.href} passHref>
+                    {link.label}
                   </Link>
               ))}
               {/* Modern Button Style */}
               <Link href="/book-slot">
                 <Button
-                  component="a"
                   variant="contained"
                   color="primary"
                   sx={{
@@ -189,7 +192,6 @@ const AppBar = () => {
         <Box sx={{ textAlign: 'center', mt: 4, p: 2 }}>
           <Link href="/book-slot">
             <Button
-              component="a"
               variant="contained"
               color="primary"
               fullWidth

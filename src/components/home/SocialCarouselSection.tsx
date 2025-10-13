@@ -1,118 +1,67 @@
-'use client';
 import React from 'react';
-import { Box, Typography, Button, Container, IconButton } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn'; // Using LinkedIn as a placeholder for TikTok if no specific icon is available
-import Link from 'next/link';
-
-const SectionWrapper = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(10, 0), // Even vertical padding
-  backgroundColor: theme.palette.common.white,
-  textAlign: 'center',
-}));
-
-const CarouselContainer = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  overflowX: 'auto',
-  gap: theme.spacing(2),
-  paddingBottom: theme.spacing(2),
-  '&::-webkit-scrollbar': {
-    height: '8px',
-  },
-  '&::-webkit-scrollbar-thumb': {
-    backgroundColor: theme.palette.primary.main,
-    borderRadius: '10px',
-  },
-  '&::-webkit-scrollbar-track': {
-    backgroundColor: theme.palette.grey[300],
-  },
-}));
-
-const SocialCard = styled(Box)(({ theme }) => ({
-  flexShrink: 0,
-  width: 280,
-  height: 280,
-  backgroundColor: theme.palette.grey[200],
-  borderRadius: theme.shape.borderRadius,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  position: 'relative',
-  overflow: 'hidden',
-  '& img': {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-  },
-  '& .overlay': {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0,0,0,0.4)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    opacity: 0,
-    transition: 'opacity 0.3s ease-in-out',
-  },
-  '&:hover .overlay': {
-    opacity: 1,
-  },
-}));
+import { cn } from '@/lib/utils';
 
 const socialPosts = [
-  { id: 1, type: 'instagram', imageUrl: 'https://via.placeholder.com/280?text=Instagram+Post+1', caption: '#TravelGoals' },
-  { id: 2, type: 'tiktok', videoUrl: 'https://via.placeholder.com/280?text=TikTok+Video+1', caption: '#AdventureTime' },
-  { id: 3, type: 'instagram', imageUrl: 'https://via.placeholder.com/280?text=Instagram+Post+2', caption: '#ExploreMore' },
-  { id: 4, type: 'tiktok', videoUrl: 'https://via.placeholder.com/280?text=TikTok+Video+2', caption: '#Wanderlust' },
-  { id: 5, type: 'instagram', imageUrl: 'https://via.placeholder.com/280?text=Instagram+Post+3', caption: '#LuxeLife' },
+  {
+    id: 1,
+    platform: 'Twitter',
+    content: 'Excited to announce our new partnership! #innovation #tech',
+    author: '@Luxetrail',
+  },
+  {
+    id: 2,
+    platform: 'Instagram',
+    content: 'Behind the scenes at our latest photoshoot. ✨ #worklife #creative',
+    author: '@LuxetrailOfficial',
+  },
+  {
+    id: 3,
+    platform: 'LinkedIn',
+    content: 'Our team is growing! Check out our career opportunities. #hiring #career',
+    author: 'Luxetrail Inc.',
+  },
+  {
+    id: 4,
+    platform: 'Facebook',
+    content: 'Join us for our upcoming webinar on digital marketing strategies. Link in bio! #webinar #marketing',
+    author: 'Luxetrail',
+  },
 ];
 
 const SocialCarouselSection = () => {
   return (
-    <SectionWrapper>
-      <Container maxWidth="lg">
-        <Typography variant="h2" component="h2" gutterBottom>
-          Our Journey in Action
-        </Typography>
-        <Typography variant="h5" component="p" sx={{ mb: 6 }}>
-          Follow us on social media for the latest updates and travel inspirations.
-        </Typography>
-
-        <CarouselContainer>
-          {socialPosts.map((post) => (
-            <SocialCard key={post.id}>
-              {post.type === 'instagram' ? (
-                <img src={post.imageUrl} alt={post.caption} />
-              ) : (
-                <img src={post.videoUrl} alt={post.caption} /> // Placeholder for video thumbnail
-              )}
-              <Box className="overlay">
-                <Typography variant="h6" color="white">
-                  {post.caption}
-                </Typography>
-              </Box>
-            </SocialCard>
-          ))}
-        </CarouselContainer>
-
-        <Box sx={{ mt: 6 }}>
-          <IconButton color="primary" size="large" sx={{ mx: 1 }} href="https://instagram.com/luxetrail" target="_blank" rel="noopener noreferrer">
-            <InstagramIcon fontSize="large" />
-          </IconButton>
-          <IconButton color="primary" size="large" sx={{ mx: 1 }} href="https://tiktok.com/luxetrail" target="_blank" rel="noopener noreferrer">
-            {/* Placeholder for TikTok icon */}
-            <img src="/tiktok-icon.svg" alt="TikTok" style={{ width: 36, height: 36 }} />
-          </IconButton>
-          <IconButton color="primary" size="large" sx={{ mx: 1 }} href="https://linkedin.com/company/luxetrail" target="_blank" rel="noopener noreferrer">
-            <LinkedInIcon fontSize="large" />
-          </IconButton>
-        </Box>
-      </Container>
-    </SectionWrapper>
+    <div className="container mx-auto py-12 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-4xl text-center">
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          What People Are Saying
+        </h2>
+        <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300">
+          Stay updated with our latest news and community buzz.
+        </p>
+      </div>
+      <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {socialPosts.map((post) => (
+          <div
+            key={post.id}
+            className={cn(
+              "rounded-lg border bg-card text-card-foreground shadow-sm p-6 flex flex-col justify-between",
+            )}
+          >
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                {post.platform}
+              </h3>
+              <p className="mt-2 text-gray-600 dark:text-gray-300">
+                {post.content}
+              </p>
+            </div>
+            <p className="mt-4 text-sm font-bold text-indigo-600 dark:text-indigo-400">
+              {post.author}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

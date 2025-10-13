@@ -1,76 +1,22 @@
-'use client';
-import React from 'react';
-import { Box, Typography, Grid, Button, Container } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import Link from 'next/link';
-
-const SectionWrapper = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(10, 0), // Even vertical padding
-  backgroundColor: theme.palette.background.default,
-}));
-
-const ImageWrapper = styled(Box)(({ theme }) => ({
-  width: '100%',
-  height: 300,
-  backgroundColor: theme.palette.grey[300], // Placeholder background
-  borderRadius: theme.shape.borderRadius,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  overflow: 'hidden',
-  [theme.breakpoints.up('md')]: {
-    height: 400,
-  },
-}));
+import { AnimatedGrid } from "@/components/magicui/animated-grid";
+import { TextReveal } from "@/components/ui/text-reveal";
+import React from "react";
 
 const AboutSection = () => {
   return (
-    <SectionWrapper>
-      <Container maxWidth="lg">
-        <Grid container spacing={4} alignItems="center">
-          <Grid xs={12} md={6} component="div">
-            <ImageWrapper>
-              {/* Placeholder for an image */}
-              <Typography variant="h6" color="textSecondary">
-                About Us Image
-              </Typography>
-            </ImageWrapper>
-          </Grid>
-          <Grid item xs={12} md={6} component="div">
-            <Typography
-                variant="h2"
-                component="h2"
-                gutterBottom
-                sx={{
-                  fontWeight: 600,
-                  fontSize: {
-                    xs: '1.5rem', // phones
-                    sm: '2rem',   // tablets
-                    md: '2.5rem', // small laptops
-                    lg: '3rem',   // desktops
-                    xl: '3.4rem', // large screens
-                  },
-                  lineHeight: 1.3,
-                  textAlign: { xs: 'center', md: 'left' }, // center on small, left on large
-                }}
-              >
-                About Luxe Trail Consultancy
-              </Typography>
-            <Typography variant="body1" paragraph>
-              At Luxe Trail Consultancy, our mission is to empower the next generation of tour and travel consultants. We provide certified training programs designed to equip individuals with the skills and knowledge needed to excel in the dynamic tourism industry.
-            </Typography>
-            <Typography variant="body1" paragraph>
-              We believe in connecting talent with opportunity, fostering a community where expertise meets demand. Our comprehensive approach ensures that our consultants are not just trained, but are also ready to make a significant impact in the global travel landscape.
-            </Typography>
-            <Link href="/about">
-              <Button component="a" variant="contained" color="primary" sx={{ mt: 2, borderRadius: 3 }}>
-                Learn More
-              </Button>
-            </Link>
-          </Grid>
-        </Grid>
-      </Container>
-    </SectionWrapper>
+    <div className="relative h-screen">
+      <div className="absolute inset-0 -z-10">
+        <AnimatedGrid />
+      </div>
+      <div className="flex h-full flex-col items-center justify-center">
+        <TextReveal className="text-center text-4xl font-bold text-black dark:text-white">
+          About Us
+        </TextReveal>
+        <p className="mt-4 text-center text-lg text-black dark:text-white">
+          We are a team of passionate developers and designers who love to build beautiful and functional websites.
+        </p>
+      </div>
+    </div>
   );
 };
 

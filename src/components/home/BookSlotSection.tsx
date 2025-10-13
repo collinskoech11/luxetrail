@@ -1,207 +1,74 @@
-'use client';
-import React, { useState } from 'react';
-import { Box, Typography, Button, Container, TextField, MenuItem, Snackbar, Alert } from '@mui/material';
-import { styled } from '@mui/material/styles';
-
-const SectionWrapper = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(10, 0), // Even vertical padding
-  backgroundColor: theme.palette.background.default,
-  textAlign: 'center',
-}));
-
-const FormWrapper = styled('form')(({ theme }) => ({
-  maxWidth: 600,
-  margin: '0 auto',
-  padding: theme.spacing(4),
-  borderRadius: theme.shape.borderRadius,
-  boxShadow: theme.shadows[3],
-  backgroundColor: theme.palette.common.white,
-}));
-
-interface FormData {
-  fullName: string;
-  email: string;
-  phoneNumber: string;
-  bookingType: string;
-  preferredDateTime: string;
-  message: string;
-}
-
-interface FormErrors {
-  fullName?: string;
-  email?: string;
-  phoneNumber?: string;
-  bookingType?: string;
-  preferredDateTime?: string;
-  message?: string;
-}
+import React from 'react';
+import { cn } from '@/lib/utils';
 
 const BookSlotSection = () => {
-  const [formData, setFormData] = useState<FormData>({
-    fullName: '',
-    email: '',
-    phoneNumber: '',
-    bookingType: '',
-    preferredDateTime: '',
-    message: '',
-  });
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState('');
-  const [snackbarSeverity, setSnackbarSeverity] = useState<'success' | 'error' | 'warning' | 'info'>('success');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const validate = () => {
-    let tempErrors: FormErrors = {};
-    if (!formData.fullName) tempErrors.fullName = 'Full Name is required';
-    if (!formData.email) tempErrors.email = 'Email is required';
-    else if (!/\S+@\S+\.\S+/.test(formData.email)) tempErrors.email = 'Email is not valid';
-    if (!formData.phoneNumber) tempErrors.phoneNumber = 'Phone Number is required';
-    if (!formData.bookingType) tempErrors.bookingType = 'Booking Type is required';
-    if (!formData.preferredDateTime) tempErrors.preferredDateTime = 'Preferred Date & Time is required';
-    setErrors(tempErrors);
-    return Object.keys(tempErrors).length === 0;
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (validate()) {
-      // Simulate API call or email submission
-      console.log('Form Data Submitted:', formData);
-      setSnackbarMessage('Your booking request has been sent successfully!');
-      setSnackbarSeverity('success');
-      setSnackbarOpen(true);
-      setFormData({
-        fullName: '',
-        email: '',
-        phoneNumber: '',
-        bookingType: '',
-        preferredDateTime: '',
-        message: '',
-      });
-      setErrors({});
-    } else {
-      setSnackbarMessage('Please correct the errors in the form.');
-      setSnackbarSeverity('error');
-      setSnackbarOpen(true);
-    }
-  };
-
-  const handleCloseSnackbar = () => {
-    setSnackbarOpen(false);
-  };
-
   return (
-    <SectionWrapper>
-      <Container maxWidth="lg">
-        <Typography variant="h2" component="h2" gutterBottom>
-          Ready to Begin Your Journey?
-        </Typography>
-        <Typography variant="h5" component="p" sx={{ mb: 6 }}>
-          Reserve your slot for our next training or consultation.
-        </Typography>
-
-        <FormWrapper onSubmit={handleSubmit}>
-          <TextField
-            fullWidth
-            label="Full Name"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            error={!!errors.fullName}
-            helperText={errors.fullName}
-            margin="normal"
-            required
-          />
-          <TextField
-            fullWidth
-            label="Email Address"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            error={!!errors.email}
-            helperText={errors.email}
-            margin="normal"
-            required
-          />
-          <TextField
-            fullWidth
-            label="Phone Number"
-            name="phoneNumber"
-            value={formData.phoneNumber}
-            onChange={handleChange}
-            error={!!errors.phoneNumber}
-            helperText={errors.phoneNumber}
-            margin="normal"
-            required
-          />
-          <TextField
-            fullWidth
-            select
-            label="Booking Type"
-            name="bookingType"
-            value={formData.bookingType}
-            onChange={handleChange}
-            error={!!errors.bookingType}
-            helperText={errors.bookingType}
-            margin="normal"
-            required
-          >
-            <MenuItem value="">
-              <em>Select a type</em>
-            </MenuItem>
-            <MenuItem value="Training">Training</MenuItem>
-            <MenuItem value="Corporate">Corporate</MenuItem>
-            <MenuItem value="Hire Consultant">Hire Consultant</MenuItem>
-            <MenuItem value="Advertisement">Advertisement</MenuItem>
-          </TextField>
-          <TextField
-            fullWidth
-            label="Preferred Date & Time"
-            name="preferredDateTime"
-            type="datetime-local"
-            value={formData.preferredDateTime}
-            onChange={handleChange}
-            error={!!errors.preferredDateTime}
-            helperText={errors.preferredDateTime}
-            margin="normal"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            required
-          />
-          <TextField
-            fullWidth
-            label="Optional Message"
-            name="message"
-            multiline
-            rows={4}
-            value={formData.message}
-            onChange={handleChange}
-            margin="normal"
-          />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            size="large"
-            sx={{ mt: 3, borderRadius: 3 }}
-          >
-            Book My Slot
-          </Button>
-        </FormWrapper>
-
-        <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleCloseSnackbar}>
-          <Alert onClose={handleCloseSnackbar} severity={snackbarSeverity} sx={{ width: '100%' }}>
-            {snackbarMessage}
-          </Alert>
-        </Snackbar>
-      </Container>
-    </SectionWrapper>
+    <div className="container mx-auto py-12 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-4xl text-center">
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          Book a Slot
+        </h2>
+        <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300">
+          Schedule a meeting with our experts to discuss your needs.
+        </p>
+      </div>
+      <div className="mx-auto mt-10 max-w-md">
+        <form className="space-y-4">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-200">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm"
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-200">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm"
+            />
+          </div>
+          <div>
+            <label htmlFor="date" className="block text-sm font-medium text-gray-700 dark:text-gray-200">
+              Date
+            </label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm"
+            />
+          </div>
+          <div>
+            <label htmlFor="time" className="block text-sm font-medium text-gray-700 dark:text-gray-200">
+              Time
+            </label>
+            <input
+              type="time"
+              id="time"
+              name="time"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm"
+            />
+          </div>
+          <div>
+            <button
+              type="submit"
+              className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            >
+              Book Now
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 
