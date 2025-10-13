@@ -54,8 +54,6 @@ const HireConsultantSection = () => {
       <AnimatedGridPattern
         numSquares={30}
         maxOpacity={0.5}
-        duration={3}
-        repeatDelay={1}
         className={cn(
           '[mask-image:radial-gradient(ellipse_at_center,white,transparent)]',
           'inset-x-0 inset-y-[-30%] h-[200%] skew-y-12',

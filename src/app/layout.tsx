@@ -1,4 +1,5 @@
 import StyledComponentsRegistry from "@/lib/registry";
+import "./globals.css";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/theme";
@@ -9,7 +10,7 @@ import { Container, Box } from "@mui/material";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-background text-foreground">
         <StyledComponentsRegistry>
           <ThemeProvider theme={theme}>
             <CssBaseline />

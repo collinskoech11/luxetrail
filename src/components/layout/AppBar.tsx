@@ -1,76 +1,14 @@
 'use client';
 import React, { useState } from 'react';
-import {
-  AppBar as MuiAppBar,
-  Toolbar,
-  Typography,
-  Button,
-  Box,
-  Container,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Divider,
-} from '@mui/material';
 import Link from 'next/link';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import { styled } from '@mui/material/styles';
-
-// --- Styled Components ---
-
-const StyledAppBar = styled(MuiAppBar)(({ theme }) => ({
-  // Modern App Bar Styling
-  backgroundColor: 'rgba(255, 255, 255, 0.85)', // Slight white background for contrast
-  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)', // Subtle shadow for lift
-  padding: theme.spacing(1, 0), // Reduced padding for a sleeker look
-  backdropFilter: 'blur(10px)', // Enhanced blur for the 'glassmorphism' effect
-  transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
-  borderBottom: `1px solid ${theme.palette.divider}`, // Subtle bottom line
-}));
-
-const NavigationLink = styled(
-  ({ component, ...props }: { component?: React.ElementType } & any) => (
-    <Typography component={component || 'a'} {...props} />
-  ),
-)(({ theme }) => ({
-  margin: theme.spacing(0, 2),
-  color: theme.palette.text.primary,
-  textDecoration: 'none', // Remove underline
-  cursor: 'pointer',
-  fontWeight: 600, // Made text bolder (500 -> 600)
-  fontSize: '1rem', // Ensures link text is clear
-  position: 'relative',
-  paddingBottom: '4px', // Space for the hover effect
-  '&:hover': {
-    color: theme.palette.primary.main,
-  },
-  // Modern Hover Effect: Subtle bottom line on hover
-  '&::after': {
-    content: '""',
-    position: 'absolute',
-    width: '0%',
-    height: '2px',
-    bottom: 0,
-    left: '50%',
-    transform: 'translateX(-50%)',
-    backgroundColor: theme.palette.primary.main,
-    transition: 'width 0.3s ease',
-  },
-  '&:hover::after': {
-    width: '100%',
-  },
-}));
-
-// --- Main Component ---
+import { cn } from '@/lib/utils';
 
 const AppBar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const toggleDrawer = (open: boolean) => () => { // Added type for 'open'
+  const toggleDrawer = (open: boolean) => () => {
     setDrawerOpen(open);
   };
 
@@ -85,124 +23,109 @@ const AppBar = () => {
 
   return (
     <>
-      <StyledAppBar position="fixed">
-        <Container maxWidth="lg">
-          <Toolbar disableGutters sx={{ justifyContent: 'space-between', minHeight: '64px' }}>
-            {/* Brand - Made it bolder with a higher variant */}
-            <Typography
-              variant="h5" // Slightly larger for emphasis
-              component="div"
-              sx={{
-                fontWeight: 800, // Extra bold logo
-                letterSpacing: 2, // Increased letter spacing
-                color: 'primary.main', // Give it a primary color pop
-              }}
-            >
+      <header
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-85 shadow-md backdrop-blur-md transition-all duration-300 ease-in-out",
+          "border-b border-gray-200 py-2"
+        )}
+      >
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Brand */}
+            <Link href="/" className="text-primary-main text-2xl font-extrabold tracking-wider">
               LUXETRAIL
-            </Typography>
+            </Link>
 
             {/* Desktop Navigation */}
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
+            <nav className="hidden md:flex items-center space-x-6">
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} passHref>
-                    {link.label}
-                  </Link>
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "text-gray-700 hover:text-primary-main text-base font-semibold relative",
+                    "after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-0.5 after:bg-primary-main after:transition-all after:duration-300 after:ease-in-out",
+                    "hover:after:w-full hover:after:left-0"
+                  )}
+                >
+                  {link.label}
+                </Link>
               ))}
-              {/* Modern Button Style */}
               <Link href="/book-slot">
-                <Button
-                  variant="contained"
-                  color="primary"
-                  sx={{
-                    borderRadius: 8, // Pill shape for modern look
-                    ml: 3,
-                    px: 3, // Increased horizontal padding
-                    fontWeight: 700, // Bolder text on button
-                    boxShadow: '0 4px 10px rgba(theme.palette.primary.main, 0.25)', // Subtle shadow
-                  }}
+                <button
+                  className={cn(
+                    "ml-6 px-5 py-2 rounded-full bg-primary-main text-white font-bold shadow-lg",
+                    "hover:bg-primary-dark transition-colors duration-300"
+                  )}
                 >
                   Book a Slot
-                </Button>
+                </button>
               </Link>
-            </Box>
+            </nav>
 
             {/* Mobile Menu Button */}
-            <IconButton
-              color="primary" // Use primary color for the icon
-              edge="end"
+            <button
+              className="md:hidden text-primary-main focus:outline-none"
               onClick={toggleDrawer(true)}
-              sx={{ display: { xs: 'flex', md: 'none' } }}
             >
               <MenuIcon fontSize="large" />
-            </IconButton>
-          </Toolbar>
-        </Container>
-      </StyledAppBar>
+            </button>
+          </div>
+        </div>
+      </header>
       {/* Spacer to prevent content from hiding under the fixed AppBar */}
-      <Toolbar />
+      <div className="h-16" />
 
       {/* Drawer for Mobile */}
-      <Drawer
-        anchor="right"
-        open={drawerOpen}
-        onClose={toggleDrawer(false)}
-        PaperProps={{
-          sx: {
-            width: 280, // Slightly wider drawer
-            backgroundColor: 'background.default', // Use default background
-          },
-        }}
+      <div
+        className={cn(
+          "fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50",
+          drawerOpen ? "translate-x-0" : "translate-x-full"
+        )}
       >
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            p: 2,
-          }}
-        >
-          <Typography variant="h6" sx={{ fontWeight: 800, color: 'primary.main' }}>
+        <div className="flex items-center justify-between p-4 border-b border-gray-200">
+          <h2 className="text-xl font-extrabold tracking-wider text-primary-main">
             LUXETRAIL
-          </Typography>
-          <IconButton onClick={toggleDrawer(false)}>
+          </h2>
+          <button onClick={toggleDrawer(false)} className="text-gray-700 focus:outline-none">
             <CloseIcon />
-          </IconButton>
-        </Box>
-        <Divider />
-        <List>
-          {navLinks.map((link) => (
-            <ListItem key={link.href} disablePadding>
-              <ListItemButton
-                component={Link}
-                href={link.href}
-                onClick={toggleDrawer(false)}
-                sx={{ '&:hover': { backgroundColor: 'action.hover' } }}
-              >
-                <ListItemText
-                  primary={link.label}
-                  primaryTypographyProps={{
-                    fontSize: 18, // Larger font size
-                    fontWeight: 700, // Bolder text in drawer
-                  }}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Box sx={{ textAlign: 'center', mt: 4, p: 2 }}>
+          </button>
+        </div>
+        <nav className="p-4">
+          <ul className="space-y-2">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={toggleDrawer(false)}
+                  className="block py-2 text-gray-700 hover:bg-gray-100 rounded-md text-lg font-semibold"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div className="p-4 text-center mt-4">
           <Link href="/book-slot">
-            <Button
-              variant="contained"
-              color="primary"
-              fullWidth
-              sx={{ borderRadius: 8, fontWeight: 700 }}
+            <button
+              className={cn(
+                "w-full px-4 py-2 rounded-full bg-primary-main text-white font-bold shadow-lg",
+                "hover:bg-primary-dark transition-colors duration-300"
+              )}
               onClick={toggleDrawer(false)}
             >
               Book a Slot
-            </Button>
+            </button>
           </Link>
-        </Box>
-      </Drawer>
+        </div>
+      </div>
+      {drawerOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          onClick={toggleDrawer(false)}
+        />
+      )}
     </>
   );
 };

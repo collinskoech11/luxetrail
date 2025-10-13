@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 
 interface AnimatedGridProps {
   className?: string;
@@ -7,7 +7,7 @@ interface AnimatedGridProps {
 
 export const AnimatedGrid = ({ className }: AnimatedGridProps) => {
   const generateSquares = () => {
-    const squares = [];
+    const squares: React.ReactElement[] = [];
     for (let i = 0; i < 30; i++) {
       squares.push(
         <div
