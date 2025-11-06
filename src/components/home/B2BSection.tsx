@@ -24,11 +24,12 @@ const B2BSection = () => {
   const plans = [
     {
       title: 'Basic',
-      description: 'Ideal for small teams looking for foundational training.',
+      description: 'Ideal for Individuals looking for foundational training.',
       features: [
         'Access to core modules',
         'Standard support',
         'Online resources',
+        'In-Person classes',
       ],
     },
     {
@@ -73,7 +74,7 @@ const B2BSection = () => {
             textAlign: { xs: 'center', md: 'left' },
           }}
         >
-          Corporate Training & Partnership Options
+          Training & Partnership Options
         </Typography>
 
         <Typography
@@ -95,7 +96,7 @@ const B2BSection = () => {
             mx: { xs: 'auto', md: 0 }, // centers on small screens
           }}
         >
-          Elevate your team's expertise with our flexible B2B solutions.
+          Elevate your expertise.
         </Typography>
         <Grid container spacing={4}>
           {plans.map((plan, index) => (
@@ -139,7 +140,7 @@ const B2BSection = () => {
                     size="large"
                     sx={{ borderRadius: 3 }}
                   >
-                    Request Corporate Rates
+                    Enroll
                   </Button>
                 </Box>
               </StyledCard>

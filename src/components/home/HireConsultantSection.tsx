@@ -27,13 +27,13 @@ const consultants = [
     skills: ['Tour Planning', 'Customer Service', 'Marketing'],
     certification: 'Advanced',
     availability: 'Available',
-    avatar: '/avatars/jane-doe.jpg', // Placeholder
+    avatar: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762415772/WhatsApp_Image_2025-11-06_at_10.55.42_ar5ypk.jpg', // Placeholder
     experience: 'Senior',
     location: 'Nairobi',
   },
   {
     id: 2,
-    name: 'Emma Wangaru',
+    name: 'Emma Karanja',
     skills: ['Logistics', 'Operations', 'Adventure Travel'],
     certification: 'Expert',
     availability: 'Available',

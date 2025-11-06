@@ -8,13 +8,13 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Link from 'next/link'; // Added next/link import
 
 const StyledFooter = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
+  background: "linear-gradient(135deg, #0069d9 0%, #0b2d77ff 100%)",
   color: theme.palette.common.white,
   padding: theme.spacing(8, 0),
   marginTop: theme.spacing(10), // Generous whitespace
 }));
 
-const FooterLink = styled('a')(({ theme }) => ({
+const FooterLink = styled('p')(({ theme }) => ({
   color: theme.palette.common.white,
   textDecoration: 'none',
   marginBottom: theme.spacing(1),
@@ -53,19 +53,19 @@ const Footer = () => {
               Quick Links
             </Typography>
             <Box display="flex" flexDirection="column">
-              <Link href="/" passHref legacyBehavior>
+              <Link href="/" passHref>
                 <FooterLink>Home</FooterLink>
               </Link>
-              <Link href="/about" passHref legacyBehavior>
+              <Link href="/about" passHref>
                 <FooterLink>About</FooterLink>
               </Link>
-              <Link href="/programs" passHref legacyBehavior>
+              <Link href="/programs" passHref>
                 <FooterLink>Our Programs</FooterLink>
               </Link>
-              <Link href="/hire" passHref legacyBehavior>
+              <Link href="/hire" passHref>
                 <FooterLink>Hire</FooterLink>
               </Link>
-              <Link href="/contact" passHref legacyBehavior>
+              <Link href="/contact" passHref>
                 <FooterLink>Contact</FooterLink>
               </Link>
             </Box>
