@@ -97,10 +97,10 @@ const BookSlotSection = () => {
   return (
     <SectionWrapper>
       <Container maxWidth="lg">
-        <Typography variant="h2" component="h2" gutterBottom>
+        <Typography variant="h2" component="h2" gutterBottom sx={{ fontSize: { xs: '1.8rem', md: '2.8rem' }, fontWeight: 600  }}>
           Ready to Begin Your Journey?
         </Typography>
-        <Typography variant="h5" component="p" sx={{ mb: 6 }}>
+        <Typography variant="h5" component="p" sx={{ mb: 6, fontSize: { xs: '1rem', md: '1.3rem' }, color: 'text.secondary' }}>
           Reserve your slot for our next training or consultation.
         </Typography>
 

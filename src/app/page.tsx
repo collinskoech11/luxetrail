@@ -14,31 +14,47 @@ import ScrollAnimation from '@/components/ScrollAnimation';
 export default function Page() {
   return (
     <>
-      <ScrollAnimation>
-        <HeroSection />
-      </ScrollAnimation>
-      <ScrollAnimation>
-        <AboutSection />
-      </ScrollAnimation>
-      <ScrollAnimation>
-        <TrainingSection />
-      </ScrollAnimation>
-      <ScrollAnimation>
-        <B2BSection />
-      </ScrollAnimation>
-      <ScrollAnimation>
-        <HireConsultantSection />
-      </ScrollAnimation>
+      <div id="hero">
+        <ScrollAnimation>
+          <HeroSection />
+        </ScrollAnimation>
+      </div>
+      <div id="about">
+        <ScrollAnimation>
+          <AboutSection />
+        </ScrollAnimation>
+      </div>
+      <div id="training">
+        <ScrollAnimation>
+          <TrainingSection />
+        </ScrollAnimation>
+      </div>
+      <div id="b2b">
+        <ScrollAnimation>
+          <B2BSection />
+        </ScrollAnimation>
+      </div>
+      <div id="hire">
+        <ScrollAnimation>
+          <HireConsultantSection />
+        </ScrollAnimation>
+      </div>
       {/* <AdvertiseSection /> */}
-      <ScrollAnimation>
-        <SocialCarouselSection />
-      </ScrollAnimation>
-      <ScrollAnimation>
-        <BookSlotSection />
-      </ScrollAnimation>
-      <ScrollAnimation>
-        <ContactSection />
-      </ScrollAnimation>
+      <div id="social">
+        <ScrollAnimation>
+          <SocialCarouselSection />
+        </ScrollAnimation>
+      </div>
+      <div id="book">
+        <ScrollAnimation>
+          <BookSlotSection />
+        </ScrollAnimation>
+      </div>
+      <div id="contact">
+        <ScrollAnimation>
+          <ContactSection />
+        </ScrollAnimation>
+      </div>
     </>
   );
 }

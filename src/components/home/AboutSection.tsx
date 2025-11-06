@@ -28,7 +28,7 @@ const AboutSection = () => {
     <SectionWrapper>
       <Container maxWidth="lg">
         <Grid container spacing={4} alignItems="center">
-          <Grid xs={12} md={6} component="div">
+          <Grid xs={12} md={6} component="div" sx={{ pl:4 }}>
             <ImageWrapper>
               {/* Placeholder for an image */}
               <img

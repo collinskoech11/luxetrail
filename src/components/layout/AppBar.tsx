@@ -15,7 +15,7 @@ import {
   ListItemText,
   Divider,
 } from '@mui/material';
-import Link from 'next/link';
+import { Link } from 'react-scroll';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { styled } from '@mui/material/styles';
@@ -29,7 +29,7 @@ const StyledAppBar = styled(MuiAppBar)(({ theme }) => ({
   padding: theme.spacing(1, 0), // Reduced padding for a sleeker look
   backdropFilter: 'blur(10px)', // Enhanced blur for the 'glassmorphism' effect
   transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
-  borderBottom: `1px solid ${theme.palette.divider}`, // Subtle bottom line
+  borderBottom: `1px solid ${theme.palette.divider}`,
 }));
 
 const NavigationLink = styled('span')(({ theme }) => ({
@@ -41,6 +41,12 @@ const NavigationLink = styled('span')(({ theme }) => ({
   fontSize: '1rem', // Ensures link text is clear
   position: 'relative',
   paddingBottom: '4px', // Space for the hover effect
+  '&.active': {
+    color: theme.palette.primary.main,
+    '&::after': {
+      width: '100%',
+    },
+  },
   '&:hover': {
     color: theme.palette.primary.main,
   },
@@ -71,12 +77,12 @@ const AppBar = () => {
   };
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/programs', label: 'Our Programs' },
-    { href: '/hire', label: 'Hire' },
-    { href: '/book', label: 'Book' },
-    { href: '/contact', label: 'Contact' },
+    { to: 'hero', label: 'Home' },
+    { to: 'about', label: 'About' },
+    { to: 'training', label: 'Our Programs' },
+    { to: 'hire', label: 'Hire' },
+    { to: 'book', label: 'Book' },
+    { to: 'contact', label: 'Contact' },
   ];
 
   return (
@@ -100,12 +106,19 @@ const AppBar = () => {
             {/* Desktop Navigation */}
             <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
-                    <NavigationLink>{link.label}</NavigationLink>
-                  </Link>
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                  activeClass="active"
+                >
+                  <NavigationLink>{link.label}</NavigationLink>
+                </Link>
               ))}
               {/* Modern Button Style */}
-              <Link href="/book-slot">
+              <Link to="book">
                 <Button
                   variant="contained"
                   sx={{
@@ -162,10 +175,13 @@ const AppBar = () => {
         <Divider />
         <List>
           {navLinks.map((link) => (
-            <ListItem key={link.href} disablePadding>
+            <ListItem key={link.to} disablePadding>
               <ListItemButton
                 component={Link}
-                href={link.href}
+                to={link.to}
+                spy={true}
+                smooth={true}
+                duration={500}
                 onClick={toggleDrawer(false)}
                 sx={{ '&:hover': { backgroundColor: 'action.hover' } }}
               >
@@ -181,7 +197,7 @@ const AppBar = () => {
           ))}
         </List>
         <Box sx={{ textAlign: 'center', mt: 4, p: 2 }}>
-          <Link href="/book-slot">
+          <Link to="book">
             <Button
               variant="contained"
               fullWidth
