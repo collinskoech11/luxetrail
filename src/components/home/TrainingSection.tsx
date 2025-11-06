@@ -90,9 +90,11 @@ const TrainingSection = () => {
           <Grid item xs={12} md={6} component="div">
             <ImageWrapper>
               {/* Placeholder for an image */}
-              <Typography variant="h6" color="textSecondary">
-                Training Image
-              </Typography>
+              <img
+                src="https://res.cloudinary.com/dqokryv6u/image/upload/v1762413066/luxebanner2_jr0tgg.png"
+                alt="Training Session"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
             </ImageWrapper>
           </Grid>
         </Grid>

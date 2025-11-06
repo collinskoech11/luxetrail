@@ -100,16 +100,17 @@ const AppBar = () => {
             {/* Desktop Navigation */}
             <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
-                    <NavigationLink>{link.label}</NavigationLink>
+                <Link key={link.href} href={link.href} passHref legacyBehavior>
+                    <NavigationLink href={link.href}>{link.label}</NavigationLink>
                   </Link>
               ))}
               {/* Modern Button Style */}
-              <Link href="/book-slot">
+              <Link href="/book-slot" passHref legacyBehavior>
                 <Button
                   component="a"
                   variant="contained"
                   color="primary"
+                  href="/book-slot"
                   sx={{
                     borderRadius: 8, // Pill shape for modern look
                     ml: 3,

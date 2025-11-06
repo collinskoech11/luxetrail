@@ -18,7 +18,7 @@ export default function Page() {
       <TrainingSection />
       <B2BSection />
       <HireConsultantSection />
-      <AdvertiseSection />
+      {/* <AdvertiseSection /> */}
       <SocialCarouselSection />
       <BookSlotSection />
       <ContactSection />

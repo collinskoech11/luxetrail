@@ -1,11 +1,11 @@
 
 # Gemini Code Assistant Documentation
 
-This document provides a comprehensive guide for developers working on the Luxe Trail Consultancy website. It outlines the project's architecture, development practices, and key conventions to ensure consistency and efficiency.
+This document provides a comprehensive guide for developers working on the LuxeTrail Consultancy website. It outlines the project's architecture, development practices, and key conventions to ensure consistency and efficiency.
 
 ## 1. Project Overview
 
-Luxe Trail Consultancy is a web application built with Next.js, TypeScript, and Material-UI (MUI). It serves as the online presence for a consultancy firm that trains and connects tour and travel professionals. The application features a modern, responsive design with a multi-section homepage.
+LuxeTrail Consultancy is a web application built with Next.js, TypeScript, and Material-UI (MUI). It serves as the online presence for a consultancy firm that trains and connects tour and travel professionals. The application features a modern, responsive design with a multi-section homepage.
 
 -   **Framework**: Next.js 15 (App Router)
 -   **Language**: TypeScript

@@ -35,7 +35,6 @@ const ContactSection = () => {
               Email Us
             </Button>
         </Box>
-
         <Box sx={{ mb: 4 }}>
           <Typography variant="h6" gutterBottom>
             Follow Us:
@@ -43,10 +42,9 @@ const ContactSection = () => {
           <IconButton color="primary" href="https://instagram.com/luxetrail" target="_blank" rel="noopener noreferrer">
             <InstagramIcon fontSize="large" />
           </IconButton>
-          <IconButton color="primary" href="https://tiktok.com/luxetrail" target="_blank" rel="noopener noreferrer">
-            {/* Placeholder for TikTok icon */}
+          {/* <IconButton color="primary" href="https://tiktok.com/luxetrail" target="_blank" rel="noopener noreferrer">
             <img src="/tiktok-icon.svg" alt="TikTok" style={{ width: 36, height: 36 }} />
-          </IconButton>
+          </IconButton> */}
           <IconButton color="primary" href="https://linkedin.com/company/luxetrail" target="_blank" rel="noopener noreferrer">
             <LinkedInIcon fontSize="large" />
           </IconButton>

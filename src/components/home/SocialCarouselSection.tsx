@@ -64,11 +64,11 @@ const SocialCard = styled(Box)(({ theme }) => ({
 }));
 
 const socialPosts = [
-  { id: 1, type: 'instagram', imageUrl: 'https://via.placeholder.com/280?text=Instagram+Post+1', caption: '#TravelGoals' },
-  { id: 2, type: 'tiktok', videoUrl: 'https://via.placeholder.com/280?text=TikTok+Video+1', caption: '#AdventureTime' },
-  { id: 3, type: 'instagram', imageUrl: 'https://via.placeholder.com/280?text=Instagram+Post+2', caption: '#ExploreMore' },
-  { id: 4, type: 'tiktok', videoUrl: 'https://via.placeholder.com/280?text=TikTok+Video+2', caption: '#Wanderlust' },
-  { id: 5, type: 'instagram', imageUrl: 'https://via.placeholder.com/280?text=Instagram+Post+3', caption: '#LuxeLife' },
+  { id: 1, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412173/luxetrail4_f8osfo.jpg', caption: '#TravelGoals' },
+  { id: 2, type: 'tiktok', videoUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412172/luxetrail2_x1jd01.jpg', caption: '#AdventureTime' },
+  { id: 3, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412172/luxetrail6_tvdl2k.jpg', caption: '#ExploreMore' },
+  { id: 4, type: 'tiktok', videoUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412171/luxetrail5_pyg47z.jpg', caption: '#Wanderlust' },
+  { id: 5, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412170/luxetrail3_u7dtlo.jpg', caption: '#LuxeLife' },
 ];
 
 const SocialCarouselSection = () => {
@@ -103,10 +103,9 @@ const SocialCarouselSection = () => {
           <IconButton color="primary" size="large" sx={{ mx: 1 }} href="https://instagram.com/luxetrail" target="_blank" rel="noopener noreferrer">
             <InstagramIcon fontSize="large" />
           </IconButton>
-          <IconButton color="primary" size="large" sx={{ mx: 1 }} href="https://tiktok.com/luxetrail" target="_blank" rel="noopener noreferrer">
-            {/* Placeholder for TikTok icon */}
+          {/* <IconButton color="primary" size="large" sx={{ mx: 1 }} href="https://tiktok.com/luxetrail" target="_blank" rel="noopener noreferrer">
             <img src="/tiktok-icon.svg" alt="TikTok" style={{ width: 36, height: 36 }} />
-          </IconButton>
+          </IconButton> */}
           <IconButton color="primary" size="large" sx={{ mx: 1 }} href="https://linkedin.com/company/luxetrail" target="_blank" rel="noopener noreferrer">
             <LinkedInIcon fontSize="large" />
           </IconButton>

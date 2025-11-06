@@ -31,9 +31,11 @@ const AboutSection = () => {
           <Grid xs={12} md={6} component="div">
             <ImageWrapper>
               {/* Placeholder for an image */}
-              <Typography variant="h6" color="textSecondary">
-                About Us Image
-              </Typography>
+              <img
+                src="https://res.cloudinary.com/dqokryv6u/image/upload/v1762412757/luxbanner_xlpsmq.png"
+                alt="AboutLuxeTrail Consultancy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
             </ImageWrapper>
           </Grid>
           <Grid item xs={12} md={6} component="div">
@@ -54,10 +56,10 @@ const AboutSection = () => {
                   textAlign: { xs: 'center', md: 'left' }, // center on small, left on large
                 }}
               >
-                About Luxe Trail Consultancy
+                About LuxeTrail Consultancy
               </Typography>
             <Typography variant="body1" paragraph>
-              At Luxe Trail Consultancy, our mission is to empower the next generation of tour and travel consultants. We provide certified training programs designed to equip individuals with the skills and knowledge needed to excel in the dynamic tourism industry.
+              At LuxeTrail Consultancy, our mission is to empower the next generation of tour and travel consultants. We provide certified training programs designed to equip individuals with the skills and knowledge needed to excel in the dynamic tourism industry.
             </Typography>
             <Typography variant="body1" paragraph>
               We believe in connecting talent with opportunity, fostering a community where expertise meets demand. Our comprehensive approach ensures that our consultants are not just trained, but are also ready to make a significant impact in the global travel landscape.

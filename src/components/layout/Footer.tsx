@@ -79,10 +79,10 @@ const Footer = () => {
                 <InstagramIcon />
               </IconButton>
               {/* Removed TikTokIcon import and usage */}
-              <IconButton color="inherit" href="https://tiktok.com" target="_blank">
-                <VisuallyHidden>TikTok</VisuallyHidden> {/* Replaced Typography with VisuallyHidden */}
+              {/* <IconButton color="inherit" href="https://tiktok.com" target="_blank">
+                <VisuallyHidden>TikTok</VisuallyHidden> 
                 <img src="/tiktok-icon.svg" alt="TikTok" style={{ filter: 'invert(1)', width: 24, height: 24 }} />
-              </IconButton>
+              </IconButton> */}
               <IconButton color="inherit" href="https://linkedin.com" target="_blank">
                 <LinkedInIcon />
               </IconButton>

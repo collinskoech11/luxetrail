@@ -1,4 +1,4 @@
-🧭 Luxe Trail Consultancy – Full Design & Component Implementation Guide
+🧭 LuxeTrail Consultancy – Full Design & Component Implementation Guide
 
 Stack: Next.js + Material UI (MUI v6) + Styled Components
 
@@ -74,7 +74,7 @@ Add slight overlay gradient for text contrast.
 
 2️⃣ AboutSection
 
-Goal: Introduce Luxe Trail Consultancy’s mission and purpose.
+Goal: Introduce LuxeTrail Consultancy’s mission and purpose.
 Design Notes:
 
 Two-column layout (image on left, text on right).

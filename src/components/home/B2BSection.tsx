@@ -99,16 +99,27 @@ const B2BSection = () => {
         </Typography>
         <Grid container spacing={4}>
           {plans.map((plan, index) => (
-            <Grid item xs={12} md={4} key={index} component="div"> {/* Added component="div" here */}
-              <StyledCard>
-                <CardContent>
+            <Grid item xs={12} md={4} key={index} component="div" sx={{ display: "flex" }}>
+              <StyledCard
+                sx={{
+                  flexGrow: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  minHeight: 420, // standard height for all cards
+                  p: 3,
+                }}
+              >
+                <CardContent sx={{ flexGrow: 1, textAlign: "center", pb: 0 }}>
                   <Typography variant="h4" component="h3" gutterBottom>
                     {plan.title}
                   </Typography>
+
                   <Typography variant="body1" paragraph>
                     {plan.description}
                   </Typography>
-                  <List sx={{ textAlign: 'left', mb: 3 }}>
+
+                  <List sx={{ textAlign: "left" }}>
                     {plan.features.map((feature, idx) => (
                       <ListItem key={idx} disableGutters>
                         <ListItemIcon>
@@ -118,10 +129,19 @@ const B2BSection = () => {
                       </ListItem>
                     ))}
                   </List>
-                  <Button variant="contained" color="primary" size="large" sx={{ borderRadius: 3 }}>
+                </CardContent>
+
+                {/* 👇 Anchored at the bottom */}
+                <Box sx={{ mt: "auto", textAlign: "center", pt: 2 }}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    sx={{ borderRadius: 3 }}
+                  >
                     Request Corporate Rates
                   </Button>
-                </CardContent>
+                </Box>
               </StyledCard>
             </Grid>
           ))}
