@@ -24,31 +24,66 @@ const ContactSection = () => {
           We'd love to hear from you! Reach out to us through any of the channels below.
         </Typography>
 
-        <Box sx={{ mb: 4 }}>
-          <Typography variant="h6" gutterBottom>
-            Email Us:
-          </Typography>
-          <Typography variant="body1" sx={{ mb: 2 }}>
-            luxetrailconsultancy@gmail.com
-          </Typography>
-          <Button component="a" href="mailto:luxetrailconsultancy@gmail.com" variant="contained" color="primary" startIcon={<EmailIcon />} sx={{ borderRadius: 3 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            justifyContent: "space-around",
+            alignItems: "center",
+            m:"auto",
+            mb: 4,
+            maxWidth: "600px",
+          }}
+        >
+          {/* Email Section */}
+          <Box sx={{ textAlign: { xs: "center", sm: "center" }, width:"50%" }}>
+            <Typography variant="h6" gutterBottom>
+              Email Us:
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 2 }}>
+              luxetrailconsultancy@gmail.com
+            </Typography>
+            <Button
+              component="a"
+              href="mailto:luxetrailconsultancy@gmail.com"
+              variant="contained"
+              color="primary"
+              startIcon={<EmailIcon />}
+              sx={{ borderRadius: 3 }}
+            >
               Email Us
             </Button>
+          </Box>
+
+          {/* Follow Us Section */}
+          <Box sx={{ textAlign: { xs: "center", sm: "center" }, width:"50%" }}>
+            <Typography variant="h6" gutterBottom>
+              Follow Us:
+            </Typography>
+            <Box>
+              <IconButton
+                color="primary"
+                href="https://instagram.com/luxetrail"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <InstagramIcon fontSize="large" />
+              </IconButton>
+              {/* <IconButton color="primary" href="https://tiktok.com/luxetrail" target="_blank" rel="noopener noreferrer">
+        <img src="/tiktok-icon.svg" alt="TikTok" style={{ width: 36, height: 36 }} />
+      </IconButton> */}
+              <IconButton
+                color="primary"
+                href="https://linkedin.com/company/luxetrail"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkedInIcon fontSize="large" />
+              </IconButton>
+            </Box>
+          </Box>
         </Box>
-        <Box sx={{ mb: 4 }}>
-          <Typography variant="h6" gutterBottom>
-            Follow Us:
-          </Typography>
-          <IconButton color="primary" href="https://instagram.com/luxetrail" target="_blank" rel="noopener noreferrer">
-            <InstagramIcon fontSize="large" />
-          </IconButton>
-          {/* <IconButton color="primary" href="https://tiktok.com/luxetrail" target="_blank" rel="noopener noreferrer">
-            <img src="/tiktok-icon.svg" alt="TikTok" style={{ width: 36, height: 36 }} />
-          </IconButton> */}
-          <IconButton color="primary" href="https://linkedin.com/company/luxetrail" target="_blank" rel="noopener noreferrer">
-            <LinkedInIcon fontSize="large" />
-          </IconButton>
-        </Box>
+
 
         <Typography variant="body2" color="textSecondary">
           DM or email us for rates and partnership inquiries.

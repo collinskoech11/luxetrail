@@ -40,24 +40,24 @@ const AboutSection = () => {
           </Grid>
           <Grid item xs={12} md={6} component="div">
             <Typography
-                variant="h2"
-                component="h2"
-                gutterBottom
-                sx={{
-                  fontWeight: 600,
-                  fontSize: {
-                    xs: '1.5rem', // phones
-                    sm: '2rem',   // tablets
-                    md: '2.5rem', // small laptops
-                    lg: '3rem',   // desktops
-                    xl: '3.4rem', // large screens
-                  },
-                  lineHeight: 1.3,
-                  textAlign: { xs: 'center', md: 'left' }, // center on small, left on large
-                }}
-              >
-                About LuxeTrail Consultancy
-              </Typography>
+              variant="h2"
+              component="h2"
+              gutterBottom
+              sx={{
+                fontWeight: 600,
+                fontSize: {
+                  xs: '1.5rem', // phones
+                  sm: '2rem',   // tablets
+                  md: '2.5rem', // small laptops
+                  lg: '3rem',   // desktops
+                  xl: '3.4rem', // large screens
+                },
+                lineHeight: 1.3,
+                textAlign: { xs: 'center', md: 'left' }, // center on small, left on large
+              }}
+            >
+              About LuxeTrail Consultancy
+            </Typography>
             <Typography variant="body1" paragraph>
               At LuxeTrail Consultancy, our mission is to empower the next generation of tour and travel consultants. We provide certified training programs designed to equip individuals with the skills and knowledge needed to excel in the dynamic tourism industry.
             </Typography>
@@ -65,9 +65,29 @@ const AboutSection = () => {
               We believe in connecting talent with opportunity, fostering a community where expertise meets demand. Our comprehensive approach ensures that our consultants are not just trained, but are also ready to make a significant impact in the global travel landscape.
             </Typography>
             <Link href="/about">
-              <Button component="a" variant="contained" color="primary" sx={{ mt: 2, borderRadius: 3 }}>
+              <Button
+                variant="contained"
+                sx={{
+                  mt: 2,
+                  borderRadius: 3,
+                  px: 4,
+                  py: 1.2,
+                  fontSize: '1rem',
+                  fontWeight: 600,
+                  textTransform: 'none',
+                  background: 'linear-gradient(135deg, #007bff 0%, #00bcd4 100%)',
+                  boxShadow: '0 4px 10px rgba(0, 123, 255, 0.3)',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 6px 16px rgba(0, 123, 255, 0.4)',
+                    background: 'linear-gradient(135deg, #0069d9 0%, #0097a7 100%)',
+                  },
+                }}
+              >
                 Learn More
               </Button>
+
             </Link>
           </Grid>
         </Grid>

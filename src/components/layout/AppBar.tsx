@@ -107,7 +107,6 @@ const AppBar = () => {
               {/* Modern Button Style */}
               <Link href="/book-slot" passHref legacyBehavior>
                 <Button
-                  component="a"
                   variant="contained"
                   color="primary"
                   href="/book-slot"
