@@ -95,7 +95,7 @@ const BookSlotSection = () => {
   };
 
   return (
-    <SectionWrapper>
+    <SectionWrapper id="book-slot">
       <Container maxWidth="lg">
         <Typography variant="h2" component="h2" gutterBottom sx={{ fontSize: { xs: '1.8rem', md: '2.8rem' }, fontWeight: 600  }}>
           Ready to Begin Your Journey?

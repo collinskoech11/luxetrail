@@ -6,6 +6,7 @@
 "use client";
 
 import { Box, Button, Container, Typography } from "@mui/material";
+import { Link } from "react-scroll";
 
 export default function HeroSection() {
   return (
@@ -59,25 +60,27 @@ export default function HeroSection() {
           travel.
         </Typography>
 
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          sx={{
-            px: { xs: 3, md: 5 },
-            py: { xs: 1, md: 1.5 },
-            fontSize: { xs: '0.9rem', md: '1rem' },
-            fontWeight: 600,
-            borderRadius: "50px",
-            textTransform: "none",
-            backgroundColor: "#1976d2",
-            "&:hover": {
-              backgroundColor: "#115293",
-            },
-          }}
-        >
-          Enroll Now
-        </Button>
+        <Link to="book-slot" smooth={true} duration={500}>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            sx={{
+              px: { xs: 3, md: 5 },
+              py: { xs: 1, md: 1.5 },
+              fontSize: { xs: '0.9rem', md: '1rem' },
+              fontWeight: 600,
+              borderRadius: "50px",
+              textTransform: "none",
+              backgroundColor: "#1976d2",
+              "&:hover": {
+                backgroundColor: "#115293",
+              },
+            }}
+          >
+            Enroll Now
+          </Button>
+        </Link>
       </Container>
     </Box>
   );

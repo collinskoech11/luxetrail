@@ -3,7 +3,7 @@ import React from 'react';
 import { Box, Typography, Grid, Button, Container, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import Link from 'next/link';
+import { Link } from 'react-scroll';
 
 const SectionWrapper = styled(Box)(({ theme }) => ({
   padding: theme.spacing(10, 0), // Even vertical padding
@@ -81,7 +81,7 @@ const TrainingSection = () => {
                 </ListItemText>
               </ListItem>
             </List>
-            <Link href="/training-session">
+            <Link to="book-slot" smooth={true} duration={500}>
               <Button variant="contained" color="primary" size="large" sx={{ mt: 4, borderRadius: 3 }}>
                 Join Our Next Training Session
               </Button>
