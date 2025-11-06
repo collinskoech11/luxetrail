@@ -9,19 +9,36 @@ import AdvertiseSection from '@/components/home/AdvertiseSection';
 import SocialCarouselSection from '@/components/home/SocialCarouselSection';
 import BookSlotSection from '@/components/home/BookSlotSection';
 import ContactSection from '@/components/home/ContactSection';
+import ScrollAnimation from '@/components/ScrollAnimation';
 
 export default function Page() {
   return (
     <>
-      <HeroSection />
-      <AboutSection />
-      <TrainingSection />
-      <B2BSection />
-      <HireConsultantSection />
-      <AdvertiseSection />
-      <SocialCarouselSection />
-      <BookSlotSection />
-      <ContactSection />
+      <ScrollAnimation>
+        <HeroSection />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <AboutSection />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <TrainingSection />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <B2BSection />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <HireConsultantSection />
+      </ScrollAnimation>
+      {/* <AdvertiseSection /> */}
+      <ScrollAnimation>
+        <SocialCarouselSection />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <BookSlotSection />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <ContactSection />
+      </ScrollAnimation>
     </>
   );
 }

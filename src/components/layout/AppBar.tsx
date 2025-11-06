@@ -32,7 +32,7 @@ const StyledAppBar = styled(MuiAppBar)(({ theme }) => ({
   borderBottom: `1px solid ${theme.palette.divider}`, // Subtle bottom line
 }));
 
-const NavigationLink = styled('a')(({ theme }) => ({
+const NavigationLink = styled('span')(({ theme }) => ({
   margin: theme.spacing(0, 2),
   color: theme.palette.text.primary,
   textDecoration: 'none', // Remove underline
@@ -107,15 +107,9 @@ const AppBar = () => {
               {/* Modern Button Style */}
               <Link href="/book-slot">
                 <Button
-                  component="a"
                   variant="contained"
-                  color="primary"
                   sx={{
-                    borderRadius: 8, // Pill shape for modern look
                     ml: 3,
-                    px: 3, // Increased horizontal padding
-                    fontWeight: 700, // Bolder text on button
-                    boxShadow: '0 4px 10px rgba(theme.palette.primary.main, 0.25)', // Subtle shadow
                   }}
                 >
                   Book a Slot
@@ -189,11 +183,8 @@ const AppBar = () => {
         <Box sx={{ textAlign: 'center', mt: 4, p: 2 }}>
           <Link href="/book-slot">
             <Button
-              component="a"
               variant="contained"
-              color="primary"
               fullWidth
-              sx={{ borderRadius: 8, fontWeight: 700 }}
               onClick={toggleDrawer(false)}
             >
               Book a Slot
