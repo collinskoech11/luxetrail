@@ -3,88 +3,132 @@ import React from 'react';
 import { Box, Typography, Button, Container, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn'; // Using LinkedIn as a placeholder for TikTok
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
-import Link from 'next/link';
 
 const SectionWrapper = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(10, 0), // Even vertical padding
-  backgroundColor: theme.palette.common.white,
+  padding: theme.spacing(12, 0),
+  backgroundColor: theme.palette.grey[50],
   textAlign: 'center',
+}));
+
+const Card = styled(Box)(({ theme }) => ({
+  padding: theme.spacing(4),
+  borderRadius: theme.spacing(3),
+  background: theme.palette.common.white,
+  boxShadow: '0 10px 25px rgba(0,0,0,0.05)',
+  transition: 'all 0.3s ease',
+  '&:hover': {
+    boxShadow: '0 14px 32px rgba(0,0,0,0.08)',
+    transform: 'translateY(-4px)',
+  },
 }));
 
 const ContactSection = () => {
   return (
     <SectionWrapper>
-      <Container maxWidth="lg">
-        <Typography variant="h2" component="h2" gutterBottom sx={{ fontSize: { xs: '1.8rem', md: '2.8rem' }, fontWeight: 600 }}>
+      <Container maxWidth="md">
+        {/* Main Heading */}
+        <Typography
+          variant="h2"
+          component="h2"
+          gutterBottom
+          sx={{
+            fontSize: { xs: '1.9rem', sm: '2.4rem', md: '3rem' },
+            fontWeight: 700,
+            color: 'text.primary',
+            mb: 2,
+          }}
+        >
           Get in Touch
         </Typography>
-        <Typography variant="h5" component="p" sx={{ mb: 4, fontSize: { xs: '1rem', md: '1.3rem' }, color: 'text.secondary' }}>
-          We'd love to hear from you! Reach out to us through any of the channels below.
+
+        <Typography
+          sx={{
+            fontSize: { xs: '1rem', sm: '1.15rem', md: '1.25rem' },
+            color: 'text.secondary',
+            mb: 6,
+            maxWidth: '600px',
+            mx: 'auto',
+          }}
+        >
+          We'd love to hear from you! Connect with us through any of the channels below.
         </Typography>
 
+        {/* Cards Container */}
         <Box
           sx={{
-            display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
-            justifyContent: "space-around",
-            alignItems: "center",
-            m:"auto",
-            mb: 4,
-            maxWidth: "600px",
+            display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
+            alignItems: 'stretch',
+            justifyContent: 'center',
+            gap: 4,
+            mb: 6,
           }}
         >
           {/* Email Section */}
-          <Box sx={{ textAlign: { xs: "center", sm: "center" }, width:"50%" }}>
-            <Typography variant="h6" gutterBottom>
-              Email Us:
+          <Card sx={{ flex: 1, minWidth: 260 }}>
+            <Typography
+              variant="h6"
+              sx={{ mb: 1, fontSize: { xs: '1.1rem', md: '1.25rem' }, fontWeight: 600 }}
+            >
+              Email Us
             </Typography>
-            <Typography variant="body1" sx={{ mb: 2 }}>
+
+            <Typography variant="body1" sx={{ mb: 2, color: 'text.secondary' }}>
               luxetrailconsultancy@gmail.com
             </Typography>
+
             <Button
               component="a"
               href="mailto:luxetrailconsultancy@gmail.com"
               variant="contained"
               color="primary"
               startIcon={<EmailIcon />}
+              sx={{ fontWeight: 600 }}
             >
-              Email Us
+              Send Email
             </Button>
-          </Box>
+          </Card>
 
-          {/* Follow Us Section */}
-          <Box sx={{ textAlign: { xs: "center", sm: "center" }, width:"50%", mt: { xs: 4, sm: 0 } }}>
-            <Typography variant="h6" gutterBottom>
-              Follow Us:
+          {/* Social Section */}
+          <Card sx={{ flex: 1, minWidth: 260 }}>
+            <Typography
+              variant="h6"
+              sx={{ mb: 1, fontSize: { xs: '1.1rem', md: '1.25rem' }, fontWeight: 600 }}
+            >
+              Follow Us
             </Typography>
+
+            <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
+              Stay updated and connect with us.
+            </Typography>
+
             <Box>
               <IconButton
                 color="primary"
                 href="https://instagram.com/luxetrail"
                 target="_blank"
                 rel="noopener noreferrer"
+                sx={{ mx: 1 }}
               >
-                <InstagramIcon fontSize="large" />
+                <InstagramIcon sx={{ fontSize: 38 }} />
               </IconButton>
-              {/* <IconButton color="primary" href="https://tiktok.com/luxetrail" target="_blank" rel="noopener noreferrer">
-        <img src="/tiktok-icon.svg" alt="TikTok" style={{ width: 36, height: 36 }} />
-      </IconButton> */}
+
               <IconButton
                 color="primary"
                 href="https://linkedin.com/company/luxetrail"
                 target="_blank"
                 rel="noopener noreferrer"
+                sx={{ mx: 1 }}
               >
-                <LinkedInIcon fontSize="large" />
+                <LinkedInIcon sx={{ fontSize: 38 }} />
               </IconButton>
             </Box>
-          </Box>
+          </Card>
         </Box>
 
-
-        <Typography variant="body2" color="textSecondary">
+        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           DM or email us for rates and partnership inquiries.
         </Typography>
       </Container>
