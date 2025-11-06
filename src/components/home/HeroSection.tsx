@@ -86,7 +86,7 @@ export default function HeroSection() {
           justifyContent: "center",
           color: "white",
           textAlign: "center",
-          pt: 35,
+          pt: 15,
           pb: 15,
         }}
       >

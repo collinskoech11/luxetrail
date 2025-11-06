@@ -12,6 +12,8 @@ export default function BookIntroCall() {
   const [date, setDate] = useState<Dayjs | null>(null);
   const [time, setTime] = useState<Dayjs | null>(null);
 
+  const [step, setStep] = useState<1 | 2>(1);
+
   const inputStyles = {
     background: "transparent",
     borderRadius: "12px",
@@ -44,6 +46,11 @@ export default function BookIntroCall() {
     "& .MuiSvgIcon-root": {
       color: "white",
     },
+  };
+
+  const goToStep2 = () => {
+    if (!date || !time) return;
+    setStep(2);
   };
 
   return (
@@ -80,110 +87,117 @@ export default function BookIntroCall() {
             Book an Intro Call
           </Typography>
 
-          {/* <Typography
-            sx={{
-              textAlign: "center",
-              maxWidth: "650px",
-              mx: "auto",
-              mb: 2,
-              fontSize: { xs: "1rem", md: "1.2rem" },
-            }}
-          >
-            Let’s talk about your journey into the world of travel consultancy
-            and how we can help you get started.
-          </Typography> */}
-
           <Box sx={{ p: { xs: 3, md: 5 }, borderRadius: "22px" }}>
-            {/* ✅ User Details Inputs */}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                gap: 3,
-                mb: 2,
-              }}
-            >
-              <TextField
-                label="Full Name"
-                fullWidth
-                variant="outlined"
-                sx={inputStyles}
-              />
+            {/* ✅ STEP 1: Choose Date & Time */}
+            {step === 1 && (
+              <>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: { xs: "column", md: "row" },
+                      gap: 3,
+                      mb: 4,
+                    }}
+                  >
+                    <DatePicker
+                      label="Choose a Date"
+                      value={date}
+                      onChange={(newDate) => setDate(newDate)}
+                      slotProps={{
+                        textField: {
+                          fullWidth: true,
+                          sx: inputStyles,
+                        },
+                      }}
+                    />
 
-              <TextField
-                label="Phone Number"
-                fullWidth
-                variant="outlined"
-                sx={inputStyles}
-              />
-            </Box>
+                    <TimePicker
+                      label="Choose a Time"
+                      value={time}
+                      onChange={(newTime) => setTime(newTime)}
+                      slotProps={{
+                        textField: {
+                          fullWidth: true,
+                          sx: inputStyles,
+                        },
+                      }}
+                    />
+                  </Box>
+                </LocalizationProvider>
 
-            <Box sx={{ mb: 2 }}>
-              <TextField
-                label="Email Address"
-                fullWidth
-                variant="outlined"
-                sx={inputStyles}
-              />
-            </Box>
-
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: { xs: "column", md: "row" },
-                  gap: 3,
-                  mb: 4,
-                }}
-              >
-                {/* Date Picker */}
-                <DatePicker
-                  label="Choose a Date"
-                  value={date}
-                  onChange={(newDate) => setDate(newDate)}
-                  slotProps={{
-                    textField: {
-                      fullWidth: true,
-                      sx: inputStyles,
+                <Button
+                  variant="contained"
+                  fullWidth
+                  size="large"
+                  disabled={!date || !time}
+                  onClick={goToStep2}
+                  sx={{
+                    py: 2,
+                    borderRadius: "16px",
+                    textTransform: "none",
+                    fontSize: "1.1rem",
+                    fontWeight: 600,
+                    background: !date || !time
+                      ? "rgba(255,255,255,0.3)"
+                      : "linear-gradient(90deg,#0d47a1,#00acc1)",
+                    color: !date || !time ? "white" : "inherit",
+                    "&:hover": {
+                      background:
+                        "linear-gradient(90deg,#0c3a81,#0093a6)",
                     },
                   }}
-                />
+                >
+                  Continue
+                </Button>
+              </>
+            )}
 
-                {/* Time Picker */}
-                <TimePicker
-                  label="Choose a Time"
-                  value={time}
-                  onChange={(newTime) => setTime(newTime)}
-                  slotProps={{
-                    textField: {
-                      fullWidth: true,
-                      sx: inputStyles,
+            {/* ✅ STEP 2: Personal Info */}
+            {step === 2 && (
+              <>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: { xs: "column", md: "row" },
+                    gap: 3,
+                    mb: 2,
+                  }}
+                >
+                  <TextField label="Full Name" fullWidth sx={inputStyles} />
+                  <TextField label="Phone Number" fullWidth sx={inputStyles} />
+                </Box>
+
+                <Box sx={{ mb: 2 }}>
+                  <TextField
+                    label="Email Address"
+                    fullWidth
+                    sx={inputStyles}
+                  />
+                </Box>
+
+                <Button
+                  variant="contained"
+                  fullWidth
+                  size="large"
+                  sx={{
+                    py: 2,
+                    borderRadius: "16px",
+                    textTransform: "none",
+                    fontSize: "1.1rem",
+                    fontWeight: 600,
+                    background: "linear-gradient(90deg,#0d47a1,#00acc1)",
+                    boxShadow: "0 6px 18px rgba(0,0,0,0.15)",
+                    "&:hover": {
+                      background: "linear-gradient(90deg,#0c3a81,#0093a6)",
+                      boxShadow: "0 8px 22px rgba(0,0,0,0.2)",
                     },
                   }}
-                />
-              </Box>
-            </LocalizationProvider>
-
-            <Button
-              variant="contained"
-              fullWidth
-              size="large"
-              sx={{
-                py: 2,
-                borderRadius: "16px",
-                textTransform: "none",
-                fontSize: "1.1rem",
-                fontWeight: 600,
-                background: "linear-gradient(90deg,#0d47a1,#00acc1)",
-                boxShadow: "0 6px 18px rgba(0,0,0,0.15)",
-                "&:hover": {
-                  background: "linear-gradient(90deg,#0c3a81,#0093a6)",
-                  boxShadow: "0 8px 22px rgba(0,0,0,0.2)",
-                },
-              }}
-            >
-              Confirm Booking
-            </Button>
+                >
+                  Confirm Booking
+                </Button>
+              </>
+            )}
           </Box>
         </motion.div>
       </Container>
