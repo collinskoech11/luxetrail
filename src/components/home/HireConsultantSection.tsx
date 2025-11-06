@@ -37,7 +37,7 @@ const HireConsultantSection = () => {
     },
     {
       id: 2,
-      name: 'Emma Karanja',
+      name: 'Emmah Karanja',
       skills: ['Logistics', 'Operations', 'Adventure Travel'],
       certification: 'Expert',
       availability: 'Available',
