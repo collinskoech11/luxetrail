@@ -33,7 +33,6 @@ export default function BookIntroCall() {
     top: "50% !important",
     left: "50% !important",
     transform: "translate(-50%, -50%) !important",
-    border:"1px solid red",
     m: "auto",
       "@media (max-width:600px)": {
     top: "40% !important",        // ⬆ moves slightly higher
@@ -50,7 +49,6 @@ export default function BookIntroCall() {
         top: "150% !important",
     left: "150% !important",
     position: "fixed",
-    border:"1px solid red",
     m: "auto",
       "@media (max-width:600px)": {
     // top: "40% !important",        // ⬆ moves slightly higher
