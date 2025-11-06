@@ -24,7 +24,7 @@ import { styled } from '@mui/material/styles';
 
 const StyledAppBar = styled(MuiAppBar)(({ theme }) => ({
   // Modern App Bar Styling
-  backgroundColor: 'rgba(255, 255, 255, 0.85)', // Slight white background for contrast
+  backgroundColor: 'rgba(255, 255, 255, 0.45)', // Slight white background for contrast
   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)', // Subtle shadow for lift
   padding: theme.spacing(1, 0), // Reduced padding for a sleeker look
   backdropFilter: 'blur(10px)', // Enhanced blur for the 'glassmorphism' effect

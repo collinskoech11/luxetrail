@@ -77,7 +77,7 @@ const TrainingSection = () => {
                   Our Comprehensive Training Programs
                 </Typography>
 
-                <Typography
+                {/* <Typography
                   variant="body1"
                   paragraph
                   sx={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'text.secondary' }}
@@ -85,7 +85,7 @@ const TrainingSection = () => {
                   Unlock your potential in the tourism industry with our
                   expertly designed training programs. We focus on practical,
                   real-world skills to accelerate your career.
-                </Typography>
+                </Typography> */}
 
                 <List sx={{ mt: 2 }}>
                   {[

@@ -80,17 +80,6 @@ const AboutSection = () => {
                   industry.
                 </Typography>
 
-                <Typography
-                  variant="body1"
-                  paragraph
-                  sx={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'text.secondary' }}
-                >
-                  We believe in connecting talent with opportunity, fostering a community where
-                  expertise meets demand. Our comprehensive approach ensures that our consultants
-                  are not just trained, but are fully prepared to make a meaningful impact in the
-                  global travel landscape.
-                </Typography>
-
                 <ScrollLink to="training" smooth duration={600} offset={-80}>
                   <Button
                     variant="contained"
