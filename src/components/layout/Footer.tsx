@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 import InstagramIcon from '@mui/icons-material/Instagram';
 // import TikTokIcon from '@mui/icons-material/TikTok'; // Removed this import
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import Link from 'next/link'; // Added next/link import
+import { Link } from 'react-scroll';
 
 const StyledFooter = styled(Box)(({ theme }) => ({
   background: "linear-gradient(135deg, #0069d9 0%, #0b2d77ff 100%)",
@@ -14,10 +14,11 @@ const StyledFooter = styled(Box)(({ theme }) => ({
   marginTop: theme.spacing(10), // Generous whitespace
 }));
 
-const FooterLink = styled('p')(({ theme }) => ({
+const FooterLink = styled('span')(({ theme }) => ({
   color: theme.palette.common.white,
   textDecoration: 'none',
   marginBottom: theme.spacing(1),
+  cursor: 'pointer',
   '&:hover': {
     textDecoration: 'underline',
   },
@@ -36,6 +37,14 @@ const VisuallyHidden = styled('span')({
 });
 
 const Footer = () => {
+  const quickLinks = [
+    { to: 'hero', label: 'Home' },
+    { to: 'about', label: 'About' },
+    { to: 'training', label: 'Our Programs' },
+    { to: 'hire', label: 'Hire' },
+    { to: 'contact', label: 'Contact' },
+  ];
+
   return (
     <StyledFooter>
       <Container maxWidth="lg">
@@ -52,23 +61,38 @@ const Footer = () => {
             <Typography variant="h6" gutterBottom>
               Quick Links
             </Typography>
-            <Box display="flex" flexDirection="column">
-              <Link href="/" passHref>
-                <FooterLink>Home</FooterLink>
-              </Link>
-              <Link href="/about" passHref>
-                <FooterLink>About</FooterLink>
-              </Link>
-              <Link href="/programs" passHref>
-                <FooterLink>Our Programs</FooterLink>
-              </Link>
-              <Link href="/hire" passHref>
-                <FooterLink>Hire</FooterLink>
-              </Link>
-              <Link href="/contact" passHref>
-                <FooterLink>Contact</FooterLink>
-              </Link>
+            <Box
+              display="flex"
+              flexDirection="column"
+              gap={1.5} // adds consistent vertical spacing
+              sx={{ mt: 1 }}
+            >
+              {quickLinks.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  <FooterLink
+                    sx={{
+                      display: 'block',
+                      fontSize: '0.95rem',
+                      fontWeight: 500,
+                      textDecoration: 'none',
+                      transition: 'color 0.3s ease, transform 0.3s ease',
+                      '&:hover': {
+                        transform: 'translateX(4px)',
+                      },
+                    }}
+                  >
+                    {link.label}
+                  </FooterLink>
+                </Link>
+              ))}
             </Box>
+
           </Grid>
           <Grid item xs={12} md={4}>
             <Typography variant="h6" gutterBottom>
