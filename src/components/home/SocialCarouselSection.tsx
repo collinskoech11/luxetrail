@@ -87,7 +87,6 @@ const SocialCarouselSection = () => {
         </Typography>
 
         <Typography
-          variant="h5"
           sx={{
             mb: 8,
             fontSize: { xs: "1rem", md: "1.3rem" },
