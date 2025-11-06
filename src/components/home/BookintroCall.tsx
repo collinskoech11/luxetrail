@@ -12,6 +12,9 @@ export default function BookIntroCall() {
   const [date, setDate] = useState<Dayjs | null>(null);
   const [time, setTime] = useState<Dayjs | null>(null);
 
+  const [openDate, setOpenDate] = useState(false);
+  const [openTime, setOpenTime] = useState(false);
+
   const [step, setStep] = useState<1 | 2>(1);
 
   const inputStyles = {
@@ -20,32 +23,42 @@ export default function BookIntroCall() {
     border: "1px solid rgba(255,255,255, 0.3)",
     color: "white",
 
-    "& .MuiInputBase-input": {
-      color: "white",
-      "::placeholder": {
-        color: "white",
-        opacity: 1,
-      },
-    },
+    "& .MuiInputBase-input": { color: "white" },
+    "& .MuiInputLabel-root": { color: "white" },
+    "& .MuiSvgIcon-root": { color: "white" },
+  };
 
-    "& .MuiInputLabel-root": {
-      color: "white",
-      opacity: 0.8,
-    },
-    "& .MuiInputLabel-root.Mui-focused": {
-      color: "white",
-    },
-    "& .MuiInputLabel-root.MuiFormLabel-filled": {
-      color: "white",
-    },
+  const centeredPaper = {
+    position: "fixed",
+    top: "50% !important",
+    left: "50% !important",
+    transform: "translate(-50%, -50%) !important",
+    border:"1px solid red",
+    m: "auto",
+      "@media (max-width:600px)": {
+    top: "40% !important",        // ⬆ moves slightly higher
+    width: "95% !important",      // ✅ full-width mobile
+    left: "50% !important",
+    transform: "translate(-50%, -40%) !important",
+  },
 
-    "& .MuiInputBase-root": {
-      backgroundColor: "transparent",
-    },
+  };
 
-    "& .MuiSvgIcon-root": {
-      color: "white",
-    },
+
+  const centeredPaperDesk = {
+    transform: "translate(150%, 150%) !important",
+        top: "150% !important",
+    left: "150% !important",
+    position: "fixed",
+    border:"1px solid red",
+    m: "auto",
+      "@media (max-width:600px)": {
+    // top: "40% !important",        // ⬆ moves slightly higher
+    width: "95% !important",      // ✅ full-width mobile
+    // left: "50% !important",
+    // transform: "translate(-50%, -40%) !important",
+  },
+
   };
 
   const goToStep2 = () => {
@@ -88,10 +101,43 @@ export default function BookIntroCall() {
           </Typography>
 
           <Box sx={{ p: { xs: 3, md: 5 }, borderRadius: "22px" }}>
-            {/* ✅ STEP 1: Choose Date & Time */}
+            {/* ✅ STEP 1 */}
             {step === 1 && (
               <>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  {/* ✅ Hidden Date Picker */}
+                  <DatePicker
+                    open={openDate}
+                    onClose={() => setOpenDate(false)}
+                    value={date}
+                    onChange={(newDate) => {
+                      setDate(newDate);
+                      setOpenDate(false);
+                    }}
+                    slotProps={{
+                      textField: { sx: { display: "none" } },
+                      desktopPaper: { sx: centeredPaperDesk },
+                      mobilePaper: { sx: centeredPaper },
+                    }}
+                  />
+
+                  {/* ✅ Hidden Time Picker */}
+                  <TimePicker
+                    open={openTime}
+                    onClose={() => setOpenTime(false)}
+                    value={time}
+                    onChange={(newTime) => {
+                      setTime(newTime);
+                      setOpenTime(false);
+                    }}
+                    slotProps={{
+                      textField: { sx: { display: "none" } },
+                      desktopPaper: { sx: centeredPaperDesk },
+                      mobilePaper: { sx: centeredPaper },
+                    }}
+                  />
+
+                  {/* ✅ Visible Buttons */}
                   <Box
                     sx={{
                       display: "flex",
@@ -100,29 +146,37 @@ export default function BookIntroCall() {
                       mb: 4,
                     }}
                   >
-                    <DatePicker
-                      label="Choose a Date"
-                      value={date}
-                      onChange={(newDate) => setDate(newDate)}
-                      slotProps={{
-                        textField: {
-                          fullWidth: true,
-                          sx: inputStyles,
-                        },
+                    <Button
+                      fullWidth
+                      onClick={() => setOpenDate(true)}
+                      sx={{
+                        py: 2,
+                        borderRadius: "12px",
+                        border: "1px solid rgba(255,255,255,0.4)",
+                        color: "white",
+                        textTransform: "none",
+                        fontSize: "1.05rem",
+                        background: "rgba(255,255,255,0.08)",
                       }}
-                    />
+                    >
+                      {date ? date.format("DD MMM YYYY") : "Pick a Date"}
+                    </Button>
 
-                    <TimePicker
-                      label="Choose a Time"
-                      value={time}
-                      onChange={(newTime) => setTime(newTime)}
-                      slotProps={{
-                        textField: {
-                          fullWidth: true,
-                          sx: inputStyles,
-                        },
+                    <Button
+                      fullWidth
+                      onClick={() => setOpenTime(true)}
+                      sx={{
+                        py: 2,
+                        borderRadius: "12px",
+                        border: "1px solid rgba(255,255,255,0.4)",
+                        color: "white",
+                        textTransform: "none",
+                        fontSize: "1.05rem",
+                        background: "rgba(255,255,255,0.08)",
                       }}
-                    />
+                    >
+                      {time ? time.format("hh:mm A") : "Pick a Time"}
+                    </Button>
                   </Box>
                 </LocalizationProvider>
 
@@ -138,14 +192,11 @@ export default function BookIntroCall() {
                     textTransform: "none",
                     fontSize: "1.1rem",
                     fontWeight: 600,
-                    background: !date || !time
-                      ? "rgba(255,255,255,0.3)"
-                      : "linear-gradient(90deg,#0d47a1,#00acc1)",
-                    color: !date || !time ? "white" : "inherit",
-                    "&:hover": {
-                      background:
-                        "linear-gradient(90deg,#0c3a81,#0093a6)",
-                    },
+                    background:
+                      !date || !time
+                        ? "rgba(255,255,255,0.3)"
+                        : "linear-gradient(90deg,#0d47a1,#00acc1)",
+                    color: "white",
                   }}
                 >
                   Continue
@@ -153,7 +204,7 @@ export default function BookIntroCall() {
               </>
             )}
 
-            {/* ✅ STEP 2: Personal Info */}
+            {/* ✅ STEP 2 */}
             {step === 2 && (
               <>
                 <Box
@@ -168,13 +219,11 @@ export default function BookIntroCall() {
                   <TextField label="Phone Number" fullWidth sx={inputStyles} />
                 </Box>
 
-                <Box sx={{ mb: 2 }}>
-                  <TextField
-                    label="Email Address"
-                    fullWidth
-                    sx={inputStyles}
-                  />
-                </Box>
+                <TextField
+                  label="Email Address"
+                  fullWidth
+                  sx={{ ...inputStyles, mb: 3 }}
+                />
 
                 <Button
                   variant="contained"
@@ -187,11 +236,6 @@ export default function BookIntroCall() {
                     fontSize: "1.1rem",
                     fontWeight: 600,
                     background: "linear-gradient(90deg,#0d47a1,#00acc1)",
-                    boxShadow: "0 6px 18px rgba(0,0,0,0.15)",
-                    "&:hover": {
-                      background: "linear-gradient(90deg,#0c3a81,#0093a6)",
-                      boxShadow: "0 8px 22px rgba(0,0,0,0.2)",
-                    },
                   }}
                 >
                   Confirm Booking
