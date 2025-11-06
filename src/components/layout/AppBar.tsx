@@ -100,12 +100,12 @@ const AppBar = () => {
             {/* Desktop Navigation */}
             <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} passHref legacyBehavior>
+                <Link key={link.href} href={link.href} passHref>
                     <NavigationLink href={link.href}>{link.label}</NavigationLink>
                   </Link>
               ))}
               {/* Modern Button Style */}
-              <Link href="/book-slot" passHref legacyBehavior>
+              <Link href="/book-slot" passHref>
                 <Button
                   variant="contained"
                   sx={{
