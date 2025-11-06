@@ -64,8 +64,9 @@ export default function HeroSection() {
           color="primary"
           size="large"
           sx={{
-            px: 5,
-            py: 1.5,
+            px: { xs: 3, md: 5 },
+            py: { xs: 1, md: 1.5 },
+            fontSize: { xs: '0.9rem', md: '1rem' },
             fontWeight: 600,
             borderRadius: "50px",
             textTransform: "none",

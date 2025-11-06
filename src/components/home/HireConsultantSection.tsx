@@ -14,10 +14,12 @@ const ConsultantCard = styled(Card)(({ theme }) => ({
   padding: theme.spacing(3),
   textAlign: 'center',
   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-  '&:hover': {
-    transform: 'translateY(-5px)',
-    boxShadow: theme.shadows[6],
-  },
+  '@media (hover: hover)': {
+    '&:hover': {
+      transform: 'translateY(-5px)',
+      boxShadow: theme.shadows[6],
+    },
+  }
 }));
 
 const consultants = [
@@ -167,7 +169,6 @@ const HireConsultantSection = () => {
                       variant="outlined"
                       color="primary"
                       size="small"
-                      sx={{ borderRadius: 3 }}
                     >
                       View Profile
                     </Button>

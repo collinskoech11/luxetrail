@@ -53,7 +53,7 @@ const AboutSection = () => {
                   xl: '3.4rem', // large screens
                 },
                 lineHeight: 1.3,
-                textAlign: { xs: 'center', md: 'left' }, // center on small, left on large
+                textAlign: { xs: 'left', md: 'left' }, // center on small, left on large
               }}
             >
               About LuxeTrail Consultancy

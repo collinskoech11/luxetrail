@@ -44,7 +44,7 @@ const TrainingSection = () => {
                   xl: '3.2rem', // large screens
                 },
                 lineHeight: 1.3,
-                textAlign: { xs: 'center', md: 'left' }, // center for mobile, left for desktop
+                textAlign: { xs: 'left', md: 'left' }, // center for mobile, left for desktop
               }}
             >
               Our Comprehensive Training Programs

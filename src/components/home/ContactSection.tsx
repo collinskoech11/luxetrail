@@ -49,14 +49,13 @@ const ContactSection = () => {
               variant="contained"
               color="primary"
               startIcon={<EmailIcon />}
-              sx={{ borderRadius: 3 }}
             >
               Email Us
             </Button>
           </Box>
 
           {/* Follow Us Section */}
-          <Box sx={{ textAlign: { xs: "center", sm: "center" }, width:"50%" }}>
+          <Box sx={{ textAlign: { xs: "center", sm: "center" }, width:"50%", mt: { xs: 4, sm: 0 } }}>
             <Typography variant="h6" gutterBottom>
               Follow Us:
             </Typography>

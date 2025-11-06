@@ -14,10 +14,12 @@ const StyledCard = styled(Card)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   padding: theme.spacing(3),
   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-  '&:hover': {
-    transform: 'translateY(-10px)',
-    boxShadow: theme.shadows[10], // Enhanced shadow on hover
-  },
+  '@media (hover: hover)': {
+    '&:hover': {
+      transform: 'translateY(-10px)',
+      boxShadow: theme.shadows[10], // Enhanced shadow on hover
+    },
+  }
 }));
 
 const B2BSection = () => {
@@ -138,7 +140,6 @@ const B2BSection = () => {
                     variant="contained"
                     color="primary"
                     size="large"
-                    sx={{ borderRadius: 3 }}
                   >
                     Enroll
                   </Button>

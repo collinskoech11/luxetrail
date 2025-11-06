@@ -22,10 +22,10 @@ const CarouselContainer = styled(Box)({
   padding: "20px 0",
 });
 
-const SocialCard = styled(Box)({
+const SocialCard = styled(Box)(({ theme }) => ({
   position: "relative",
-  width: "300px",
-  height: "400px",
+  width: "280px",
+  height: "380px",
   borderRadius: "16px",
   overflow: "hidden",
   flex: "0 0 auto",
@@ -48,7 +48,11 @@ const SocialCard = styled(Box)({
     background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%)",
     padding: "20px",
   },
-});
+  [theme.breakpoints.down('sm')]: {
+    width: '220px',
+    height: '320px',
+  },
+}));
 
 const socialPosts = [
   { id: 1, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412173/luxetrail4_f8osfo.jpg', caption: '#TravelGoals' },

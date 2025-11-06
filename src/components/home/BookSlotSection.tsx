@@ -189,7 +189,7 @@ const BookSlotSection = () => {
             variant="contained"
             color="primary"
             size="large"
-            sx={{ mt: 3, borderRadius: 3 }}
+            sx={{ mt: 3 }}
           >
             Book My Slot
           </Button>
