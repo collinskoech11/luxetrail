@@ -12,38 +12,58 @@ export default function BookIntroCall() {
   const [date, setDate] = useState<Dayjs | null>(null);
   const [time, setTime] = useState<Dayjs | null>(null);
 
+  const [openDate, setOpenDate] = useState(false);
+  const [openTime, setOpenTime] = useState(false);
+
+  const [step, setStep] = useState<1 | 2>(1);
+
   const inputStyles = {
     background: "transparent",
     borderRadius: "12px",
     border: "1px solid rgba(255,255,255, 0.3)",
     color: "white",
 
-    "& .MuiInputBase-input": {
-      color: "white",
-      "::placeholder": {
-        color: "white",
-        opacity: 1,
-      },
-    },
+    "& .MuiInputBase-input": { color: "white" },
+    "& .MuiInputLabel-root": { color: "white" },
+    "& .MuiSvgIcon-root": { color: "white" },
+  };
 
-    "& .MuiInputLabel-root": {
-      color: "white",
-      opacity: 0.8,
-    },
-    "& .MuiInputLabel-root.Mui-focused": {
-      color: "white",
-    },
-    "& .MuiInputLabel-root.MuiFormLabel-filled": {
-      color: "white",
-    },
+  const centeredPaper = {
+    position: "fixed",
+    top: "50% !important",
+    left: "50% !important",
+    transform: "translate(-50%, -50%) !important",
+    border:"1px solid red",
+    m: "auto",
+      "@media (max-width:600px)": {
+    top: "40% !important",        // ⬆ moves slightly higher
+    width: "95% !important",      // ✅ full-width mobile
+    left: "50% !important",
+    transform: "translate(-50%, -40%) !important",
+  },
 
-    "& .MuiInputBase-root": {
-      backgroundColor: "transparent",
-    },
+  };
 
-    "& .MuiSvgIcon-root": {
-      color: "white",
-    },
+
+  const centeredPaperDesk = {
+    transform: "translate(150%, 150%) !important",
+        top: "150% !important",
+    left: "150% !important",
+    position: "fixed",
+    border:"1px solid red",
+    m: "auto",
+      "@media (max-width:600px)": {
+    // top: "40% !important",        // ⬆ moves slightly higher
+    width: "95% !important",      // ✅ full-width mobile
+    // left: "50% !important",
+    // transform: "translate(-50%, -40%) !important",
+  },
+
+  };
+
+  const goToStep2 = () => {
+    if (!date || !time) return;
+    setStep(2);
   };
 
   return (
@@ -80,110 +100,148 @@ export default function BookIntroCall() {
             Book an Intro Call
           </Typography>
 
-          {/* <Typography
-            sx={{
-              textAlign: "center",
-              maxWidth: "650px",
-              mx: "auto",
-              mb: 2,
-              fontSize: { xs: "1rem", md: "1.2rem" },
-            }}
-          >
-            Let’s talk about your journey into the world of travel consultancy
-            and how we can help you get started.
-          </Typography> */}
-
           <Box sx={{ p: { xs: 3, md: 5 }, borderRadius: "22px" }}>
-            {/* ✅ User Details Inputs */}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                gap: 3,
-                mb: 2,
-              }}
-            >
-              <TextField
-                label="Full Name"
-                fullWidth
-                variant="outlined"
-                sx={inputStyles}
-              />
+            {/* ✅ STEP 1 */}
+            {step === 1 && (
+              <>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  {/* ✅ Hidden Date Picker */}
+                  <DatePicker
+                    open={openDate}
+                    onClose={() => setOpenDate(false)}
+                    value={date}
+                    onChange={(newDate) => {
+                      setDate(newDate);
+                      setOpenDate(false);
+                    }}
+                    slotProps={{
+                      textField: { sx: { display: "none" } },
+                      desktopPaper: { sx: centeredPaperDesk },
+                      mobilePaper: { sx: centeredPaper },
+                    }}
+                  />
 
-              <TextField
-                label="Phone Number"
-                fullWidth
-                variant="outlined"
-                sx={inputStyles}
-              />
-            </Box>
+                  {/* ✅ Hidden Time Picker */}
+                  <TimePicker
+                    open={openTime}
+                    onClose={() => setOpenTime(false)}
+                    value={time}
+                    onChange={(newTime) => {
+                      setTime(newTime);
+                      setOpenTime(false);
+                    }}
+                    slotProps={{
+                      textField: { sx: { display: "none" } },
+                      desktopPaper: { sx: centeredPaperDesk },
+                      mobilePaper: { sx: centeredPaper },
+                    }}
+                  />
 
-            <Box sx={{ mb: 2 }}>
-              <TextField
-                label="Email Address"
-                fullWidth
-                variant="outlined"
-                sx={inputStyles}
-              />
-            </Box>
+                  {/* ✅ Visible Buttons */}
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: { xs: "column", md: "row" },
+                      gap: 3,
+                      mb: 4,
+                    }}
+                  >
+                    <Button
+                      fullWidth
+                      onClick={() => setOpenDate(true)}
+                      sx={{
+                        py: 2,
+                        borderRadius: "12px",
+                        border: "1px solid rgba(255,255,255,0.4)",
+                        color: "white",
+                        textTransform: "none",
+                        fontSize: "1.05rem",
+                        background: "rgba(255,255,255,0.08)",
+                      }}
+                    >
+                      {date ? date.format("DD MMM YYYY") : "Pick a Date"}
+                    </Button>
 
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: { xs: "column", md: "row" },
-                  gap: 3,
-                  mb: 4,
-                }}
-              >
-                {/* Date Picker */}
-                <DatePicker
-                  label="Choose a Date"
-                  value={date}
-                  onChange={(newDate) => setDate(newDate)}
-                  slotProps={{
-                    textField: {
-                      fullWidth: true,
-                      sx: inputStyles,
-                    },
+                    <Button
+                      fullWidth
+                      onClick={() => setOpenTime(true)}
+                      sx={{
+                        py: 2,
+                        borderRadius: "12px",
+                        border: "1px solid rgba(255,255,255,0.4)",
+                        color: "white",
+                        textTransform: "none",
+                        fontSize: "1.05rem",
+                        background: "rgba(255,255,255,0.08)",
+                      }}
+                    >
+                      {time ? time.format("hh:mm A") : "Pick a Time"}
+                    </Button>
+                  </Box>
+                </LocalizationProvider>
+
+                <Button
+                  variant="contained"
+                  fullWidth
+                  size="large"
+                  disabled={!date || !time}
+                  onClick={goToStep2}
+                  sx={{
+                    py: 2,
+                    borderRadius: "16px",
+                    textTransform: "none",
+                    fontSize: "1.1rem",
+                    fontWeight: 600,
+                    background:
+                      !date || !time
+                        ? "rgba(255,255,255,0.3)"
+                        : "linear-gradient(90deg,#0d47a1,#00acc1)",
+                    color: "white",
                   }}
+                >
+                  Continue
+                </Button>
+              </>
+            )}
+
+            {/* ✅ STEP 2 */}
+            {step === 2 && (
+              <>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: { xs: "column", md: "row" },
+                    gap: 3,
+                    mb: 2,
+                  }}
+                >
+                  <TextField label="Full Name" fullWidth sx={inputStyles} />
+                  <TextField label="Phone Number" fullWidth sx={inputStyles} />
+                </Box>
+
+                <TextField
+                  label="Email Address"
+                  fullWidth
+                  sx={{ ...inputStyles, mb: 3 }}
                 />
 
-                {/* Time Picker */}
-                <TimePicker
-                  label="Choose a Time"
-                  value={time}
-                  onChange={(newTime) => setTime(newTime)}
-                  slotProps={{
-                    textField: {
-                      fullWidth: true,
-                      sx: inputStyles,
-                    },
+                <Button
+                  variant="contained"
+                  fullWidth
+                  size="large"
+                  sx={{
+                    py: 2,
+                    borderRadius: "16px",
+                    textTransform: "none",
+                    fontSize: "1.1rem",
+                    fontWeight: 600,
+                    background: "linear-gradient(90deg,#0d47a1,#00acc1)",
                   }}
-                />
-              </Box>
-            </LocalizationProvider>
-
-            <Button
-              variant="contained"
-              fullWidth
-              size="large"
-              sx={{
-                py: 2,
-                borderRadius: "16px",
-                textTransform: "none",
-                fontSize: "1.1rem",
-                fontWeight: 600,
-                background: "linear-gradient(90deg,#0d47a1,#00acc1)",
-                boxShadow: "0 6px 18px rgba(0,0,0,0.15)",
-                "&:hover": {
-                  background: "linear-gradient(90deg,#0c3a81,#0093a6)",
-                  boxShadow: "0 8px 22px rgba(0,0,0,0.2)",
-                },
-              }}
-            >
-              Confirm Booking
-            </Button>
+                >
+                  Confirm Booking
+                </Button>
+              </>
+            )}
           </Box>
         </motion.div>
       </Container>
