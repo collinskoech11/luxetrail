@@ -82,7 +82,7 @@ const TrainingSection = () => {
               </ListItem>
             </List>
             <Link href="/training-session">
-              <Button component="a" variant="contained" color="primary" size="large" sx={{ mt: 4, borderRadius: 3 }}>
+              <Button variant="contained" color="primary" size="large" sx={{ mt: 4, borderRadius: 3 }}>
                 Join Our Next Training Session
               </Button>
             </Link>

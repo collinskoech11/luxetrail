@@ -61,6 +61,14 @@ const theme = createTheme({
   },
   spacing: 8, // Default spacing unit, so theme.spacing(10) will be 80px
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        a: {
+          textDecoration: 'none',
+          color: 'inherit',
+        },
+      },
+    },
     MuiCard: {
       styleOverrides: {
         root: {
