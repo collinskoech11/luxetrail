@@ -1,131 +1,204 @@
 'use client';
 import React from 'react';
-import { Box, Typography, Container, Grid, Link as MuiLink, IconButton, TextField, Button } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Container,
+  Grid,
+  IconButton,
+  TextField,
+  Button
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
 import InstagramIcon from '@mui/icons-material/Instagram';
-// import TikTokIcon from '@mui/icons-material/TikTok'; // Removed this import
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import Link from 'next/link'; // Added next/link import
+import { Link } from 'react-scroll';
 
 const StyledFooter = styled(Box)(({ theme }) => ({
-  background: "linear-gradient(135deg, #0069d9 0%, #0b2d77ff 100%)",
+  background: "linear-gradient(135deg, #0046a3 0%, #0a1b4f 100%)",
   color: theme.palette.common.white,
-  padding: theme.spacing(8, 0),
-  marginTop: theme.spacing(10), // Generous whitespace
+  padding: theme.spacing(10, 0),
+  marginTop: theme.spacing(12),
+  position: "relative",
+  overflow: "hidden",
 }));
 
-const FooterLink = styled('p')(({ theme }) => ({
+const FooterLink = styled('span')(({ theme }) => ({
   color: theme.palette.common.white,
-  textDecoration: 'none',
-  marginBottom: theme.spacing(1),
+  fontSize: '1rem',
+  cursor: 'pointer',
+  transition: 'all 0.3s ease',
   '&:hover': {
-    textDecoration: 'underline',
+    opacity: 0.85,
+    transform: 'translateX(6px)',
   },
 }));
 
-const VisuallyHidden = styled('span')({
-  border: 0,
-  clip: 'rect(0 0 0 0)',
-  height: 1,
-  margin: -1,
-  overflow: 'hidden',
-  padding: 0,
-  position: 'absolute',
-  whiteSpace: 'nowrap',
-  width: 1,
-});
-
 const Footer = () => {
+  const quickLinks = [
+    { to: 'hero', label: 'Home' },
+    { to: 'about', label: 'About' },
+    { to: 'training', label: 'Our Programs' },
+    { to: 'hire', label: 'Hire' },
+    { to: 'contact', label: 'Contact' },
+  ];
+
   return (
     <StyledFooter>
       <Container maxWidth="lg">
-        <Grid container spacing={4}>
+        <Grid container spacing={6}>
+          {/* Brand Column */}
           <Grid item xs={12} md={4}>
-            <Typography variant="h6" gutterBottom>
+            <Typography
+              variant="h5"
+              sx={{
+                fontWeight: 700,
+                letterSpacing: "2px",
+                mb: 2,
+                fontSize: { xs: "1.6rem", md: "2rem" }
+              }}
+            >
               LUXETRAIL
             </Typography>
-            <Typography variant="body2">
-              Shaping the Next Generation of Tour and Travel Consultants.
+
+            <Typography
+              variant="body1"
+              sx={{ opacity: 0.85, fontSize: { xs: ".95rem", md: "1rem" } }}
+            >
+              Shaping the Next Generation of Tour & Travel Consultants.
             </Typography>
           </Grid>
+
+          {/* Quick Links Column */}
           <Grid item xs={12} md={4}>
-            <Typography variant="h6" gutterBottom>
+            <Typography
+              variant="h6"
+              sx={{ mb: 2, fontSize: { xs: "1.2rem", md: "1.4rem" } }}
+            >
               Quick Links
             </Typography>
-            <Box display="flex" flexDirection="column">
-              <Link href="/" passHref>
-                <FooterLink>Home</FooterLink>
-              </Link>
-              <Link href="/about" passHref>
-                <FooterLink>About</FooterLink>
-              </Link>
-              <Link href="/programs" passHref>
-                <FooterLink>Our Programs</FooterLink>
-              </Link>
-              <Link href="/hire" passHref>
-                <FooterLink>Hire</FooterLink>
-              </Link>
-              <Link href="/contact" passHref>
-                <FooterLink>Contact</FooterLink>
-              </Link>
+
+            <Box display="flex" flexDirection="column" gap={1.2}>
+              {quickLinks.map(link => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                  offset={-80}
+                >
+                  <FooterLink>{link.label}</FooterLink>
+                </Link>
+              ))}
             </Box>
           </Grid>
+
+          {/* Social + Newsletter Column */}
           <Grid item xs={12} md={4}>
-            <Typography variant="h6" gutterBottom>
+            <Typography
+              variant="h6"
+              sx={{ mb: 2, fontSize: { xs: "1.2rem", md: "1.4rem" } }}
+            >
               Connect With Us
             </Typography>
-            <Box>
-              <IconButton color="inherit" href="https://instagram.com" target="_blank">
-                <InstagramIcon />
+
+            <Box display="flex" gap={1}>
+              <IconButton
+                color="inherit"
+                href="https://instagram.com"
+                target="_blank"
+                sx={{
+                  border: "1px solid rgba(255,255,255,0.3)",
+                  backdropFilter: "blur(4px)",
+                  '&:hover': {
+                    backgroundColor: "rgba(255,255,255,0.2)",
+                    transform: "scale(1.1)",
+                  },
+                  transition: "0.3s ease"
+                }}
+              >
+                <InstagramIcon fontSize="medium" />
               </IconButton>
-              {/* Removed TikTokIcon import and usage */}
-              {/* <IconButton color="inherit" href="https://tiktok.com" target="_blank">
-                <VisuallyHidden>TikTok</VisuallyHidden> 
-                <img src="/tiktok-icon.svg" alt="TikTok" style={{ filter: 'invert(1)', width: 24, height: 24 }} />
-              </IconButton> */}
-              <IconButton color="inherit" href="https://linkedin.com" target="_blank">
-                <LinkedInIcon />
+
+              <IconButton
+                color="inherit"
+                href="https://linkedin.com"
+                target="_blank"
+                sx={{
+                  border: "1px solid rgba(255,255,255,0.3)",
+                  backdropFilter: "blur(4px)",
+                  '&:hover': {
+                    backgroundColor: "rgba(255,255,255,0.2)",
+                    transform: "scale(1.1)",
+                  },
+                  transition: "0.3s ease"
+                }}
+              >
+                <LinkedInIcon fontSize="medium" />
               </IconButton>
             </Box>
-            <Typography variant="body2" sx={{ mt: 2 }}>
+
+            <Typography sx={{ mt: 2, opacity: 0.85 }}>
               Email: luxetrailconsultancy@gmail.com
             </Typography>
-            <Box sx={{ mt: 3 }}>
-              <Typography variant="h6" gutterBottom>
+
+            {/* Newsletter */}
+            <Box sx={{ mt: 4 }}>
+              <Typography variant="h6" sx={{ mb: 1 }}>
                 Newsletter
               </Typography>
+
               <TextField
                 variant="outlined"
                 placeholder="Your email"
                 size="small"
                 fullWidth
                 sx={{
+                  input: { color: "white" },
                   '& .MuiOutlinedInput-root': {
-                    '& fieldset': {
-                      borderColor: 'white',
-                    },
-                    '&:hover fieldset': {
-                      borderColor: 'white',
-                    },
-                    '&.Mui-focused fieldset': {
-                      borderColor: 'white',
-                    },
-                    color: 'white',
+                    borderRadius: 2,
+                    background: "rgba(255,255,255,0.08)",
+                    '& fieldset': { border: "1px solid rgba(255,255,255,0.4)" },
+                    '&:hover fieldset': { borderColor: "white" },
+                    '&.Mui-focused fieldset': { borderColor: "white" }
                   },
                   '& .MuiInputBase-input::placeholder': {
-                    color: 'rgba(255, 255, 255, 0.7)',
+                    color: "rgba(255,255,255,0.7)",
                   },
                 }}
               />
-              <Button variant="contained" color="secondary" fullWidth sx={{ mt: 1, borderRadius: 3 }}>
+
+              <Button
+                variant="contained"
+                color="secondary"
+                fullWidth
+                sx={{
+                  mt: 1.5,
+                  py: 1,
+                  borderRadius: 2,
+                  fontWeight: 600,
+                  textTransform: "none",
+                }}
+              >
                 Subscribe
               </Button>
             </Box>
           </Grid>
         </Grid>
-        <Box sx={{ textAlign: 'center', mt: 4, pt: 4, borderTop: '1px solid rgba(255,255,255,0.3)' }}>
-          <Typography variant="body2">
-            &copy; {new Date().getFullYear()} LuxeTrail. All rights reserved.
+
+        {/* Bottom Bar */}
+        <Box
+          sx={{
+            textAlign: 'center',
+            mt: 6,
+            pt: 4,
+            borderTop: '1px solid rgba(255,255,255,0.25)',
+            opacity: 0.85
+          }}
+        >
+          <Typography variant="body2" sx={{ fontSize: '.9rem' }}>
+            &copy; {new Date().getFullYear()} LuxeTrail. All Rights Reserved.
           </Typography>
         </Box>
       </Container>

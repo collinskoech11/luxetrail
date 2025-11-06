@@ -24,7 +24,7 @@ import { styled } from '@mui/material/styles';
 
 const StyledAppBar = styled(MuiAppBar)(({ theme }) => ({
   // Modern App Bar Styling
-  backgroundColor: 'rgba(255, 255, 255, 0.85)', // Slight white background for contrast
+  backgroundColor: 'rgba(255, 255, 255, 0.45)', // Slight white background for contrast
   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)', // Subtle shadow for lift
   padding: theme.spacing(1, 0), // Reduced padding for a sleeker look
   backdropFilter: 'blur(10px)', // Enhanced blur for the 'glassmorphism' effect
@@ -174,26 +174,27 @@ const AppBar = () => {
         </Box>
         <Divider />
         <List>
-          {navLinks.map((link) => (
-            <ListItem key={link.to} disablePadding>
-              <ListItemButton
-                component={Link}
-                to={link.to}
-                spy={true}
-                smooth={true}
-                duration={500}
-                onClick={toggleDrawer(false)}
-                sx={{ '&:hover': { backgroundColor: 'action.hover' } }}
-              >
+          {navLinks.map((link, index) => (
+            <Link
+              to={link.to}
+              key={index}
+              spy={true}
+              smooth={true}
+              duration={500}
+              onClick={toggleDrawer(false)}
+              style={{ width: '100%', textDecoration: 'none' }}  // makes the whole button clickable
+            >
+              <ListItemButton sx={{ '&:hover': { backgroundColor: 'action.hover' } }}>
                 <ListItemText
                   primary={link.label}
                   primaryTypographyProps={{
-                    fontSize: 18, // Larger font size
-                    fontWeight: 700, // Bolder text in drawer
+                    fontSize: 18,
+                    fontWeight: 700,
                   }}
                 />
               </ListItemButton>
-            </ListItem>
+            </Link>
+
           ))}
         </List>
         <Box sx={{ textAlign: 'center', mt: 4, p: 2 }}>
