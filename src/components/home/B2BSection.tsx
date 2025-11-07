@@ -76,7 +76,7 @@ const B2BSection = () => {
       featured: true,
     },
     {
-      title: 'Custom',
+      title: 'B2B',
       description: 'Tailored programs for corporate partners and organizations.',
       price: 'Contact for Quote',
       features: [
