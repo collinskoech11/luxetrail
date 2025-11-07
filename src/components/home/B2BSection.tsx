@@ -48,33 +48,46 @@ const B2BSection = () => {
     {
       title: 'Basic',
       description: 'Ideal for individuals seeking a solid foundation in travel consultancy.',
+      price: '25,000 Ksh', // Added price
       features: [
-        'Access to core modules',
-        'Standard support',
-        'Online resources',
-        'In-person classes',
+        'Inbound tour consultancy basis',
+        'Formulation and customization of itineraries',
+        'Tour Costing',
+        'Starting and running a company',
+        'Tours business management',
+        'Customer Service',
+        'Marketing platforms',
       ],
       featured: false,
     },
     {
-      title: 'Professional',
+      title: 'Personalized',
       description: 'Advanced and comprehensive training for aspiring consultants.',
+      price: '45,000 Ksh',
       features: [
         'All Basic features',
-        'Advanced modules',
-        'Dedicated account manager',
-        'Customizable course content',
+        'Advanced modules (International Destinations, Niche Tourism)',
+        'Personalized mentorship (3x 1-on-1 sessions)',
+        'Dedicated career placement assistance',
+        'Access to premium online resources & tools',
+        'Priority support',
+        'Certificate of Advanced Travel Consultancy',
       ],
       featured: true,
     },
     {
       title: 'Custom',
       description: 'Tailored programs for corporate partners and organizations.',
+      price: 'Contact for Quote',
       features: [
-        'All Professional features',
-        'On-site training availability',
-        'Exclusive workshops',
-        'Strategic partnership options',
+        'All Personalized features',
+        'Tailored curriculum development',
+        'On-site training options for teams',
+        'Exclusive workshops & industry insights',
+        'Strategic partnership opportunities',
+        'Dedicated account management for organizations',
+        'Customizable reporting & analytics',
+        'Advanced certification for corporate teams',
       ],
       featured: false,
     },
@@ -156,13 +169,29 @@ const B2BSection = () => {
                         minHeight: 60,
                         color: 'text.secondary',
                         fontSize: '0.95rem',
+                        width:"100%",
+                        textAlign:"left"
                       }}
                     >
                       {plan.description}
                     </Typography>
 
+                    {/* Price (New) */}
+                    {plan.price && (
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          fontWeight: 700,
+                          mb: 3,
+                          color: 'primary.main',
+                        }}
+                      >
+                        {plan.price}
+                      </Typography>
+                    )}
+
                     {/* Features */}
-                    <List sx={{ textAlign: 'left', mb: 3 }}>
+                    <List sx={{ textAlign: 'left', mb: 1 }}>
                       {plan.features.map((feature, idx) => (
                         <ListItem key={idx} disableGutters>
                           <ListItemIcon sx={{ minWidth: 32 }}>

@@ -77,15 +77,30 @@ const TrainingSection = () => {
                   Our Comprehensive Training Programs
                 </Typography>
 
-                {/* <Typography
+                <Typography
                   variant="body1"
                   paragraph
-                  sx={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'text.secondary' }}
+                  sx={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'text.primary', mb: 2 }}
                 >
-                  Unlock your potential in the tourism industry with our
-                  expertly designed training programs. We focus on practical,
-                  real-world skills to accelerate your career.
-                </Typography> */}
+                  Calling on all tourism students, graduates and anyone interested in joining the tours and travel industry to enroll with Luxetrail consultancy.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  paragraph
+                  sx={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'text.primary', mb: 2 }}
+                >
+                  We aim to equip you with practical knowledge and skills to be employed/ earn you a promotion as an inbound tours and travel consultant and start your own tours and travel company.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  paragraph
+                  sx={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'text.primary', mb: 2 }}
+                >
+                  It is a one month course with both virtual and physical classes.
+                  Virtual- Monday and Wednesdays 7:30pm- 8:30 pm.
+                  Physical - Saturday 9-11 am.
+                </Typography>
+                
 
                 <List sx={{ mt: 2 }}>
                   {[

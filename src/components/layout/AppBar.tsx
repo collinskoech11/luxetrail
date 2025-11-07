@@ -84,6 +84,7 @@ const AppBar = () => {
     { to: 'hero', label: 'Home' },
     { to: 'about', label: 'About' },
     { to: 'training', label: 'Our Programs' },
+    { to: 'course-details', label: 'Course Details' }, // New link
     { to: 'hire', label: 'Hire' },
     { to: 'reviews', label: 'Reviews' },
     { to: 'book', label: 'Book' },
