@@ -33,20 +33,20 @@ const AboutSection = () => {
     <SectionWrapper>
       <Container maxWidth="lg">
         <Grid container spacing={6} alignItems="center">
-          
+
           {/* Image */}
           <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center' }}>
-              <TiltCard maxTilt={15}>
-            <Fade in timeout={800}>
-              <ImageWrapper>
-                <img
-                  src="https://res.cloudinary.com/dqokryv6u/image/upload/v1762511732/WhatsApp_Image_2025-11-07_at_13.34.49_wozdo7.jpg"
-                  alt="About LuxeTrail Consultancy"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-              </ImageWrapper>
-            </Fade>
-              </TiltCard>
+            <TiltCard maxTilt={15}>
+              <Fade in timeout={800}>
+                <ImageWrapper>
+                  <img
+                    src="https://res.cloudinary.com/dqokryv6u/image/upload/v1762511732/WhatsApp_Image_2025-11-07_at_13.34.49_wozdo7.jpg"
+                    alt="About LuxeTrail Consultancy"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </ImageWrapper>
+              </Fade>
+            </TiltCard>
           </Grid>
 
           {/* Text Content */}
@@ -94,18 +94,19 @@ const AboutSection = () => {
                       fontSize: '1.05rem',
                       fontWeight: 600,
                       textTransform: 'none',
-                      background: 'linear-gradient(135deg, #0052D4 0%, #4364F7 50%, #6FB1FC 100%)',
-                      boxShadow: '0 8px 20px rgba(67,100,247,0.25)',
+                      background: 'linear-gradient(135deg, #10363b 0%, #18585f 50%, #1f7078 100%)',
+                      boxShadow: '0 8px 20px rgba(16, 54, 59, 0.25)',
                       transition: 'all 0.3s ease',
                       '&:hover': {
                         transform: 'translateY(-3px)',
-                        boxShadow: '0 12px 30px rgba(67,100,247,0.35)',
-                        background: 'linear-gradient(135deg, #0040ad 0%, #3552d6 50%, #5da1f6 100%)',
+                        background: 'linear-gradient(135deg, #0d2c30 0%, #14494f 50%, #1b6269 100%)',
+                        boxShadow: '0 12px 30px rgba(16, 54, 59, 0.35)',
                       },
                     }}
                   >
                     Learn More
                   </Button>
+
                 </ScrollLink>
               </Box>
             </Fade>

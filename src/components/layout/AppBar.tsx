@@ -84,6 +84,7 @@ const AppBar = () => {
     { to: 'hero', label: 'Home' },
     { to: 'about', label: 'About' },
     { to: 'training', label: 'Our Programs' },
+    { to: 'course-details', label: 'Course Details' }, // New link
     { to: 'hire', label: 'Hire' },
     { to: 'reviews', label: 'Reviews' },
     { to: 'book', label: 'Book' },
@@ -104,7 +105,7 @@ const AppBar = () => {
                 sx={{
                   fontWeight: 800,
                   letterSpacing: 2,
-                  background: "linear-gradient(90deg, #0d47a1, #ff8f00)",
+                  background: "linear-gradient(90deg, #10363b, #ff8f00)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   fontFamily: "'Montserrat', sans-serif", // ✅ Modern strong brand font

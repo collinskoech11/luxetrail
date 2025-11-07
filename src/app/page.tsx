@@ -3,6 +3,7 @@ import React from 'react';
 import HeroSection from '@/components/home/HeroSection';
 import AboutSection from '@/components/home/AboutSection';
 import TrainingSection from '@/components/home/TrainingSection';
+import CourseDetailsSection from '@/components/home/CourseDetailsSection';
 import B2BSection from '@/components/home/B2BSection';
 import HireConsultantSection from '@/components/home/HireConsultantSection';
 import AdvertiseSection from '@/components/home/AdvertiseSection';
@@ -28,6 +29,11 @@ export default function Page() {
       <div id="training">
         <ScrollAnimation>
           <TrainingSection />
+        </ScrollAnimation>
+      </div>
+      <div id="course-details">
+        <ScrollAnimation>
+          <CourseDetailsSection />
         </ScrollAnimation>
       </div>
       <div id="b2b">

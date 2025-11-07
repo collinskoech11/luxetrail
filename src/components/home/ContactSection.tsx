@@ -36,7 +36,7 @@ const ContactSection = () => {
           sx={{
             fontSize: { xs: '1.9rem', sm: '2.4rem', md: '3rem' },
             fontWeight: 700,
-            color: 'text.primary',
+            color: '#10363b',
             mb: 2,
           }}
         >
@@ -145,6 +145,14 @@ const ContactSection = () => {
             </Box>
           </Card>
         </Box>
+
+        <Typography
+          variant="body1"
+          paragraph
+          sx={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'text.primary', mb: 2 }}
+        >
+          We are located at Norwich Union House, 6th floor. Call/ DM/visit us for more information.
+        </Typography>
 
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           DM or email us for rates and partnership inquiries.

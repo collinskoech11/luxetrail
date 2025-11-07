@@ -54,7 +54,7 @@ const TrainingSection = () => {
     <SectionWrapper>
       <Container maxWidth="lg">
         <Grid container spacing={6} alignItems="center">
-          
+
           {/* Left Column: Text */}
           <Grid item xs={12} md={6}>
             <Fade in timeout={800}>
@@ -77,15 +77,30 @@ const TrainingSection = () => {
                   Our Comprehensive Training Programs
                 </Typography>
 
-                {/* <Typography
+                <Typography
                   variant="body1"
                   paragraph
-                  sx={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'text.secondary' }}
+                  sx={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'text.primary', mb: 2 }}
                 >
-                  Unlock your potential in the tourism industry with our
-                  expertly designed training programs. We focus on practical,
-                  real-world skills to accelerate your career.
-                </Typography> */}
+                  Calling on all tourism students, graduates and anyone interested in joining the tours and travel industry to enroll with Luxetrail consultancy.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  paragraph
+                  sx={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'text.primary', mb: 2 }}
+                >
+                  We aim to equip you with practical knowledge and skills to be employed/ earn you a promotion as an inbound tours and travel consultant and start your own tours and travel company.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  paragraph
+                  sx={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'text.primary', mb: 2 }}
+                >
+                  It is a one month course with both virtual and physical classes.
+                  Virtual- Monday and Wednesdays 7:30pm- 8:30 pm.
+                  Physical - Saturday 9-11 am.
+                </Typography>
+                
 
                 <List sx={{ mt: 2 }}>
                   {[
@@ -136,20 +151,25 @@ const TrainingSection = () => {
                       fontSize: '1.05rem',
                       fontWeight: 600,
                       textTransform: 'none',
-                      background:
-                        'linear-gradient(135deg, #0A58CA 0%, #1C7ED6 60%, #4DABF7 100%)',
-                      boxShadow: '0 8px 20px rgba(28, 126, 214, 0.25)',
+
+                      // ✅ New deep teal gradient
+                      background: 'linear-gradient(135deg, #10363b 0%, #18585f 60%, #1f7078 100%)',
+                      boxShadow: '0 8px 20px rgba(16, 54, 59, 0.25)',
+
                       transition: 'all 0.3s ease',
+
                       '&:hover': {
                         transform: 'translateY(-3px)',
-                        background:
-                          'linear-gradient(135deg, #0949a5 0%, #176ab9 60%, #3c9ae6 100%)',
-                        boxShadow: '0 12px 26px rgba(28, 126, 214, 0.35)',
+
+                        // ✅ Slightly darker hover gradient
+                        background: 'linear-gradient(135deg, #0d2c30 0%, #14494f 60%, #1b6269 100%)',
+                        boxShadow: '0 12px 26px rgba(16, 54, 59, 0.35)',
                       },
                     }}
                   >
                     Join Our Next Training Session
                   </Button>
+
                 </Link>
               </Box>
             </Fade>

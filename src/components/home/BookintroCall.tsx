@@ -138,7 +138,7 @@ export default function BookIntroCall() {
               textAlign: "center",
               fontWeight: 700,
               fontSize: { xs: "1.8rem", md: "2.8rem" },
-              background: "linear-gradient(90deg,#0d47a1,#00acc1)",
+              background: "linear-gradient(90deg,#ff8f00,#fff)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
