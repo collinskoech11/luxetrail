@@ -17,6 +17,7 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/poppins": "^5.2.7",
+    "@formspree/react": "^3.0.0",
     "@mui/icons-material": "^5.15.20",
     "@mui/material": "^5.15.20",
     "@mui/x-date-pickers": "^8.17.0",

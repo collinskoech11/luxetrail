@@ -23,6 +23,8 @@ const ConsultantCard = styled(motion(Card))(({ theme }) => ({
   },
 }));
 
+import Link from 'next/link';
+
 const HireConsultantSection = () => {
   const consultants = [
     {
@@ -98,6 +100,13 @@ const HireConsultantSection = () => {
             </Grid>
           ))}
         </Grid>
+        <Box sx={{ textAlign: 'center', mt: 6 }}>
+          <Link href="/request-access" passHref>
+            <Button variant="contained" size="large">
+              Request Access to Our Consultant Database
+            </Button>
+          </Link>
+        </Box>
       </Container>
     </SectionWrapper>
   );

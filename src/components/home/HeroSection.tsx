@@ -76,18 +76,19 @@ export default function HeroSection() {
       <Box
         sx={{
           position: "relative",
-          height: { xs: "115vh", md: "110vh" },
+          height: { xs: "115vh", md: "100vh" },
           backgroundImage: `url(${slides[currentSlide].image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundAttachment: "fixed",
           transition: "background-image 1s ease-in-out",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           color: "white",
           textAlign: "center",
-          pt: 15,
-          pb: 15,
+          pt: 0,
+          pb: 0,
         }}
       >
         <Box
