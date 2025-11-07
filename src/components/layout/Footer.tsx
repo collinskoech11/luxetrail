@@ -49,17 +49,38 @@ const Footer = () => {
         <Grid container spacing={6}>
           {/* Brand Column */}
           <Grid item xs={12} md={4}>
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: 700,
-                letterSpacing: "2px",
-                mb: 2,
-                fontSize: { xs: "1.6rem", md: "2rem" }
-              }}
-            >
-              LUXETRAIL
-            </Typography>
+            <Box sx={{ mb:2 }}>
+              {/* Main Brand Name */}
+              <Typography
+                variant="h5"
+                component="div"
+                sx={{
+                  fontWeight: 800,
+                  letterSpacing: 2,
+                  background: "linear-gradient(90deg, #ffffffff, #ff8f00)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  fontFamily: "'Montserrat', sans-serif", // ✅ Modern strong brand font
+                }}
+              >
+                LUXETRAIL
+              </Typography>
+
+              {/* Subtext (Consultancy) */}
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  mt: -0.3,
+                  letterSpacing: 3,
+                  fontSize: "0.65rem",
+                  opacity: 0.85,
+                  fontFamily: "'Playfair Display', Poppins", // ✅ Elegant contrast font
+                  color: "#ffffffff", // Subtle orange to match gradient
+                }}
+              >
+                CONSULTANCY
+              </Typography>
+            </Box>
 
             <Typography
               variant="body1"

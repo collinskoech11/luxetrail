@@ -306,6 +306,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource/montserrat@npm:^5.2.8":
+  version: 5.2.8
+  resolution: "@fontsource/montserrat@npm:5.2.8"
+  checksum: 10c0/a38ebdebbc4c14f9b48deb15609323b7125da76214e765c83fac879ffcc577abf4ce06a47d5a712d42b3116658a395e18beb6d360e7d73417ec197e21194870e
+  languageName: node
+  linkType: hard
+
+"@fontsource/playfair-display@npm:^5.2.8":
+  version: 5.2.8
+  resolution: "@fontsource/playfair-display@npm:5.2.8"
+  checksum: 10c0/9802f1928bf01fb15428fa3f579bc06d05ab44a70d4e9ba372c58e856598a8766595816c0fdfd536888f6d9dcef13be1365335f40ffa17025f483eb1a7c656f3
+  languageName: node
+  linkType: hard
+
 "@fontsource/poppins@npm:^5.2.7":
   version: 5.2.7
   resolution: "@fontsource/poppins@npm:5.2.7"
@@ -1338,6 +1352,8 @@ __metadata:
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.0"
     "@fontsource/inter": "npm:^5.2.8"
+    "@fontsource/montserrat": "npm:^5.2.8"
+    "@fontsource/playfair-display": "npm:^5.2.8"
     "@fontsource/poppins": "npm:^5.2.7"
     "@formspree/react": "npm:^3.0.0"
     "@mui/icons-material": "npm:^5.15.20"
