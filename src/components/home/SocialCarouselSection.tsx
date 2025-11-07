@@ -91,13 +91,16 @@ export const SocialCarouselSection = () => {
             fontWeight: 700,
             fontSize: { xs: "1.9rem", md: "3rem" },
             mb: 2,
-            background: "linear-gradient(90deg, #0d47a1 0%, #00acc1 100%)",
+
+            // ✅ Deep teal gradient
+            background: "linear-gradient(90deg, #10363b 0%, #1b6269 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}
         >
           Our Journey in Action
         </Typography>
+
 
         <Typography
           sx={{

@@ -54,7 +54,7 @@ const TrainingSection = () => {
     <SectionWrapper>
       <Container maxWidth="lg">
         <Grid container spacing={6} alignItems="center">
-          
+
           {/* Left Column: Text */}
           <Grid item xs={12} md={6}>
             <Fade in timeout={800}>
@@ -136,20 +136,25 @@ const TrainingSection = () => {
                       fontSize: '1.05rem',
                       fontWeight: 600,
                       textTransform: 'none',
-                      background:
-                        'linear-gradient(135deg, #0A58CA 0%, #1C7ED6 60%, #4DABF7 100%)',
-                      boxShadow: '0 8px 20px rgba(28, 126, 214, 0.25)',
+
+                      // ✅ New deep teal gradient
+                      background: 'linear-gradient(135deg, #10363b 0%, #18585f 60%, #1f7078 100%)',
+                      boxShadow: '0 8px 20px rgba(16, 54, 59, 0.25)',
+
                       transition: 'all 0.3s ease',
+
                       '&:hover': {
                         transform: 'translateY(-3px)',
-                        background:
-                          'linear-gradient(135deg, #0949a5 0%, #176ab9 60%, #3c9ae6 100%)',
-                        boxShadow: '0 12px 26px rgba(28, 126, 214, 0.35)',
+
+                        // ✅ Slightly darker hover gradient
+                        background: 'linear-gradient(135deg, #0d2c30 0%, #14494f 60%, #1b6269 100%)',
+                        boxShadow: '0 12px 26px rgba(16, 54, 59, 0.35)',
                       },
                     }}
                   >
                     Join Our Next Training Session
                   </Button>
+
                 </Link>
               </Box>
             </Fade>

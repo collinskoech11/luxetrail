@@ -16,7 +16,7 @@ const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#0B3D91', // Deep Royal Blue
+      main: '#10363b', // New Accent Color
     },
     secondary: {
       main: '#F9A826', // Warm Gold
@@ -33,26 +33,32 @@ const theme = createTheme({
     h1: {
       fontFamily: ['Montserrat', 'Poppins', 'sans-serif'].join(','),
       fontWeight: 700,
+      color: '#10363b', // New accent color
     },
     h2: {
       fontFamily: ['Montserrat', 'Poppins', 'sans-serif'].join(','),
       fontWeight: 700,
+      color: '#10363b', // New accent color
     },
     h3: {
       fontFamily: ['Montserrat', 'Poppins', 'sans-serif'].join(','),
       fontWeight: 700,
+      color: '#10363b', // New accent color
     },
     h4: {
       fontFamily: ['Montserrat', 'Poppins', 'sans-serif'].join(','),
       fontWeight: 700,
+      color: '#10363b', // New accent color
     },
     h5: {
       fontFamily: ['Montserrat', 'Poppins', 'sans-serif'].join(','),
       fontWeight: 700,
+      color: '#10363b', // New accent color
     },
     h6: {
       fontFamily: ['Montserrat', 'Poppins', 'sans-serif'].join(','),
       fontWeight: 700,
+      color: '#10363b', // New accent color
     },
     body1: {
       fontFamily: ['Inter', 'sans-serif'].join(','),
@@ -96,12 +102,12 @@ const theme = createTheme({
           },
         },
         containedPrimary: {
-          background: 'linear-gradient(135deg, #0B3D91 0%, #1E63B3 100%)', // Gradient from primary
-          boxShadow: '0 4px 12px rgba(11, 61, 145, 0.3)',
+          background: 'linear-gradient(135deg, #10363b 0%, #1a5a63 100%)', // Gradient from new accent color
+          boxShadow: '0 4px 12px rgba(16, 54, 59, 0.3)',
           color: '#ffffff',
           '&:hover': {
-            boxShadow: '0 6px 18px rgba(11, 61, 145, 0.4)',
-            background: 'linear-gradient(135deg, #0A357A 0%, #1A5496 100%)', // Darker gradient on hover
+            boxShadow: '0 6px 18px rgba(16, 54, 59, 0.4)',
+            background: 'linear-gradient(135deg, #0a2a2e 0%, #15454a 100%)', // Darker gradient on hover
           },
         },
         containedSecondary: {

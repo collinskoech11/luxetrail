@@ -36,7 +36,7 @@ const ContactSection = () => {
           sx={{
             fontSize: { xs: '1.9rem', sm: '2.4rem', md: '3rem' },
             fontWeight: 700,
-            color: 'text.primary',
+            color: '#10363b',
             mb: 2,
           }}
         >

@@ -17,8 +17,8 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 const StyledFooter = styled(Box)(({ theme }) => ({
-  background: "linear-gradient(135deg, #0046a3 0%, #0a1b4f 100%)",
-  color: theme.palette.common.white,
+  background: "#10363b",
+  color: "#fff",
   padding: theme.spacing(10, 0),
   marginTop: theme.spacing(12),
   position: "relative",
@@ -26,7 +26,7 @@ const StyledFooter = styled(Box)(({ theme }) => ({
 }));
 
 const FooterLink = styled('span')(({ theme }) => ({
-  color: theme.palette.common.white,
+  color: "#fff",
   fontSize: '1rem',
   cursor: 'pointer',
   transition: 'all 0.3s ease',
@@ -35,7 +35,7 @@ const FooterLink = styled('span')(({ theme }) => ({
     transform: 'translateX(6px)',
   },
   '&.active': {
-    color: theme.palette.primary.main,
+    color: theme.palette.secondary.main, // Use secondary for active state contrast
     fontWeight: 700,
   },
 }));
@@ -82,9 +82,9 @@ const Footer = () => {
                   mt: -0.3,
                   letterSpacing: 3,
                   fontSize: "0.65rem",
-                  opacity: 0.85,
+                  opacity: 1, // Changed to 1 for full white
                   fontFamily: "'Playfair Display', Poppins", // ✅ Elegant contrast font
-                  color: "#ffffffff", // Subtle orange to match gradient
+                  color: "#fff", // Explicitly set to white
                 }}
               >
                 CONSULTANCY
@@ -93,7 +93,7 @@ const Footer = () => {
 
             <Typography
               variant="body1"
-              sx={{ opacity: 0.85, fontSize: { xs: ".95rem", md: "1rem" } }}
+              sx={{ opacity: 1, fontSize: { xs: ".95rem", md: "1rem" }, color: "#fff" }}
             >
               Shaping the Next Generation of Tour & Travel Consultants.
             </Typography>
@@ -103,7 +103,7 @@ const Footer = () => {
           <Grid item xs={12} md={4}>
             <Typography
               variant="h6"
-              sx={{ mb: 2, fontSize: { xs: "1.2rem", md: "1.4rem" } }}
+              sx={{ mb: 2, fontSize: { xs: "1.2rem", md: "1.4rem" }, color:"#f9a926" }}
             >
               Quick Links
             </Typography>
@@ -141,7 +141,7 @@ const Footer = () => {
           <Grid item xs={12} md={4}>
             <Typography
               variant="h6"
-              sx={{ mb: 2, fontSize: { xs: "1.2rem", md: "1.4rem" } }}
+              sx={{ mb: 2, fontSize: { xs: "1.2rem", md: "1.4rem" }, color:"#f9a926" }}
             >
               Connect With Us
             </Typography>
@@ -171,7 +171,7 @@ const Footer = () => {
                 sx={{
                   border: "1px solid rgba(255,255,255,0.3)",
                   backdropFilter: "blur(4px)",
-                  backgroundColor: 'white',
+                  backgroundColor: 'transparent',
                   borderRadius: '50%',
                   width: 40,
                   height: 40,
@@ -208,13 +208,13 @@ const Footer = () => {
               </IconButton>
             </Box>
 
-            <Typography sx={{ mt: 2, opacity: 0.85 }}>
+            <Typography sx={{ mt: 2, opacity: 1, color: "#fff" }}>
               Email: info@luxetrailconsultancy.com
             </Typography>
 
             {/* Newsletter */}
             <Box sx={{ mt: 4 }}>
-              <Typography variant="h6" sx={{ mb: 1 }}>
+              <Typography variant="h6" sx={{ mb: 1, color:"#f9a926" }}>
                 Newsletter
               </Typography>
 
@@ -266,7 +266,7 @@ const Footer = () => {
             opacity: 0.85
           }}
         >
-          <Typography variant="body2" sx={{ fontSize: '.9rem' }}>
+          <Typography variant="body2" sx={{ fontSize: '.9rem', opacity: 1, color: "#fff" }}>
             &copy; {new Date().getFullYear()} LuxeTrail. All Rights Reserved.
           </Typography>
         </Box>

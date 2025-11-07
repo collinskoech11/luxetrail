@@ -101,7 +101,6 @@ export default function HeroSection() {
         />
 
         <Container sx={{ position: "relative", zIndex: 2 }}>
-          {/* SLIDES */}
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -122,13 +121,15 @@ export default function HeroSection() {
                     mb: 2,
                     fontWeight: 700,
                     fontSize: { xs: "2.5rem", md: "4rem" },
-                    background: "linear-gradient(90deg, #0d47a1, #ff8f00)",
+                    background: "linear-gradient(90deg, #fff, #ff8f00)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
+                    // textShadow: "2px 5px 8px rgba(255,0,255,0.28)"
                   }}
                 >
                   {slides[currentSlide].title}
                 </Typography>
+
                 <Typography
                   variant="h6"
                   sx={{
