@@ -81,7 +81,7 @@ export default function HeroSection() {
           backgroundImage: `url(${slides[currentSlide].image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
+          backgroundAttachment: { xs: "scroll", md: "fixed" },
           transition: "background-image 1s ease-in-out",
           display: "flex",
           alignItems: "center",
