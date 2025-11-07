@@ -130,7 +130,7 @@ const ContactSection = () => {
                   },
                 }}
               >
-                <img src="/tiktoklogo.png" alt="TikTok" style={{ width: 22, height: 22 }} />
+                <img src="/tiktoklogo.png" alt="TikTok" style={{ width: 30, height: 30 }} />
               </IconButton>
 
               <IconButton
