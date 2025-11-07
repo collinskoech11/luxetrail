@@ -43,6 +43,7 @@ const Footer = () => {
     { to: 'about', label: 'About' },
     { to: 'training', label: 'Our Programs' },
     { to: 'hire', label: 'Hire' },
+    { to: 'reviews', label: 'Reviews' },
     { to: 'contact', label: 'Contact' },
   ];
 
@@ -123,7 +124,7 @@ const Footer = () => {
                 );
               })}
               <Link href="/reviews" passHref>
-                <FooterLink>Reviews</FooterLink>
+                <FooterLink>Add a Review</FooterLink>
               </Link>
             </Box>
           </Grid>

@@ -9,6 +9,7 @@ import AdvertiseSection from '@/components/home/AdvertiseSection';
 import { SocialCarouselSection } from '@/components/home/SocialCarouselSection';
 import BookSlotSection from '@/components/home/BookSlotSection';
 import ContactSection from '@/components/home/ContactSection';
+import ReviewsSection from '@/components/home/ReviewsSection';
 import ScrollAnimation from '@/components/ScrollAnimation';
 
 export default function Page() {
@@ -48,6 +49,11 @@ export default function Page() {
       <div id="book">
         <ScrollAnimation>
           <BookSlotSection />
+        </ScrollAnimation>
+      </div>
+      <div id="reviews">
+        <ScrollAnimation>
+          <ReviewsSection />
         </ScrollAnimation>
       </div>
       <div id="contact">

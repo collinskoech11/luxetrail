@@ -84,6 +84,7 @@ const AppBar = () => {
     { to: 'about', label: 'About' },
     { to: 'training', label: 'Our Programs' },
     { to: 'hire', label: 'Hire' },
+    { to: 'reviews', label: 'Reviews' },
     { to: 'book', label: 'Book' },
     { to: 'contact', label: 'Contact' },
   ];
@@ -150,9 +151,7 @@ const AppBar = () => {
                   </Link>
                 );
               })}
-              <Link href="/reviews" passHref>
-                <NavigationLink>Reviews</NavigationLink>
-              </Link>
+              
               {/* Modern Button Style */}
               <ScrollLink to="book">
                 <Button
@@ -248,17 +247,7 @@ const AppBar = () => {
               </Link>
             );
           })}
-          <Link href="/reviews" passHref>
-            <ListItemButton sx={{ '&:hover': { backgroundColor: 'action.hover' } }} onClick={toggleDrawer(false)}>
-              <ListItemText
-                primary="Reviews"
-                primaryTypographyProps={{
-                  fontSize: 18,
-                  fontWeight: 700,
-                }}
-              />
-            </ListItemButton>
-          </Link>
+          
         </List>
         <Box sx={{ textAlign: 'center', mt: 4, p: 2 }}>
           <ScrollLink to="book">
