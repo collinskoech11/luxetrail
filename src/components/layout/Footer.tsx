@@ -12,7 +12,8 @@ import {
 import { styled } from '@mui/material/styles';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Link } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
+import Link from 'next/link';
 
 const StyledFooter = styled(Box)(({ theme }) => ({
   background: "linear-gradient(135deg, #0046a3 0%, #0a1b4f 100%)",
@@ -101,7 +102,7 @@ const Footer = () => {
 
             <Box display="flex" flexDirection="column" gap={1.2}>
               {quickLinks.map(link => (
-                <Link
+                <ScrollLink
                   key={link.to}
                   to={link.to}
                   spy={true}
@@ -110,8 +111,11 @@ const Footer = () => {
                   offset={-80}
                 >
                   <FooterLink>{link.label}</FooterLink>
-                </Link>
+                </ScrollLink>
               ))}
+              <Link href="/reviews" passHref>
+                <FooterLink>Reviews</FooterLink>
+              </Link>
             </Box>
           </Grid>
 

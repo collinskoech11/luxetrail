@@ -15,7 +15,8 @@ import {
   ListItemText,
   Divider,
 } from '@mui/material';
-import { Link } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
+import Link from 'next/link';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { styled } from '@mui/material/styles';
@@ -128,7 +129,7 @@ const AppBar = () => {
             {/* Desktop Navigation */}
             <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
               {navLinks.map((link) => (
-                <Link
+                <ScrollLink
                   key={link.to}
                   to={link.to}
                   spy={true}
@@ -138,10 +139,13 @@ const AppBar = () => {
                   offset={-80}
                 >
                   <NavigationLink>{link.label}</NavigationLink>
-                </Link>
+                </ScrollLink>
               ))}
+              <Link href="/reviews" passHref>
+                <NavigationLink>Reviews</NavigationLink>
+              </Link>
               {/* Modern Button Style */}
-              <Link to="book">
+              <ScrollLink to="book">
                 <Button
                   variant="contained"
                   sx={{
@@ -150,7 +154,7 @@ const AppBar = () => {
                 >
                   Book a Slot
                 </Button>
-              </Link>
+              </ScrollLink>
             </Box>
 
             {/* Mobile Menu Button */}
@@ -198,7 +202,7 @@ const AppBar = () => {
         <Divider />
         <List>
           {navLinks.map((link, index) => (
-            <Link
+            <ScrollLink
               to={link.to}
               key={index}
               spy={true}
@@ -218,12 +222,23 @@ const AppBar = () => {
                   }}
                 />
               </ListItemButton>
-            </Link>
+            </ScrollLink>
 
           ))}
+          <Link href="/reviews" passHref>
+            <ListItemButton sx={{ '&:hover': { backgroundColor: 'action.hover' } }} onClick={toggleDrawer(false)}>
+              <ListItemText
+                primary="Reviews"
+                primaryTypographyProps={{
+                  fontSize: 18,
+                  fontWeight: 700,
+                }}
+              />
+            </ListItemButton>
+          </Link>
         </List>
         <Box sx={{ textAlign: 'center', mt: 4, p: 2 }}>
-          <Link to="book">
+          <ScrollLink to="book">
             <Button
               variant="contained"
               fullWidth
@@ -231,7 +246,7 @@ const AppBar = () => {
             >
               Book a Slot
             </Button>
-          </Link>
+          </ScrollLink>
         </Box>
       </Drawer>
     </>
