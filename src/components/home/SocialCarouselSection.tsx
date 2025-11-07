@@ -59,17 +59,17 @@ const SocialCard = styled(Box)(({ theme }) => ({
 // Carousel duplicated list
 
 const socialPosts = [
+  { id: 8, type: 'video', videoUrl: 'https://res.cloudinary.com/dqokryv6u/video/upload/v1762546688/WhatsApp_Video_2025-11-07_at_23.12.44_hkcyja.mp4', caption: '#TravelVideo' }, // New video post
+  { id: 10, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762547505/WhatsApp_Image_2025-11-07_at_23.21.18_xyn6j8.jpg', caption: '#ExploreMore' },
+  { id: 7, type: 'video', videoUrl: 'https://res.cloudinary.com/dqokryv6u/video/upload/v1762547511/WhatsApp_Video_2025-11-07_at_23.29.04_wr3xhm.mp4', caption: '#TravelVideo' }, // New video post
   { id: 1, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412173/luxetrail4_f8osfo.jpg', caption: '#TravelGoals' },
   { id: 2, type: 'tiktok', videoId: '7556512522497510667', caption: '#AdventureTime' },
   { id: 3, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762509704/WhatsApp_Image_2025-11-06_at_23.06.46_ha1hc5.jpg', caption: '#ExploreMore' },
   { id: 4, type: 'tiktok', videoId: '7550626003022843141', caption: '#Wanderlust' },
   { id: 5, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412170/luxetrail3_u7dtlo.jpg', caption: '#LuxeLife' },
   { id: 6, type: 'tiktok', videoId: '7529782280806468920', caption: '#Wanderlust' },
-  { id: 7, type: 'video', videoUrl: 'https://res.cloudinary.com/dqokryv6u/video/upload/v1762547511/WhatsApp_Video_2025-11-07_at_23.29.04_wr3xhm.mp4', caption: '#TravelVideo' }, // New video post
-  { id: 8, type: 'video', videoUrl: 'https://res.cloudinary.com/dqokryv6u/video/upload/v1762546688/WhatsApp_Video_2025-11-07_at_23.12.44_hkcyja.mp4', caption: '#TravelVideo' }, // New video post
   { id: 9, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762547504/WhatsApp_Image_2025-11-07_at_23.25.11_at3rgb.jpg', caption: '#ExploreMore' },
   { id: 9, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762547504/WhatsApp_Image_2025-11-07_at_23.29.04_azvhgm.jpg', caption: '#ExploreMore' },
-  { id: 10, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762547505/WhatsApp_Image_2025-11-07_at_23.21.18_xyn6j8.jpg', caption: '#ExploreMore' },
 ];
 
 const duplicatedPosts = [...socialPosts, ...socialPosts];

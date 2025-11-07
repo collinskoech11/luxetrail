@@ -105,7 +105,7 @@ export default function BookIntroCall() {
               color: "white",
             }}
           >
-            Thanks for your submission!
+            Thanks for your submission, our team will reach out to you shortly.
           </Typography>
         </Container>
       </Box>
