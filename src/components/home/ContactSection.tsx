@@ -107,7 +107,7 @@ const ContactSection = () => {
             <Box>
               <IconButton
                 color="primary"
-                href="https://instagram.com/luxetrail"
+                href="https://www.instagram.com/luxetrail_consultancy/"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{ mx: 1 }}

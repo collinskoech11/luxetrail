@@ -24,6 +24,7 @@
     "@types/node": "^24.3.0",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
+    "canvas-confetti": "^1.9.4",
     "date-fns": "^4.1.0",
     "dayjs": "^1.11.19",
     "framer-motion": "^12.23.24",
@@ -37,6 +38,7 @@
   },
   "packageManager": "yarn@4.9.2+sha512.1fc009bc09d13cfd0e19efa44cbfc2b9cf6ca61482725eb35bbc5e257e093ebf4130db6dfe15d604ff4b79efd8e1e8e99b25fa7d0a6197c9f9826358d4d65c3c",
   "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
     "@types/react-scroll": "^1.8.10"
   }
 }

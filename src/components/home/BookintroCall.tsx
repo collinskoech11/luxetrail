@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Box, Button, Typography, Container, TextField } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -8,6 +8,7 @@ import { DatePicker, TimePicker } from "@mui/x-date-pickers";
 import { motion } from "framer-motion";
 import dayjs, { Dayjs } from "dayjs";
 import { useForm, ValidationError } from '@formspree/react';
+import confetti from 'canvas-confetti';
 
 export default function BookIntroCall() {
   const [state, handleSubmit] = useForm("mdkpqrnd");
@@ -16,6 +17,29 @@ export default function BookIntroCall() {
 
   const [openDate, setOpenDate] = useState(false);
   const [openTime, setOpenTime] = useState(false);
+
+  useEffect(() => {
+    if (state.succeeded) {
+      confetti({
+        particleCount: 180,
+        spread: 90,
+        origin: { y: 0.4 },
+      });
+
+      setTimeout(() => {
+        confetti({
+          particleCount: 120,
+          spread: 120,
+          origin: { x: 0.2, y: 0.4 },
+        });
+        confetti({
+          particleCount: 120,
+          spread: 120,
+          origin: { x: 0.8, y: 0.4 },
+        });
+      }, 300);
+    }
+  }, [state.succeeded]);
 
   const inputStyles = {
     background: "transparent",
@@ -34,28 +58,28 @@ export default function BookIntroCall() {
     left: "50% !important",
     transform: "translate(-50%, -50%) !important",
     m: "auto",
-      "@media (max-width:600px)": {
-    top: "40% !important",        // ⬆ moves slightly higher
-    width: "95% !important",      // ✅ full-width mobile
-    left: "50% !important",
-    transform: "translate(-50%, -40%) !important",
-  },
+    "@media (max-width:600px)": {
+      top: "40% !important",        // ⬆ moves slightly higher
+      width: "95% !important",      // ✅ full-width mobile
+      left: "50% !important",
+      transform: "translate(-50%, -40%) !important",
+    },
 
   };
 
 
   const centeredPaperDesk = {
     transform: "translate(150%, 150%) !important",
-        top: "150% !important",
+    top: "150% !important",
     left: "150% !important",
     position: "fixed",
     m: "auto",
-      "@media (max-width:600px)": {
-    // top: "40% !important",        // ⬆ moves slightly higher
-    width: "95% !important",      // ✅ full-width mobile
-    // left: "50% !important",
-    // transform: "translate(-50%, -40%) !important",
-  },
+    "@media (max-width:600px)": {
+      // top: "40% !important",        // ⬆ moves slightly higher
+      width: "95% !important",      // ✅ full-width mobile
+      // left: "50% !important",
+      // transform: "translate(-50%, -40%) !important",
+    },
 
   };
 
@@ -204,30 +228,35 @@ export default function BookIntroCall() {
 
             {date && time && (
               <>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: { xs: "column", md: "row" },
-                    gap: 3,
-                    mb: 2,
-                  }}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
                 >
-                  <TextField name="fullName" label="Full Name" fullWidth sx={inputStyles} required />
-                  <ValidationError prefix="FullName" field="fullName" errors={state.errors} />
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: { xs: "column", md: "row" },
+                      gap: 3,
+                      mb: 2,
+                    }}
+                  >
+                    <TextField name="fullName" label="Full Name" fullWidth sx={inputStyles} required />
+                    <ValidationError prefix="FullName" field="fullName" errors={state.errors} />
 
-                  <TextField name="phoneNumber" label="Phone Number" fullWidth sx={inputStyles} required />
-                  <ValidationError prefix="PhoneNumber" field="phoneNumber" errors={state.errors} />
-                </Box>
-
-                <TextField
-                  name="email"
-                  label="Email Address"
-                  type="email"
-                  fullWidth
-                  sx={{ ...inputStyles, mb: 3 }}
-                  required
-                />
-                <ValidationError prefix="Email" field="email" errors={state.errors} />
+                    <TextField name="phoneNumber" label="Phone Number" fullWidth sx={inputStyles} required />
+                    <ValidationError prefix="PhoneNumber" field="phoneNumber" errors={state.errors} />
+                  </Box>
+                  <TextField
+                    name="email"
+                    label="Email Address"
+                    type="email"
+                    fullWidth
+                    sx={{ ...inputStyles, mb: 3 }}
+                    required
+                  />
+                  <ValidationError prefix="Email" field="email" errors={state.errors} />
+                </motion.div>
               </>
             )}
 

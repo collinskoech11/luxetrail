@@ -59,8 +59,9 @@ const SocialCard = styled(Box)(({ theme }) => ({
 // Carousel duplicated list
 const socialPosts = [
   { id: 1, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412173/luxetrail4_f8osfo.jpg', caption: '#TravelGoals' },
+  { id: 2, type: 'tiktok', videoUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762509704/WhatsApp_Image_2025-11-06_at_21.31.15_knl0ay.jpg', caption: '#AdventureTime' },
   { id: 2, type: 'tiktok', videoUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412172/luxetrail2_x1jd01.jpg', caption: '#AdventureTime' },
-  { id: 3, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412172/luxetrail6_tvdl2k.jpg', caption: '#ExploreMore' },
+  { id: 3, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762509704/WhatsApp_Image_2025-11-06_at_23.06.46_ha1hc5.jpg', caption: '#ExploreMore' },
   { id: 4, type: 'tiktok', videoUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412171/luxetrail5_pyg47z.jpg', caption: '#Wanderlust' },
   { id: 5, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412170/luxetrail3_u7dtlo.jpg', caption: '#LuxeLife' },
 ];
@@ -129,7 +130,7 @@ const SocialCarouselSection = () => {
         {/* Social media buttons */}
         <Box sx={{ mt: 7 }}>
           <IconButton
-            href="https://instagram.com/luxetrail"
+            href="https://www.instagram.com/luxetrail_consultancy/"
             target="_blank"
             sx={{
               mx: 1,

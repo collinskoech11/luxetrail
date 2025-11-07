@@ -106,7 +106,7 @@ const Footer = () => {
             <Box display="flex" gap={1}>
               <IconButton
                 color="inherit"
-                href="https://instagram.com"
+                href="https://www.instagram.com/luxetrail_consultancy/"
                 target="_blank"
                 sx={{
                   border: "1px solid rgba(255,255,255,0.3)",

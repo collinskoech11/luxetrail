@@ -1,6 +1,7 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import confetti from 'canvas-confetti';
 import {
   Box,
   Typography,
@@ -37,13 +38,48 @@ const BookSlotSection = () => {
   const [state, handleSubmit] = useForm("mdkpqrnd");
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
+    if (state.succeeded) {
+      confetti({
+        particleCount: 180,
+        spread: 90,
+        origin: { y: 0.4 },
+      });
+
+      setTimeout(() => {
+        confetti({
+          particleCount: 120,
+          spread: 120,
+          origin: { x: 0.2, y: 0.4 },
+        });
+        confetti({
+          particleCount: 120,
+          spread: 120,
+          origin: { x: 0.8, y: 0.4 },
+        });
+      }, 300);
+    }
+  }, [state.succeeded]);
+
+  useEffect(() => {
     if (state.succeeded || state.errors) {
       setSnackbarOpen(true);
     }
   }, [state.succeeded, state.errors]);
 
   const handleCloseSnackbar = () => setSnackbarOpen(false);
+
+  if (state.succeeded) {
+    return (
+        <SectionWrapper id="book-slot">
+            <Container maxWidth="lg">
+                <Typography variant="h4" component="h2" gutterBottom>
+                    Thanks for your submission!
+                </Typography>
+            </Container>
+        </SectionWrapper>
+    );
+  }
 
   return (
     <SectionWrapper id="book-slot">

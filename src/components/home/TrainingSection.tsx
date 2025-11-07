@@ -160,7 +160,7 @@ const TrainingSection = () => {
             <Fade in timeout={1100}>
               <ImageWrapper>
                 <img
-                  src="https://res.cloudinary.com/dqokryv6u/image/upload/v1762413066/luxebanner2_jr0tgg.png"
+                  src="https://dynamic-media.tacdn.com/media/photo-o/30/eb/c6/a9/caption.jpg?w=700&h=500&s=1"
                   alt="Training Session"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />

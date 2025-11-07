@@ -43,7 +43,7 @@ const HireConsultantSection = () => {
       skills: ['Logistics', 'Operations', 'Adventure Travel'],
       certification: 'Expert',
       availability: 'Available',
-      avatar: '/avatars/john-smith.jpg',
+      avatar: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762510566/WhatsApp_Image_2025-11-06_at_21.31.14_ecixmj.jpg',
       experience: 'Mid-Level',
       location: 'Mombasa',
     },
