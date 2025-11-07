@@ -117,7 +117,7 @@ export default function BookIntroCall() {
     <Box
       id="book-slot"
       sx={{
-        py: { xs: 4, md: 6 },
+        py: { xs: 2, md: 2 },
         mt: 4,
         backdropFilter: "blur(12px)",
         background: "rgba(255,255,255,0.12)",
@@ -136,7 +136,6 @@ export default function BookIntroCall() {
             variant="h3"
             sx={{
               textAlign: "center",
-              mb: 2,
               fontWeight: 700,
               fontSize: { xs: "1.8rem", md: "2.8rem" },
               background: "linear-gradient(90deg,#0d47a1,#00acc1)",

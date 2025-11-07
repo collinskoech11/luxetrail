@@ -15,9 +15,11 @@ import {
   ListItemText,
   Divider,
 } from '@mui/material';
-import { Link } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
+import Link from 'next/link';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { usePathname } from 'next/navigation';
 import { styled } from '@mui/material/styles';
 
 // --- Styled Components ---
@@ -71,6 +73,7 @@ const NavigationLink = styled('span')(({ theme }) => ({
 
 const AppBar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleDrawer = (open: boolean) => () => { // Added type for 'open'
     setDrawerOpen(open);
@@ -81,6 +84,7 @@ const AppBar = () => {
     { to: 'about', label: 'About' },
     { to: 'training', label: 'Our Programs' },
     { to: 'hire', label: 'Hire' },
+    { to: 'reviews', label: 'Reviews' },
     { to: 'book', label: 'Book' },
     { to: 'contact', label: 'Contact' },
   ];
@@ -127,21 +131,29 @@ const AppBar = () => {
 
             {/* Desktop Navigation */}
             <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
-              {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  activeClass="active"
-                  offset={-80}
-                >
-                  <NavigationLink>{link.label}</NavigationLink>
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isHomePage = pathname === '/';
+                return isHomePage ? (
+                  <ScrollLink
+                    key={link.to}
+                    to={link.to}
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    activeClass="active"
+                    offset={-80}
+                  >
+                    <NavigationLink>{link.label}</NavigationLink>
+                  </ScrollLink>
+                ) : (
+                  <Link key={link.to} href={`/#${link.to}`} passHref>
+                    <NavigationLink>{link.label}</NavigationLink>
+                  </Link>
+                );
+              })}
+              
               {/* Modern Button Style */}
-              <Link to="book">
+              <ScrollLink to="book">
                 <Button
                   variant="contained"
                   sx={{
@@ -150,7 +162,7 @@ const AppBar = () => {
                 >
                   Book a Slot
                 </Button>
-              </Link>
+              </ScrollLink>
             </Box>
 
             {/* Mobile Menu Button */}
@@ -197,33 +209,48 @@ const AppBar = () => {
         </Box>
         <Divider />
         <List>
-          {navLinks.map((link, index) => (
-            <Link
-              to={link.to}
-              key={index}
-              spy={true}
-              smooth={true}
-              duration={500}
-              onClick={toggleDrawer(false)}
-              style={{ width: '100%', textDecoration: 'none' }}  // makes the whole button clickable
-              activeClass="active"
-              offset={-80}
-            >
-              <ListItemButton sx={{ '&:hover': { backgroundColor: 'action.hover' } }}>
-                <ListItemText
-                  primary={link.label}
-                  primaryTypographyProps={{
-                    fontSize: 18,
-                    fontWeight: 700,
-                  }}
-                />
-              </ListItemButton>
-            </Link>
-
-          ))}
+          {navLinks.map((link, index) => {
+            const isHomePage = pathname === '/';
+            return isHomePage ? (
+              <ScrollLink
+                to={link.to}
+                key={index}
+                spy={true}
+                smooth={true}
+                duration={500}
+                onClick={toggleDrawer(false)}
+                style={{ width: '100%', textDecoration: 'none' }}  // makes the whole button clickable
+                activeClass="active"
+                offset={-80}
+              >
+                <ListItemButton sx={{ '&:hover': { backgroundColor: 'action.hover' } }}>
+                  <ListItemText
+                    primary={link.label}
+                    primaryTypographyProps={{
+                      fontSize: 18,
+                      fontWeight: 700,
+                    }}
+                  />
+                </ListItemButton>
+              </ScrollLink>
+            ) : (
+              <Link href={`/#${link.to}`} key={index} passHref>
+                <ListItemButton sx={{ '&:hover': { backgroundColor: 'action.hover' } }} onClick={toggleDrawer(false)}>
+                  <ListItemText
+                    primary={link.label}
+                    primaryTypographyProps={{
+                      fontSize: 18,
+                      fontWeight: 700,
+                    }}
+                  />
+                </ListItemButton>
+              </Link>
+            );
+          })}
+          
         </List>
         <Box sx={{ textAlign: 'center', mt: 4, p: 2 }}>
-          <Link to="book">
+          <ScrollLink to="book">
             <Button
               variant="contained"
               fullWidth
@@ -231,7 +258,7 @@ const AppBar = () => {
             >
               Book a Slot
             </Button>
-          </Link>
+          </ScrollLink>
         </Box>
       </Drawer>
     </>

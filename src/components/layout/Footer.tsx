@@ -12,7 +12,9 @@ import {
 import { styled } from '@mui/material/styles';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Link } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 const StyledFooter = styled(Box)(({ theme }) => ({
   background: "linear-gradient(135deg, #0046a3 0%, #0a1b4f 100%)",
@@ -35,11 +37,13 @@ const FooterLink = styled('span')(({ theme }) => ({
 }));
 
 const Footer = () => {
+  const pathname = usePathname();
   const quickLinks = [
     { to: 'hero', label: 'Home' },
     { to: 'about', label: 'About' },
     { to: 'training', label: 'Our Programs' },
     { to: 'hire', label: 'Hire' },
+    { to: 'reviews', label: 'Reviews' },
     { to: 'contact', label: 'Contact' },
   ];
 
@@ -100,18 +104,28 @@ const Footer = () => {
             </Typography>
 
             <Box display="flex" flexDirection="column" gap={1.2}>
-              {quickLinks.map(link => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  offset={-80}
-                >
-                  <FooterLink>{link.label}</FooterLink>
-                </Link>
-              ))}
+              {quickLinks.map(link => {
+                const isHomePage = pathname === '/';
+                return isHomePage ? (
+                  <ScrollLink
+                    key={link.to}
+                    to={link.to}
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    offset={-80}
+                  >
+                    <FooterLink>{link.label}</FooterLink>
+                  </ScrollLink>
+                ) : (
+                  <Link key={link.to} href={`/#${link.to}`} passHref>
+                    <FooterLink>{link.label}</FooterLink>
+                  </Link>
+                );
+              })}
+              <Link href="/reviews" passHref>
+                <FooterLink>Add a Review</FooterLink>
+              </Link>
             </Box>
           </Grid>
 
