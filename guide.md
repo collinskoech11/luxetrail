@@ -217,7 +217,7 @@ After submit:
 
 Show success toast/snackbar message.
 
-Send form data to backend endpoint or email (luxetrailconsultancy@gmail.com).
+Send form data to backend endpoint or email (info@luxetrailconsultancy.com).
 
 Optionally embed Calendly for direct slot selection.
 
@@ -230,7 +230,7 @@ Section headline: “Get in Touch.”
 
 Display:
 
-Email: luxetrailconsultancy@gmail.com
+Email: info@luxetrailconsultancy.com
 
 CTA: “Email Us”
 

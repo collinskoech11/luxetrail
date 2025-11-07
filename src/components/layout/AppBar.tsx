@@ -135,6 +135,7 @@ const AppBar = () => {
                   smooth={true}
                   duration={500}
                   activeClass="active"
+                  offset={-80}
                 >
                   <NavigationLink>{link.label}</NavigationLink>
                 </Link>
@@ -205,6 +206,8 @@ const AppBar = () => {
               duration={500}
               onClick={toggleDrawer(false)}
               style={{ width: '100%', textDecoration: 'none' }}  // makes the whole button clickable
+              activeClass="active"
+              offset={-80}
             >
               <ListItemButton sx={{ '&:hover': { backgroundColor: 'action.hover' } }}>
                 <ListItemText

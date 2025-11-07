@@ -142,25 +142,31 @@ const Footer = () => {
                 <InstagramIcon fontSize="medium" />
               </IconButton>
 
-              <IconButton
-                color="inherit"
-                href="https://www.tiktok.com/@luxetrail_consultancy"
-                target="_blank"
+              <Box
+                // color="inherit"
+                // href="https://www.tiktok.com/@luxetrail_consultancy"
+                // target="_blank"
                 sx={{
                   border: "1px solid rgba(255,255,255,0.3)",
                   backdropFilter: "blur(4px)",
                   backgroundColor: 'white',
                   borderRadius: '50%',
-                  // padding: '8px',
+                  width: 40,
+                  height: 40,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  padding: 0,
                   '&:hover': {
                     backgroundColor: "rgba(255,255,255,0.2)",
-                    transform: "scale(1.1)",
+                    // transform: "scale(1.1)",
                   },
                   transition: "0.3s ease"
                 }}
               >
-                <img src="/tiktoklogo.png" alt="TikTok" style={{ width: 18, height: 18 }} />
-              </IconButton>
+                <img src="/tiktoklogo.png" alt="TikTok" style={{ width: 36, height: 36 }} />
+              </Box>
 
               <IconButton
                 color="inherit"
@@ -181,7 +187,7 @@ const Footer = () => {
             </Box>
 
             <Typography sx={{ mt: 2, opacity: 0.85 }}>
-              Email: luxetrailconsultancy@gmail.com
+              Email: info@luxetrailconsultancy.com
             </Typography>
 
             {/* Newsletter */}
