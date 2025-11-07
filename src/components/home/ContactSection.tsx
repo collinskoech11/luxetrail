@@ -76,12 +76,12 @@ const ContactSection = () => {
             </Typography>
 
             <Typography variant="body1" sx={{ mb: 2, color: 'text.secondary' }}>
-              luxetrailconsultancy@gmail.com
+              info@luxetrailconsultancy.com
             </Typography>
 
             <Button
               component="a"
-              href="mailto:luxetrailconsultancy@gmail.com"
+              href="mailto:info@luxetrailconsultancy.com"
               variant="contained"
               color="primary"
               startIcon={<EmailIcon />}

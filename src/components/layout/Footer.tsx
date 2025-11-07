@@ -187,7 +187,7 @@ const Footer = () => {
             </Box>
 
             <Typography sx={{ mt: 2, opacity: 0.85 }}>
-              Email: luxetrailconsultancy@gmail.com
+              Email: info@luxetrailconsultancy.com
             </Typography>
 
             {/* Newsletter */}
