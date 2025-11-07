@@ -74,7 +74,7 @@ const BookSlotSection = () => {
         <SectionWrapper id="book-slot">
             <Container maxWidth="lg">
                 <Typography variant="h4" component="h2" gutterBottom>
-                    Thanks for your submission!
+                    Thanks for your submission, our team will reach out to you shortly.
                 </Typography>
             </Container>
         </SectionWrapper>
