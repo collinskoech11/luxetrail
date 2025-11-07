@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Typography,
@@ -34,10 +34,15 @@ const FooterLink = styled('span')(({ theme }) => ({
     opacity: 0.85,
     transform: 'translateX(6px)',
   },
+  '&.active': {
+    color: theme.palette.primary.main,
+    fontWeight: 700,
+  },
 }));
 
 const Footer = () => {
   const pathname = usePathname();
+  const [activeLink, setActiveLink] = useState('hero');
   const quickLinks = [
     { to: 'hero', label: 'Home' },
     { to: 'about', label: 'About' },
@@ -114,8 +119,11 @@ const Footer = () => {
                     smooth={true}
                     duration={500}
                     offset={-80}
+                    activeClass="active"
+                    onSetActive={(to) => setActiveLink(to)}
+                    onSetInactive={(to) => setActiveLink('')}
                   >
-                    <FooterLink>{link.label}</FooterLink>
+                    <FooterLink className={activeLink === link.to ? 'active' : ''}>{link.label}</FooterLink>
                   </ScrollLink>
                 ) : (
                   <Link key={link.to} href={`/#${link.to}`} passHref>

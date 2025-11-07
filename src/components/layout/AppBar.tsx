@@ -73,6 +73,7 @@ const NavigationLink = styled('span')(({ theme }) => ({
 
 const AppBar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState('hero');
   const pathname = usePathname();
 
   const toggleDrawer = (open: boolean) => () => { // Added type for 'open'
@@ -142,8 +143,10 @@ const AppBar = () => {
                     duration={500}
                     activeClass="active"
                     offset={-80}
+                    onSetActive={(to) => setActiveLink(to)}
+                    onSetInactive={(to) => setActiveLink('')}
                   >
-                    <NavigationLink>{link.label}</NavigationLink>
+                    <NavigationLink className={activeLink === link.to ? 'active' : ''}>{link.label}</NavigationLink>
                   </ScrollLink>
                 ) : (
                   <Link key={link.to} href={`/#${link.to}`} passHref>
@@ -222,6 +225,8 @@ const AppBar = () => {
                 style={{ width: '100%', textDecoration: 'none' }}  // makes the whole button clickable
                 activeClass="active"
                 offset={-80}
+                onSetActive={(to) => setActiveLink(to)}
+                onSetInactive={(to) => setActiveLink('')}
               >
                 <ListItemButton sx={{ '&:hover': { backgroundColor: 'action.hover' } }}>
                   <ListItemText
@@ -230,6 +235,7 @@ const AppBar = () => {
                       fontSize: 18,
                       fontWeight: 700,
                     }}
+                    className={activeLink === link.to ? 'active' : ''}
                   />
                 </ListItemButton>
               </ScrollLink>
