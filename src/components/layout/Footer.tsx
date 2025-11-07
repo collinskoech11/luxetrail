@@ -169,9 +169,9 @@ const Footer = () => {
                 // href="https://www.tiktok.com/@luxetrail_consultancy"
                 // target="_blank"
                 sx={{
-                  border: "1px solid rgba(255,255,255,0.3)",
+                  // border: "1px solid rgba(255,255,255,0.3)",
                   backdropFilter: "blur(4px)",
-                  backgroundColor: 'transparent',
+                  backgroundColor: '#fff',
                   borderRadius: '50%',
                   width: 40,
                   height: 40,
@@ -187,7 +187,7 @@ const Footer = () => {
                   transition: "0.3s ease"
                 }}
               >
-                <img src="/tiktoklogo.png" alt="TikTok" style={{ width: 36, height: 36 }} />
+                <img src="/tiktoklogo.png" alt="TikTok" style={{ width: 40, height: 40 }} />
               </Box>
 
               <IconButton
