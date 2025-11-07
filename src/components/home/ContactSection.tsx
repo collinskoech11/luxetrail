@@ -117,12 +117,20 @@ const ContactSection = () => {
 
               <IconButton
                 color="primary"
-                href="https://linkedin.com/company/luxetrail"
+                href="https://www.tiktok.com/@luxetrail_consultancy"
                 target="_blank"
                 rel="noopener noreferrer"
-                sx={{ mx: 1 }}
+                sx={{
+                  mx: 1,
+                  backgroundColor: 'white',
+                  borderRadius: '50%',
+                  padding: '8px',
+                  '&:hover': {
+                    backgroundColor: '#f0f0f0',
+                  },
+                }}
               >
-                <LinkedInIcon sx={{ fontSize: 38 }} />
+                <img src="/tiktoklogo.png" alt="TikTok" style={{ width: 22, height: 22 }} />
               </IconButton>
 
               <IconButton

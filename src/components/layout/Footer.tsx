@@ -123,6 +123,26 @@ const Footer = () => {
 
               <IconButton
                 color="inherit"
+                href="https://www.tiktok.com/@luxetrail_consultancy"
+                target="_blank"
+                sx={{
+                  border: "1px solid rgba(255,255,255,0.3)",
+                  backdropFilter: "blur(4px)",
+                  backgroundColor: 'white',
+                  borderRadius: '50%',
+                  // padding: '8px',
+                  '&:hover': {
+                    backgroundColor: "rgba(255,255,255,0.2)",
+                    transform: "scale(1.1)",
+                  },
+                  transition: "0.3s ease"
+                }}
+              >
+                <img src="/tiktoklogo.png" alt="TikTok" style={{ width: 18, height: 18 }} />
+              </IconButton>
+
+              <IconButton
+                color="inherit"
                 href="https://linkedin.com"
                 target="_blank"
                 sx={{

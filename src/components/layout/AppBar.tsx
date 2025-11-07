@@ -91,17 +91,39 @@ const AppBar = () => {
         <Container maxWidth="lg">
           <Toolbar disableGutters sx={{ justifyContent: 'space-between', minHeight: '64px' }}>
             {/* Brand - Made it bolder with a higher variant */}
+            <Box sx={{ textAlign: "center" }}>
+            {/* Main Brand Name */}
             <Typography
-              variant="h5" // Slightly larger for emphasis
+              variant="h5"
               component="div"
               sx={{
-                fontWeight: 800, // Extra bold logo
-                letterSpacing: 2, // Increased letter spacing
-                color: 'primary.main', // Give it a primary color pop
+                fontWeight: 800,
+                letterSpacing: 2,
+                background: "linear-gradient(90deg, #0d47a1, #ff8f00)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                fontFamily: "'Montserrat', sans-serif", // ✅ Modern strong brand font
               }}
             >
               LUXETRAIL
             </Typography>
+
+            {/* Subtext (Consultancy) */}
+            <Typography
+              variant="subtitle2"
+              sx={{
+                mt: -0.3,
+                letterSpacing: 3,
+                fontSize: "0.75rem",
+                opacity: 0.85,
+                fontFamily: "'Playfair Display', serif", // ✅ Elegant contrast font
+                color: "#ff8f00", // Subtle orange to match gradient
+              }}
+            >
+              CONSULTANCY
+            </Typography>
+          </Box>
+
 
             {/* Desktop Navigation */}
             <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>

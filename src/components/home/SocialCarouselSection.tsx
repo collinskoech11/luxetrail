@@ -176,6 +176,28 @@ export const SocialCarouselSection = () => {
           </IconButton>
 
           <IconButton
+            href="https://www.tiktok.com/@luxetrail_consultancy"
+            target="_blank"
+            sx={{
+              mx: 1,
+              p: 2,
+              backdropFilter: "blur(10px)",
+              background: "rgba(255,255,255,0.4)",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+              transition: "0.3s",
+              backgroundColor: 'white',
+              borderRadius: '50%',
+              padding: '20px',
+              '&:hover': {
+                backgroundColor: "rgba(255,255,255,0.7)",
+                transform: "translateY(-3px)",
+              },
+            }}
+          >
+            <img src="/tiktoklogo.png" alt="TikTok" style={{ width: 30, height: 30 }} />
+          </IconButton>
+
+          <IconButton
             href="https://linkedin.com/company/luxetrail"
             target="_blank"
             sx={{
