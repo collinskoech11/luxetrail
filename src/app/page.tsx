@@ -6,7 +6,7 @@ import TrainingSection from '@/components/home/TrainingSection';
 import B2BSection from '@/components/home/B2BSection';
 import HireConsultantSection from '@/components/home/HireConsultantSection';
 import AdvertiseSection from '@/components/home/AdvertiseSection';
-import SocialCarouselSection from '@/components/home/SocialCarouselSection';
+import { SocialCarouselSection } from '@/components/home/SocialCarouselSection';
 import BookSlotSection from '@/components/home/BookSlotSection';
 import ContactSection from '@/components/home/ContactSection';
 import ScrollAnimation from '@/components/ScrollAnimation';

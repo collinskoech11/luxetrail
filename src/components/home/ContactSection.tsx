@@ -124,6 +124,16 @@ const ContactSection = () => {
               >
                 <LinkedInIcon sx={{ fontSize: 38 }} />
               </IconButton>
+
+              <IconButton
+                color="primary"
+                href="https://linkedin.com/company/luxetrail"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{ mx: 1 }}
+              >
+                <LinkedInIcon sx={{ fontSize: 38 }} />
+              </IconButton>
             </Box>
           </Card>
         </Box>

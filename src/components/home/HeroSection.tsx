@@ -17,6 +17,7 @@ import { DesktopDatePicker, TimePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
 import BookIntroCall from "./BookintroCall";
+import TiltCard from "./HeroSection/TiltCard";
 
 const slides = [
   {
@@ -76,7 +77,7 @@ export default function HeroSection() {
       <Box
         sx={{
           position: "relative",
-          height: { xs: "115vh", md: "100vh" },
+          height: { xs: "100vh", md: "100vh" },
           backgroundImage: `url(${slides[currentSlide].image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -87,7 +88,7 @@ export default function HeroSection() {
           justifyContent: "center",
           color: "white",
           textAlign: "center",
-          pt: 0,
+          pt: 15,
           pb: 0,
         }}
       >
@@ -109,16 +110,21 @@ export default function HeroSection() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.8 }}
             >
+              <Box
+                sx={{
+                  minHeight: "220px",
+                }}
+              >
               <Typography
                 sx={{
                   fontWeight: 700,
+                  minHeight: "80px",
                   mb: 2,
                   fontSize: { xs: "2rem", md: "3.5rem" },
                 }}
               >
                 {slides[currentSlide].title}
               </Typography>
-
               <Typography
                 variant="h6"
                 sx={{
@@ -132,11 +138,13 @@ export default function HeroSection() {
               >
                 {slides[currentSlide].subtitle}
               </Typography>
+              </Box>
             </motion.div>
           </AnimatePresence>
 
           {/* CALL TO ACTION */}
           <Link to="book-slot" smooth={true} duration={500}>
+          <TiltCard maxTilt={15}>
             <Button
               variant="contained"
               color="primary"
@@ -154,6 +162,7 @@ export default function HeroSection() {
             >
               Enroll Now
             </Button>
+          </TiltCard>
           </Link>
 
           <BookIntroCall />
