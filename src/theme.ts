@@ -4,6 +4,13 @@ import '@fontsource/poppins/400.css';
 import '@fontsource/poppins/700.css';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/700.css';
+import '@fontsource/montserrat/300.css';
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/700.css';
+import '@fontsource/montserrat/800.css';
+import '@fontsource/playfair-display/400.css';
+import '@fontsource/playfair-display/500.css';
+import '@fontsource/playfair-display/600.css';
 
 const theme = createTheme({
   palette: {
@@ -24,27 +31,27 @@ const theme = createTheme({
   typography: {
     fontFamily: ['Inter', 'sans-serif'].join(','),
     h1: {
-      fontFamily: ['Poppins', 'sans-serif'].join(','),
+      fontFamily: ['Montserrat', 'Poppins', 'sans-serif'].join(','),
       fontWeight: 700,
     },
     h2: {
-      fontFamily: ['Poppins', 'sans-serif'].join(','),
+      fontFamily: ['Montserrat', 'Poppins', 'sans-serif'].join(','),
       fontWeight: 700,
     },
     h3: {
-      fontFamily: ['Poppins', 'sans-serif'].join(','),
+      fontFamily: ['Montserrat', 'Poppins', 'sans-serif'].join(','),
       fontWeight: 700,
     },
     h4: {
-      fontFamily: ['Poppins', 'sans-serif'].join(','),
+      fontFamily: ['Montserrat', 'Poppins', 'sans-serif'].join(','),
       fontWeight: 700,
     },
     h5: {
-      fontFamily: ['Poppins', 'sans-serif'].join(','),
+      fontFamily: ['Montserrat', 'Poppins', 'sans-serif'].join(','),
       fontWeight: 700,
     },
     h6: {
-      fontFamily: ['Poppins', 'sans-serif'].join(','),
+      fontFamily: ['Montserrat', 'Poppins', 'sans-serif'].join(','),
       fontWeight: 700,
     },
     body1: {

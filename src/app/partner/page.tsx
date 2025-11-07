@@ -8,7 +8,6 @@ import {
   Button,
   Container,
   TextField,
-  MenuItem,
   Snackbar,
   Alert,
 } from '@mui/material';
@@ -34,7 +33,7 @@ const FormWrapper = styled('form')(({ theme }) => ({
   border: `1px solid ${theme.palette.grey[300]}`,
 }));
 
-const BookSlotSection = () => {
+const PartnerPage = () => {
   const [state, handleSubmit] = useForm("mdkpqrnd");
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
 
@@ -61,7 +60,7 @@ const BookSlotSection = () => {
     }
   }, [state.succeeded]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (state.succeeded || state.errors) {
       setSnackbarOpen(true);
     }
@@ -71,7 +70,7 @@ const BookSlotSection = () => {
 
   if (state.succeeded) {
     return (
-        <SectionWrapper id="book-slot">
+        <SectionWrapper>
             <Container maxWidth="lg">
                 <Typography variant="h4" component="h2" gutterBottom>
                     Thanks for your submission!
@@ -82,7 +81,7 @@ const BookSlotSection = () => {
   }
 
   return (
-    <SectionWrapper id="book-slot">
+    <SectionWrapper>
       <Container maxWidth="lg">
         <Typography
           variant="h2"
@@ -95,7 +94,7 @@ const BookSlotSection = () => {
             letterSpacing: '-0.5px',
           }}
         >
-          Ready to Begin Your Journey?
+          Partner With Us
         </Typography>
 
         <Typography
@@ -108,7 +107,7 @@ const BookSlotSection = () => {
             margin: '0 auto',
           }}
         >
-          Reserve your slot for our next training or consultation — we’ll get in touch shortly.
+          Fill out the form below to get in touch with our partnership team.
         </Typography>
 
         <FormWrapper onSubmit={handleSubmit}>
@@ -122,6 +121,19 @@ const BookSlotSection = () => {
           <ValidationError
             prefix="FullName"
             field="fullName"
+            errors={state.errors}
+          />
+
+          <TextField
+            fullWidth
+            label="Company Name"
+            name="companyName"
+            margin="normal"
+            required
+          />
+          <ValidationError
+            prefix="CompanyName"
+            field="companyName"
             errors={state.errors}
           />
 
@@ -144,7 +156,6 @@ const BookSlotSection = () => {
             label="Phone Number"
             name="phoneNumber"
             margin="normal"
-            required
           />
           <ValidationError
             prefix="PhoneNumber"
@@ -154,49 +165,12 @@ const BookSlotSection = () => {
 
           <TextField
             fullWidth
-            select
-            label="Booking Type"
-            name="bookingType"
-            margin="normal"
-            defaultValue=""
-            required
-          >
-            <MenuItem value="" disabled>
-              <em>Select a type</em>
-            </MenuItem>
-            <MenuItem value="Training">Training</MenuItem>
-            <MenuItem value="Corporate">Corporate</MenuItem>
-            <MenuItem value="Hire Consultant">Hire Consultant</MenuItem>
-            <MenuItem value="Advertisement">Advertisement</MenuItem>
-          </TextField>
-          <ValidationError
-            prefix="BookingType"
-            field="bookingType"
-            errors={state.errors}
-          />
-
-          <TextField
-            fullWidth
-            label="Preferred Date & Time"
-            name="preferredDateTime"
-            type="datetime-local"
-            margin="normal"
-            InputLabelProps={{ shrink: true }}
-            required
-          />
-          <ValidationError
-            prefix="PreferredDateTime"
-            field="preferredDateTime"
-            errors={state.errors}
-          />
-
-          <TextField
-            fullWidth
-            label="Optional Message"
+            label="Message"
             name="message"
             multiline
             rows={4}
             margin="normal"
+            required
           />
           <ValidationError
             prefix="Message"
@@ -219,7 +193,7 @@ const BookSlotSection = () => {
               boxShadow: '0px 8px 25px rgba(0,0,0,0.15)',
             }}
           >
-            Book My Slot
+            Submit
           </Button>
         </FormWrapper>
 
@@ -230,7 +204,7 @@ const BookSlotSection = () => {
             sx={{ width: '100%' }}
           >
             {state.succeeded
-              ? 'Your booking request has been sent successfully!'
+              ? 'Your message has been sent successfully!'
               : 'An error occurred. Please try again.'}
           </Alert>
         </Snackbar>
@@ -239,5 +213,4 @@ const BookSlotSection = () => {
   );
 };
 
-export default BookSlotSection;
-
+export default PartnerPage;

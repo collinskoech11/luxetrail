@@ -107,12 +107,30 @@ const ContactSection = () => {
             <Box>
               <IconButton
                 color="primary"
-                href="https://instagram.com/luxetrail"
+                href="https://www.instagram.com/luxetrail_consultancy/"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{ mx: 1 }}
               >
                 <InstagramIcon sx={{ fontSize: 38 }} />
+              </IconButton>
+
+              <IconButton
+                color="primary"
+                href="https://www.tiktok.com/@luxetrail_consultancy"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  mx: 1,
+                  backgroundColor: 'white',
+                  borderRadius: '50%',
+                  padding: '8px',
+                  '&:hover': {
+                    backgroundColor: '#f0f0f0',
+                  },
+                }}
+              >
+                <img src="/tiktoklogo.png" alt="TikTok" style={{ width: 22, height: 22 }} />
               </IconButton>
 
               <IconButton

@@ -3,6 +3,7 @@ import React from 'react';
 import { Box, Typography, Grid, Button, Container, Fade } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Link as ScrollLink } from 'react-scroll';
+import TiltCard from './HeroSection/TiltCard';
 
 const SectionWrapper = styled(Box)(({ theme }) => ({
   padding: theme.spacing(12, 0),
@@ -35,15 +36,17 @@ const AboutSection = () => {
           
           {/* Image */}
           <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center' }}>
+              <TiltCard maxTilt={15}>
             <Fade in timeout={800}>
               <ImageWrapper>
                 <img
-                  src="https://res.cloudinary.com/dqokryv6u/image/upload/v1762412757/luxbanner_xlpsmq.png"
+                  src="https://res.cloudinary.com/dqokryv6u/image/upload/v1762511732/WhatsApp_Image_2025-11-07_at_13.34.49_wozdo7.jpg"
                   alt="About LuxeTrail Consultancy"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </ImageWrapper>
             </Fade>
+              </TiltCard>
           </Grid>
 
           {/* Text Content */}

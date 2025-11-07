@@ -15,8 +15,8 @@ const SectionWrapper = styled(Box)(({ theme }) => ({
 
 const SocialCard = styled(Box)(({ theme }) => ({
   position: "relative",
-  width: "280px",
-  height: "380px",
+  width: "380px",
+  height: "480px",
   flex: "0 0 auto",
   borderRadius: "20px",
   overflow: "hidden",
@@ -57,17 +57,30 @@ const SocialCard = styled(Box)(({ theme }) => ({
 }));
 
 // Carousel duplicated list
+
 const socialPosts = [
   { id: 1, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412173/luxetrail4_f8osfo.jpg', caption: '#TravelGoals' },
-  { id: 2, type: 'tiktok', videoUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412172/luxetrail2_x1jd01.jpg', caption: '#AdventureTime' },
-  { id: 3, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412172/luxetrail6_tvdl2k.jpg', caption: '#ExploreMore' },
-  { id: 4, type: 'tiktok', videoUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412171/luxetrail5_pyg47z.jpg', caption: '#Wanderlust' },
+  { id: 2, type: 'tiktok', videoId: '7556512522497510667', caption: '#AdventureTime' },
+  { id: 3, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762509704/WhatsApp_Image_2025-11-06_at_23.06.46_ha1hc5.jpg', caption: '#ExploreMore' },
+  { id: 4, type: 'tiktok', videoId: '7550626003022843141', caption: '#Wanderlust' },
   { id: 5, type: 'instagram', imageUrl: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762412170/luxetrail3_u7dtlo.jpg', caption: '#LuxeLife' },
+  { id: 4, type: 'tiktok', videoId: '7529782280806468920', caption: '#Wanderlust' },
 ];
 
 const duplicatedPosts = [...socialPosts, ...socialPosts];
 
-const SocialCarouselSection = () => {
+export const SocialCarouselSection = () => {
+  React.useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://www.tiktok.com/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <SectionWrapper>
       <Container maxWidth="lg">
@@ -112,10 +125,25 @@ const SocialCarouselSection = () => {
           >
             {duplicatedPosts.map((post, index) => (
               <SocialCard key={index}>
-                <img
-                  src={post.type === "instagram" ? post.imageUrl : post.videoUrl}
-                  alt={post.caption}
-                />
+                {post.type === 'instagram' ? (
+                  <img
+                    src={post.imageUrl}
+                    alt={post.caption}
+                  />
+                ) : (
+                  <blockquote
+                    className="tiktok-embed"
+                    cite={`https://www.tiktok.com/@luxetrail_consultancy/video/${post.videoId}`}
+                    data-video-id={post.videoId}
+                    style={{ maxWidth: '605px', minWidth: '325px', height: '100%' }}
+                  >
+                    <section>
+                      <a target="_blank" title="@luxetrail_consultancy" href={`https://www.tiktok.com/@luxetrail_consultancy?refer=embed`}>@luxetrail_consultancy</a>
+                      <p></p>
+                      <a target="_blank" title="♬ African Sunrise - Mapa" href={`https://www.tiktok.com/music/African-Sunrise-7227107985679304705?refer=embed`}>♬ African Sunrise - Mapa</a>
+                    </section>
+                  </blockquote>
+                )}
                 <Box className="overlay">
                   <Typography variant="h6" color="white">
                     {post.caption}
@@ -129,7 +157,7 @@ const SocialCarouselSection = () => {
         {/* Social media buttons */}
         <Box sx={{ mt: 7 }}>
           <IconButton
-            href="https://instagram.com/luxetrail"
+            href="https://www.instagram.com/luxetrail_consultancy/"
             target="_blank"
             sx={{
               mx: 1,
@@ -145,6 +173,28 @@ const SocialCarouselSection = () => {
             }}
           >
             <InstagramIcon fontSize="large" color="primary" />
+          </IconButton>
+
+          <IconButton
+            href="https://www.tiktok.com/@luxetrail_consultancy"
+            target="_blank"
+            sx={{
+              mx: 1,
+              p: 2,
+              backdropFilter: "blur(10px)",
+              background: "rgba(255,255,255,0.4)",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+              transition: "0.3s",
+              backgroundColor: 'white',
+              borderRadius: '50%',
+              padding: '20px',
+              '&:hover': {
+                backgroundColor: "rgba(255,255,255,0.7)",
+                transform: "translateY(-3px)",
+              },
+            }}
+          >
+            <img src="/tiktoklogo.png" alt="TikTok" style={{ width: 30, height: 30 }} />
           </IconButton>
 
           <IconButton
@@ -170,5 +220,3 @@ const SocialCarouselSection = () => {
     </SectionWrapper>
   );
 };
-
-export default SocialCarouselSection;

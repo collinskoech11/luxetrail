@@ -23,6 +23,8 @@ const ConsultantCard = styled(motion(Card))(({ theme }) => ({
   },
 }));
 
+import Link from 'next/link';
+
 const HireConsultantSection = () => {
   const consultants = [
     {
@@ -41,7 +43,7 @@ const HireConsultantSection = () => {
       skills: ['Logistics', 'Operations', 'Adventure Travel'],
       certification: 'Expert',
       availability: 'Available',
-      avatar: '/avatars/john-smith.jpg',
+      avatar: 'https://res.cloudinary.com/dqokryv6u/image/upload/v1762510566/WhatsApp_Image_2025-11-06_at_21.31.14_ecixmj.jpg',
       experience: 'Mid-Level',
       location: 'Mombasa',
     },
@@ -98,6 +100,13 @@ const HireConsultantSection = () => {
             </Grid>
           ))}
         </Grid>
+        <Box sx={{ textAlign: 'center', mt: 6 }}>
+          <Link href="/request-access" passHref>
+            <Button variant="contained" size="large">
+              Request Access to Our Consultant Database
+            </Button>
+          </Link>
+        </Box>
       </Container>
     </SectionWrapper>
   );

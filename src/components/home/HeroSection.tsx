@@ -17,6 +17,7 @@ import { DesktopDatePicker, TimePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
 import BookIntroCall from "./BookintroCall";
+import TiltCard from "./HeroSection/TiltCard";
 
 const slides = [
   {
@@ -76,10 +77,11 @@ export default function HeroSection() {
       <Box
         sx={{
           position: "relative",
-          height: { xs: "115vh", md: "110vh" },
+          height: { xs: "100vh", md: "100vh" },
           backgroundImage: `url(${slides[currentSlide].image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundAttachment: "fixed",
           transition: "background-image 1s ease-in-out",
           display: "flex",
           alignItems: "center",
@@ -87,7 +89,7 @@ export default function HeroSection() {
           color: "white",
           textAlign: "center",
           pt: 15,
-          pb: 15,
+          pb: 0,
         }}
       >
         <Box
@@ -108,51 +110,63 @@ export default function HeroSection() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.8 }}
             >
-              <Typography
+              <Box
                 sx={{
-                  fontWeight: 700,
-                  mb: 2,
-                  fontSize: { xs: "2rem", md: "3.5rem" },
+                  minHeight: "220px",
                 }}
               >
-                {slides[currentSlide].title}
-              </Typography>
-
-              <Typography
-                variant="h6"
-                sx={{
-                  mb: 5,
-                  fontWeight: 400,
-                  maxWidth: "700px",
-                  mx: "auto",
-                  color: "rgba(255,255,255,0.85)",
-                  fontSize: { xs: "1rem", md: "1.25rem" },
-                }}
-              >
-                {slides[currentSlide].subtitle}
-              </Typography>
+                <Typography
+                  variant="h2"
+                  sx={{
+                    textAlign: "center",
+                    mb: 2,
+                    fontWeight: 700,
+                    fontSize: { xs: "2.5rem", md: "4rem" },
+                    background: "linear-gradient(90deg, #0d47a1, #ff8f00)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  {slides[currentSlide].title}
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    mb: 5,
+                    fontWeight: 400,
+                    maxWidth: "700px",
+                    mx: "auto",
+                    color: "rgba(255,255,255,0.85)",
+                    fontSize: { xs: "1rem", md: "1.25rem" },
+                  }}
+                >
+                  {slides[currentSlide].subtitle}
+                </Typography>
+              </Box>
             </motion.div>
           </AnimatePresence>
 
           {/* CALL TO ACTION */}
           <Link to="book-slot" smooth={true} duration={500}>
-            <Button
-              variant="contained"
-              color="primary"
-              size="large"
-              sx={{
-                px: { xs: 3, md: 5 },
-                py: { xs: 1, md: 1.5 },
-                fontSize: { xs: "0.9rem", md: "1rem" },
-                fontWeight: 600,
-                borderRadius: "50px",
-                textTransform: "none",
-                backgroundColor: "#1976d2",
-                "&:hover": { backgroundColor: "#115293" },
-              }}
-            >
-              Enroll Now
-            </Button>
+            <TiltCard maxTilt={15}>
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                sx={{
+                  px: { xs: 3, md: 5 },
+                  py: { xs: 1, md: 1.5 },
+                  fontSize: { xs: "0.9rem", md: "1rem" },
+                  fontWeight: 600,
+                  borderRadius: "50px",
+                  textTransform: "none",
+                  backgroundColor: "#1976d2",
+                  "&:hover": { backgroundColor: "#115293" },
+                }}
+              >
+                Enroll Now
+              </Button>
+            </TiltCard>
           </Link>
 
           <BookIntroCall />
