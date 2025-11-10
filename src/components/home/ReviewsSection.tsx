@@ -121,7 +121,7 @@ const ReviewsSection = () => {
         </Typography>
 
         {reviews.length > 3 ? (
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', maxWidth:"85vw" }}>
             <IconButton onClick={handlePrev} sx={{ position: 'absolute', left: -40, zIndex: 1 }}>
               <ArrowBackIosNewIcon />
             </IconButton>
@@ -132,7 +132,7 @@ const ReviewsSection = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ duration: 0.5 }}
-                style={{ width: '100%' }}
+                style={{ width: '100%', maxWidth:"80vw" }}
               >
                 <Grid container spacing={4}>
                   {getVisibleReviews().map((item, index) => (
