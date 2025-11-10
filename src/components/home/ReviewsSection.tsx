@@ -10,6 +10,8 @@ import {
   Avatar,
   Rating,
   IconButton,
+  useTheme,
+  useMediaQuery,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -84,31 +86,35 @@ const ReviewCard = styled(Card)(({ theme }) => ({
 
 const ReviewsSection = () => {
   const [startIndex, setStartIndex] = useState(0);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleNext = useCallback(() => {
     setStartIndex((prevIndex) => (prevIndex + 1) % reviews.length);
-  }, [reviews.length]);
+  }, []);
 
   const handlePrev = useCallback(() => {
     setStartIndex((prevIndex) => (prevIndex - 1 + reviews.length) % reviews.length);
-  }, [reviews.length]);
+  }, []);
 
   useEffect(() => {
-    if (reviews.length > 3) {
+    const reviewsToShow = isMobile ? 1 : 3;
+    if (reviews.length > reviewsToShow) {
       const interval = setInterval(() => {
         handleNext();
       }, 5000); // Autoscroll every 5 seconds
       return () => clearInterval(interval);
     }
-  }, [reviews.length, handleNext]);
+  }, [isMobile, handleNext]);
 
-  const getVisibleReviews = () => {
+  const getVisibleReviews = useCallback(() => {
     const visible: Review[] = [];
-    for (let i = 0; i < 3; i++) {
+    const reviewsToShow = isMobile ? 1 : 3;
+    for (let i = 0; i < reviewsToShow; i++) {
       visible.push(reviews[(startIndex + i) % reviews.length]);
     }
     return visible;
-  };
+  }, [startIndex, isMobile]);
 
   return (
     <StyledSection>
@@ -120,82 +126,70 @@ const ReviewsSection = () => {
           Real stories from professionals and businesses in the travel industry.
         </Typography>
 
-        {reviews.length > 3 ? (
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', maxWidth:"85vw" }}>
-            <IconButton onClick={handlePrev} sx={{ position: 'absolute', left: -40, zIndex: 1 }}>
-              <ArrowBackIosNewIcon />
-            </IconButton>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={startIndex}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.5 }}
-                style={{ width: '100%', maxWidth:"80vw" }}
-              >
-                <Grid container spacing={4}>
-                  {getVisibleReviews().map((item, index) => (
-                    <Grid item xs={12} md={4} key={index}>
-                      <ReviewCard>
-                        <CardContent sx={{ flexGrow: 1 }}>
-                          <Rating value={item.rating} readOnly sx={{ mb: 2 }} />
-                          <Typography variant="body1" sx={{ fontStyle: 'italic', mb: 2 }}>
-                            `{item.review}`
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+          <IconButton
+            onClick={handlePrev}
+            sx={{
+              position: 'absolute',
+              left: isMobile ? -20 : -60,
+              zIndex: 1,
+              backgroundColor: 'rgba(255, 255, 255, 0.5)',
+              '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.8)' },
+            }}
+          >
+            <ArrowBackIosNewIcon />
+          </IconButton>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={startIndex}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.5 }}
+              style={{ width: '100%' }}
+            >
+              <Grid container spacing={4} justifyContent="center">
+                {getVisibleReviews().map((item, index) => (
+                  <Grid item xs={12} sm={8} md={4} key={index}>
+                    <ReviewCard>
+                      <CardContent sx={{ flexGrow: 1 }}>
+                        <Rating value={item.rating} readOnly sx={{ mb: 2 }} />
+                        <Typography variant="body1" sx={{ fontStyle: 'italic', mb: 2 }}>
+                          `{item.review}`
+                        </Typography>
+                      </CardContent>
+                      <Box sx={{ display: 'flex', alignItems: 'center', p: 2, backgroundColor: '#f9f9f9' }}>
+                        <Avatar sx={{ bgcolor: 'primary.main', mr: 2 }}>
+                          {item.name.charAt(0)}
+                        </Avatar>
+                        <Box>
+                          <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+                            {item.name}
                           </Typography>
-                        </CardContent>
-                        <Box sx={{ display: 'flex', alignItems: 'center', p: 2, backgroundColor: '#f9f9f9' }}>
-                          <Avatar sx={{ bgcolor: 'primary.main', mr: 2 }}>
-                            {item.name.charAt(0)}
-                          </Avatar>
-                          <Box>
-                            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                              {item.name}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                              {item.title}
-                            </Typography>
-                          </Box>
+                          <Typography variant="body2" color="text.secondary">
+                            {item.title}
+                          </Typography>
                         </Box>
-                      </ReviewCard>
-                    </Grid>
-                  ))}
-                </Grid>
-              </motion.div>
-            </AnimatePresence>
-            <IconButton onClick={handleNext} sx={{ position: 'absolute', right: -40, zIndex: 1 }}>
-              <ArrowForwardIosIcon />
-            </IconButton>
-          </Box>
-        ) : (
-          <Grid container spacing={4}>
-            {reviews.map((item, index) => (
-              <Grid item xs={12} md={4} key={index}>
-                <ReviewCard>
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Rating value={item.rating} readOnly sx={{ mb: 2 }} />
-                    <Typography variant="body1" sx={{ fontStyle: 'italic', mb: 2 }}>
-                      `{item.review}`
-                    </Typography>
-                  </CardContent>
-                  <Box sx={{ display: 'flex', alignItems: 'center', p: 2, backgroundColor: '#f9f9f9' }}>
-                    <Avatar sx={{ bgcolor: 'primary.main', mr: 2 }}>
-                      {item.name.charAt(0)}
-                    </Avatar>
-                    <Box>
-                      <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                        {item.name}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {item.title}
-                      </Typography>
-                    </Box>
-                  </Box>
-                </ReviewCard>
+                      </Box>
+                    </ReviewCard>
+                  </Grid>
+                ))}
               </Grid>
-            ))}
-          </Grid>
-        )}
+            </motion.div>
+          </AnimatePresence>
+          <IconButton
+            onClick={handleNext}
+            sx={{
+              position: 'absolute',
+              right: isMobile ? -20 : -60,
+              zIndex: 1,
+              backgroundColor: 'rgba(255, 255, 255, 0.5)',
+              '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.8)' },
+            }}
+          >
+            <ArrowForwardIosIcon />
+          </IconButton>
+        </Box>
       </Container>
     </StyledSection>
   );

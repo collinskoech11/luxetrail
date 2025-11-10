@@ -76,6 +76,9 @@ const theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: {
+        '*': {
+          maxWidth: '100dvw',
+        },
         a: {
           textDecoration: 'none',
           color: 'inherit',

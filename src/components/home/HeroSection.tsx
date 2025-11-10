@@ -81,7 +81,7 @@ export default function HeroSection() {
           backgroundImage: `url(${slides[currentSlide].image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: { xs: "scroll", md: "fixed" },
+          // backgroundAttachment: { xs: "scroll", md: "fixed" },
           transition: "background-image 1s ease-in-out",
           display: "flex",
           alignItems: "center",
@@ -90,6 +90,7 @@ export default function HeroSection() {
           textAlign: "center",
           pt: 15,
           pb: 0,
+          overflow:"hidden"
         }}
       >
         <Box
@@ -110,9 +111,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8 }}
             >
               <Box
-                sx={{
-                  minHeight: "220px",
-                }}
+                sx={{ minHeight: { xs: "280px", md: "360px" }, overflow: "hidden" }}
               >
                 <Typography
                   variant="h2"
