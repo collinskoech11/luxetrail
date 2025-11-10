@@ -6,14 +6,11 @@ import {
   Button,
   Container,
   Typography,
-  TextField,
-  Paper,
 } from "@mui/material";
 import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { LocalizationProvider } from "@mui/x-date-pickers";
-import { DesktopDatePicker, TimePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
 import BookIntroCall from "./BookintroCall";
@@ -60,10 +57,6 @@ const slides = [
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // booking states
-  const [selectedDate, setSelectedDate] = useState<Dayjs | null>(dayjs());
-  const [selectedTime, setSelectedTime] = useState<Dayjs | null>(dayjs());
-
   useEffect(() => {
     const interval = setInterval(
       () => setCurrentSlide((prev) => (prev + 1) % slides.length),
@@ -78,21 +71,31 @@ export default function HeroSection() {
         sx={{
           position: "relative",
           height: { xs: "100vh", md: "100vh" },
-          backgroundImage: `url(${slides[currentSlide].image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          // backgroundAttachment: { xs: "scroll", md: "fixed" },
-          transition: "background-image 1s ease-in-out",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           color: "white",
           textAlign: "center",
-          pt: 15,
-          pb: 0,
-          overflow:"hidden"
+          overflow: "hidden",
         }}
       >
+        <AnimatePresence>
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5 }}
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: `url(${slides[currentSlide].image})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+        </AnimatePresence>
+        
         <Box
           sx={{
             position: "absolute",
@@ -123,7 +126,6 @@ export default function HeroSection() {
                     background: "linear-gradient(90deg, #fff, #ff8f00)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
-                    // textShadow: "2px 5px 8px rgba(255,0,255,0.28)"
                   }}
                 >
                   {slides[currentSlide].title}
