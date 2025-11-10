@@ -127,7 +127,7 @@ export const SocialCarouselSection = () => {
             animate={{ x: ["0%", "-50%"] }}
             transition={{
               ease: "linear",
-              duration: 34,
+              duration: 10,
               repeat: Infinity,
             }}
           >
